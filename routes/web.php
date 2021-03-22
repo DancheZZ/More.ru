@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/kraudfunding', function(){
+    return "Это страница с проектами";
+})
