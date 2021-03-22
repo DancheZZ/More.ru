@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/kraudfunding', function(){
-    return "Это страница с проектами";
-})
+//Route::get('/kraudfunding/{mail}', function($mail){
+   // return "Это страница с проектами";
+//});
+
+Route::get('/kraudfunding/{mail}','Controller@show');
+//вызов у контроллера метода show
+//в представление попадет результат контроллера
