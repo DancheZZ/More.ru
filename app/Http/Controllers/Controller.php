@@ -16,7 +16,7 @@ class Controller extends BaseController
     public function show($mail)
     {
         //$result = DB::table('author')->where('mail',$mail)->first(); //из таблицы author достается 1 значение с полем mail равным $mail
-        $result = Author::where('mail',$mail)->first(); //класс Author через такой метод where ссылается АВТОМАТИЧЕСКИ на таблицу с именем authors!
+        $result = Author::where('mail',$mail)->firstOrFail(); //класс Author через такой метод where ссылается АВТОМАТИЧЕСКИ на таблицу с именем authors!
         //result - это объект!!
         return($result->mail);
         //чтобы вернуть вью с какими то параметрами, нужно написать
