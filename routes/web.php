@@ -10,6 +10,11 @@
   /me личный кабинет 
 */
 
+Route::get('/about', function() 
+{
+  return view('about');
+});
+
 Route::get('/', function () {
     return view('welcome');
     //пример возврата view и массива объектов:
@@ -18,6 +23,11 @@ Route::get('/', function () {
     //return view('about',['articles' =>$articles]);
     //либо же передается 1 объект вместо массива и он выводится, как страница проекта
 });
+
+Route::get('/projects', 'Project@index');
+
+Route::get('/projects/{id}', 'Project@show');
+
 
 //Route::get('/kraudfunding/{mail}', function($mail){
    // return "Это страница с проектами";

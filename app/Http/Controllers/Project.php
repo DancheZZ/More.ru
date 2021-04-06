@@ -6,5 +6,9 @@ use Illuminate\Http\Request;
 
 class Project extends Controller
 {
-    //
+    public function index()
+    {
+        $articles = "Hello";
+        return view('projects.index',['projects' => $articles]);
+    }
 }
