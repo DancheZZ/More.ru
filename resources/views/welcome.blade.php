@@ -83,11 +83,10 @@
                 <div class="title m-b-md">
                 <img src = "Logo_page-0001.jpg" width = 70px> Площадка "Море"
                 </div>
+                
 
                 <div class="links">
-                   
-                   
-                   
+                
                 </div>
             </div>
         </div>
