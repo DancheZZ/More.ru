@@ -24,9 +24,15 @@ Route::get('/', function () {
     //либо же передается 1 объект вместо массива и он выводится, как страница проекта
 });
 
-Route::get('/projects', 'Project@index');
+Route::get('/projects', 'ProjectController@index');
 
-Route::get('/projects/{id}', 'Project@show');
+Route::get('projects/create','ProjectController@create');
+
+Route::get('/projects/{id}', 'ProjectController@show');
+
+
+
+
 
 
 //Route::get('/kraudfunding/{mail}', function($mail){
