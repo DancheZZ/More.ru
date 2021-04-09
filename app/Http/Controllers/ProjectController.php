@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -10,6 +11,7 @@ class ProjectController extends Controller
     {
         //показывает список проектов, в дальнейшем нужно будет реализовать постраничный вывод
         $articles = "Hello";
+        $kek = new Project();
         return view('projects.index',['projects' => $articles]);
     }
 
@@ -29,11 +31,6 @@ class ProjectController extends Controller
         //вызывает вьюшку для создания проекта
     }
 
-    public function destroy()
-    {
-        //ясен пень уничтожение
-    }
-
     public function update()
     {
         //сохраняет редактируемую запись
@@ -42,5 +39,10 @@ class ProjectController extends Controller
     public function edit()
     {
         //показывает вьюшку для редактирования существующего
+    }
+
+    public function destroy()
+    {
+        //ясен пень уничтожение
     }
 }
