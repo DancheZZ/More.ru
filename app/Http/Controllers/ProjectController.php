@@ -18,7 +18,9 @@ class ProjectController extends Controller
     public function show($id)
     {
         //показывает вьюшку конкретного проекта
-        return view('projects.show',['project' => $id]);
+        $project = Project::find($id);
+
+        return view('projects.show',['project' => $project]);
     }
 
     public function store()

@@ -24,11 +24,20 @@ Route::get('/', function () {
     //либо же передается 1 объект вместо массива и он выводится, как страница проекта
 });
 
-Route::get('/projects', 'ProjectController@index');
+Route::get('/projects',              'ProjectController@index');//страница со всеми проектами, 
+                                                                //добавится еще постраничный вывод и сортировка каким-то образом
 
-Route::get('projects/create','ProjectController@create');
+Route::get('/projects/create',       'ProjectController@create'); //вызывает view для создания элемента
 
-Route::get('/projects/{id}', 'ProjectController@show');
+Route::post('/projects',             'ProjectController@store'); //сохраняет новый проект
+
+Route::get('/projects/{id}',         'ProjectController@showWithDescription');//показывает проект и описание к нему 
+
+Route::get('/projects/{id}/{specific}');
+//Route::get('/projects/{id}/comments','ProjectController@showWithComments');//показывает проект и комментарии к нему
+
+
+//Route::get('/projects/{id}/sponsors','ProjectController@showWithSponsors');//показывает проект и его спонсоров
 
 
 
