@@ -15,13 +15,13 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //$table->string('text',150);
-            //$table->date('date');
-            //$table->bigInteger('id_user');
-           // $table->bigInteger('id_project');
-            //$table->foreign('id_user')->references('id')->on('users');
-           // $table->foreign('id_project')->references('id')->on('projects');
-            //$table->timestamps();
+            $table->string('text',150);
+            $table->date('date');
+            $table->bigInteger('id_user');
+            $table->bigInteger('id_project');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_project')->references('id')->on('projects');
+            $table->timestamps();
         });
     }
 

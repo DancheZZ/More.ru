@@ -15,13 +15,13 @@ class CreateDonatesTable extends Migration
     {
         Schema::create('donates', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //$table->date('date');
-           // $table->integer('sum');
-           // $table->bigInteger('id_user');
-          //  $table->bigInteger('id_project');
-            //$table->foreign('id_user')->references('id')->on('users');
-            //$table->foreign('id_project')->references('id')->on('projects');
-           // $table->timestamps();
+            $table->date('date');
+            $table->integer('sum');
+            $table->bigInteger('id_user');
+            $table->bigInteger('id_project');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_project')->references('id')->on('projects');
+            $table->timestamps();
         });
     }
 

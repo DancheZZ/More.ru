@@ -18,8 +18,8 @@ class CreateGradesTable extends Migration
             $table->boolean('opinion');
             $table->BigInteger('id_user');
             $table->BigInteger('id_project');
-            //$table->foreign('id_user')->references('id')->on('users');
-            //$table->foreign('id_project')->references('id')->on('projects');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_project')->references('id')->on('projects');
         });
     }
 
