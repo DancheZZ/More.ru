@@ -14,7 +14,7 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('project', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('image',50);
             $table->string('subjects',50);
             $table->bigInteger('money_required');
@@ -26,7 +26,8 @@ class CreateProjectsTable extends Migration
             $table->date('final_date');
             $table->boolean('completed');
             $table->string('comment_moderator',180);
-            $table->boolean('published');            
+            $table->boolean('published');     
+            $table->foreign('id_user')->references('id')->on('users');       
         });
     }
 

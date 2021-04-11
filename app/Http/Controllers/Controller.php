@@ -13,7 +13,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function show($mail)
+    /*public function show($mail)
     {
         //$result = DB::table('author')->where('mail',$mail)->first(); //из таблицы author достается 1 значение с полем mail равным $mail
         $result = Author::where('mail',$mail)->firstOrFail(); //класс Author через такой метод where ссылается АВТОМАТИЧЕСКИ на таблицу с именем authors!
@@ -21,5 +21,5 @@ class Controller extends BaseController
         return($result->mail);
         //чтобы вернуть вью с какими то параметрами, нужно написать
         //return view('name', ['post' = $post]);
-    }
+    }*/
 }

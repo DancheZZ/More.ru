@@ -14,10 +14,10 @@ class CreateGradesTable extends Migration
     public function up()
     {
         Schema::create('grades', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->boolean('opinion');
-            $table->BigInteger('id_user');
-            $table->BigInteger('id_project');
+            $table->integer('id_user');
+            $table->integer('id_project');
             //$table->foreign('id_user')->references('id')->on('users');
             //$table->foreign('id_project')->references('id')->on('projects');
         });

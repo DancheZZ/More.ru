@@ -14,11 +14,11 @@ class CreateDonatesTable extends Migration
     public function up()
     {
         Schema::create('donates', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->date('date');
             $table->integer('sum');
-            $table->bigInteger('id_user');
-            $table->bigInteger('id_project');
+            $table->integer('id_user');
+            $table->integer('id_project');
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_project')->references('id')->on('projects');
             $table->timestamps();

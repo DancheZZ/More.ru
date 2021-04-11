@@ -15,12 +15,12 @@ class ProjectController extends Controller
         return view('projects.index',['projects' => $articles]);
     }
 
-    public function show($id)
+    public function show($id,$type)
     {
         //показывает вьюшку конкретного проекта
         $project = Project::find($id);
-
-        return view('projects.show',['project' => $project]);
+        //будет выведен проект либо с описанием в нижнем подразделе, либо спонсоры, либо комментарии
+        return view('projects.show',['project' => $project,'type'=>$type]);
     }
 
     public function store()
