@@ -15,25 +15,23 @@ Route::get('/about', function()
   return view('about');
 });
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-    //пример возврата view и массива объектов:
-    //$atricles = App\Article::latest()->get();
-    //или $atricles = App\Article::take(count)->latest()->get();
-    //return view('about',['articles' =>$articles]);
-    //либо же передается 1 объект вместо массива и он выводится, как страница проекта
-});
+});*/
 
-Route::get('/projects',                'ProjectController@index');//страница со всеми проектами, 
-                                                                  //добавится еще постраничный вывод и сортировка каким-то образом
 
-Route::get('/projects/create',         'ProjectController@create'); //вызывает view для создания элемента
+Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //отображает нужную страницу на одной из вкладок главной страницы
 
-Route::post('/projects',               'ProjectController@store'); //сохраняет новый проект
 
-Route::get('/projects/{id}',           'ProjectController@show');//показывает проект и описание к нему 
+Route::get('/projects/{type}/{sorting}/{page}','ProjectController@listShow');// отображает страницу со всеми проектами
 
-Route::get('/projects/{id}/{specific}','ProjectController@show');//в зависимости от значения specific проект отобразится вместе с комментариями или спонсорами
+Route::get('/projects/create',                 'ProjectController@create'); //вызывает view для создания элемента
+
+Route::post('/projects',                       'ProjectController@store'); //сохраняет новый проект
+
+Route::get('/projects/{id}',                   'ProjectController@showDescr');//показывает проект и описание к нему 
+
+Route::get('/projects/{id}/{specific}',        'ProjectController@showSpecific');//в зависимости от значения specific проект отобразится вместе с комментариями или спонсорами
 
 
 
@@ -61,3 +59,8 @@ Route::get('/projects/{id}/{specific}','ProjectController@show');//в завис
 // get /projects/2/edit - будет вызвана форма для редактирования
 // с create так же самое
 
+//пример возврата view и массива объектов:
+    //$atricles = App\Article::latest()->get();
+    //или $atricles = App\Article::take(count)->latest()->get();
+    //return view('about',['articles' =>$articles]);
+    //либо же передается 1 объект вместо массива и он выводится, как страница проекта
