@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: rgb(17, 36, 99);
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -81,10 +81,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                <img src = "Logo_page-0001.jpg" width = 70px> Площадка "Море"
+                <img src = "/Логотип.png" width = 70px> Площадка "Море"
                 </div>
-                
-
+                @foreach ($projects as $project)
+                {{ $project->id }}
+                @endforeach
                 <div class="links">
                 
                 </div>
