@@ -134,11 +134,15 @@ class ProjectController extends Controller
     public function store()
     {
         //сохраняет новый ресурс
+        $project = new Project();
+        
+        return redirect ('/projects/working/new/1');
     }
 
     public function create()
     {
         //вызывает вьюшку для создания проекта
+        return view('projects.create');
     }
 
     public function update()

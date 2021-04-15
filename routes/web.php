@@ -22,6 +22,10 @@ Route::get('/about', function()
 
 Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //отображает нужную страницу на одной из вкладок главной страницы
 
+Route::get('/projects', function()
+{
+  return redirect('/projects/working/new/1');
+});
 
 Route::get('/projects/{type}/{sorting}/{page}','ProjectController@listShow');// отображает страницу со всеми проектами
 
@@ -33,7 +37,7 @@ Route::get('/projects/{id}',                   'ProjectController@showDescr');//
 
 Route::get('/projects/{id}/{specific}',        'ProjectController@showSpecific');//в зависимости от значения specific проект отобразится вместе с комментариями или спонсорами
 
-
+Route::get('/create', 'ProjectController@create');
 
 
 
