@@ -135,6 +135,31 @@ class ProjectController extends Controller
     {
         //сохраняет новый ресурс
         $project = new Project();
+        $project->subjects = request('subjects');
+        $project->money_required = request('money_required');
+        $project->collected_money = 0;
+        $project->description = request('description');
+        $project->count_likes = 0;
+        $project->count_dislikes =0;
+        $project->start_date = date("Y-m-d");
+        $project->final_date = strftime("%Y/%m/%d", strtotime($project->start_date." +".request('final_date') ." day"));
+        $project->completed = 0;
+        $project->comment_moderator = null;
+        $project->published = 0;
+        $image = request('image'); //получаем объект файла
+        $image->move(storage_path('Images'), request('image')->getClientOriginalName()); //помещаем его в папку с картинками
+        $project->image = request('image')->getClientOriginalName();// хранить ли файл с оригинальным названием?
+        $project->save(); //сохраняем объект
+        //теперь нужно сделать создание файлов ( в отдельной таблице ряд записей)
+        foreach (request('documents') as $doc) //перебираем массив файлов
+        {
+            $document = new \App\Document(); //создаем объект модели
+            $document->id_project = $project->id;//создаем связь
+            $document->name = $doc->getClientOriginalName(); //сохраняем название файла
+            $doc->move(storage_path('Documents'), $doc->getClientOriginalName()); //сохраняем файл у себя на сервере
+            $document->save(); //сохраняем строку таблицы
+        }
+        //dump(request()->all());
         
         return redirect ('/projects/working/new/1');
     }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<form method = "POST" action = "/projects">
+<form method = "POST" action = "/projects" enctype="multipart/form-data">
 @csrf
 <p> Название проекта </p>
 <input type = "text" name = "name" id = "name"> <br>
@@ -11,12 +11,12 @@
 <textarea id = "description" name = "description" maxlength=180 ></textarea><br>
 <p> Тематика </p>
 <input type = "text" name = "subjects" id = "subjects"> <br>
-<p> Необходимая сумма <p>
+<p> Необходимая сумма (рубли)<p>
 <input type = "number" name = "money_required" id =  "money_required">
-<p> Длительность проекта </p> <br>
+<p> Длительность проекта (дней) </p> <br>
 <input type = "number" name = "final_date" id = "final_date"> <br>
-<p>Сопровождающая документация</p> <br>
-<input type = "file" required multiple>
+<p> Сопровождающая документация</p> <br>
+<input type = "file" name = "documents[]" required multiple>
 <p><input type="submit" value="Отправить заявку "></p>
 </form>
 
