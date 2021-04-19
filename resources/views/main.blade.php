@@ -1,95 +1,47 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: rgb(17, 36, 99);
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Море</title>
+                <!-- Bootstrap -->
+    <link rel="stylesheet"  href="/css/main.css">
+</head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                <img src = "/Логотип.png" width = 70px> Площадка "Море"
-                </div>
-                @foreach ($projects as $project)
-                {{ $project->id }}
-                @endforeach
-                <div class="links">
-                
-                </div>
+    <!-- start header -->
+    <header class="header-opened"> 
+        <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+            <a href="#" class="logo"  title="logo">  
+                <img src="/logo.png" style="width: 100%">
+            </a>
+            <div class="header-menu">
+                <ul>
+                    <li>
+                        <a href="#">Главная</a>
+                    </li>
+                    <li>
+                        <a href="#">Как это работает</a>
+                    </li>
+                    <li>
+                        <a href="#">Все проекты</a>
+                    </li>
+                    <li>
+                        <a href="#">Создать проект</a>
+                    </li>
+                    <li>
+                        <a href="#">Вход</a>
+                    </li>
+                    <li>
+                        <img src="assets/img/flag_ru.png" style="width: 5%"><h2>Русский</h2>
+                    </li>
+                </ul>
+            </div>
             </div>
         </div>
-    </body>
+        </div>
+    </header>
+</body>
 </html>

@@ -130,11 +130,49 @@ class ProjectController extends Controller
         return view('projects.list', ['projects'=>$projects]);
     }
     
+    public function showDescr($id)
+    {
+        $project = Project::find($id);
+        return view('project.show',['project' => $project]);
+    }
+
+    //метод для показа одного проекта
+    //принимает на вход id проекта и specific 
+    //возможные значения specific: description, comments,sponsors
+    public function showSpecific($id,$specific = 'description' )
+    {
+        $project = Project::find($id);
+        $descripton = null;
+        $comments = null;
+        $sponsors = null;
+        //в зависимости от значения $specific одна из переменных созданных выше станет не нулевой, 
+        //что обработается в представлении при помощи управляющих конструкций
+        switch($specific)
+        {
+            case 'description':
+                $descripton = $project->description;
+                break;
+            case 'comments':
+                $comments = \App\comment::where('id_project','=',$id)->get();
+                break;
+            case 'sponsors':
+                
+                //поиск айди пользователей, которые поддержали проект
+                $users_id = \App\donate::select('id_user')->where('id_project','=',$id)->get();
+                //dump($users_id);
+                //поиск пользователей спонсоров
+                $sponsors = \App\User::whereIn('id',$users_id)->get();
+               // dump($sponsors);
+                break;
+        }
+        return view('projects.show',['project'=>$project,'description'=>$descripton,'comments'=>$comments,'sponsors'=>$sponsors]);
+
+    }
     
     public function store()
     {
-        //сохраняет новый ресурс
-        $project = new Project();
+        //сей методсохраняет новый ресурс
+        $project = new Project();//создание объетка модели
         $project->subjects = request('subjects');
         $project->money_required = request('money_required');
         $project->collected_money = 0;

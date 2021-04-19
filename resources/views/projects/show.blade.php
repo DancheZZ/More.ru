@@ -1,2 +1,2 @@
 {{ $project->id }}
-{{$type }}
+{{ $sponsors[0]->id }}
