@@ -1,2 +1,2 @@
 {{ $project->id }}
-{{ $sponsors[0]->id }}
+{{ $comments[0]->id }}

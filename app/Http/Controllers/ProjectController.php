@@ -142,6 +142,10 @@ class ProjectController extends Controller
     public function showSpecific($id,$specific = 'description' )
     {
         $project = Project::find($id);
+        if(!$project)
+        {
+            die('404');
+        }
         $descripton = null;
         $comments = null;
         $sponsors = null;
@@ -156,7 +160,6 @@ class ProjectController extends Controller
                 $comments = \App\comment::where('id_project','=',$id)->get();
                 break;
             case 'sponsors':
-                
                 //поиск айди пользователей, которые поддержали проект
                 $users_id = \App\donate::select('id_user')->where('id_project','=',$id)->get();
                 //dump($users_id);
@@ -172,6 +175,17 @@ class ProjectController extends Controller
     public function store()
     {
         //сей методсохраняет новый ресурс
+        //валидация 
+        request()->validate
+        (
+            [
+                'subjects'=>['required','max:20'],
+                'money_required'=>['required','numeric'],
+                'description' =>['required','max:180'],
+                'final_date' =>['required','numeric']
+            ]
+        );
+
         $project = new Project();//создание объетка модели
         $project->subjects = request('subjects');
         $project->money_required = request('money_required');
