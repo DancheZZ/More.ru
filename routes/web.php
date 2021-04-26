@@ -19,6 +19,10 @@ Route::get('/about', function()
     return view('welcome');
 });*/
 
+Route::get('/question', function()
+{
+  return view('question');
+});
 
 Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //отображает нужную страницу на одной из вкладок главной страницы
 
@@ -34,6 +38,7 @@ Route::get('/projects/create',                 'ProjectController@create'); //в
 Route::post('/projects',                       'ProjectController@store'); //сохраняет новый проект
 
 Route::get('/projects/{id}',                   'ProjectController@showSpecific');//показывает проект и описание к нему 
+
 
 Route::get('/projects/{id}/{specific}',        'ProjectController@showSpecific');//в зависимости от значения specific проект отобразится вместе с комментариями или спонсорами
 

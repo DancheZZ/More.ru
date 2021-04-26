@@ -1,0 +1,125 @@
+/* Container needed to position the button. Adjust the width as needed */
+.container-icon {
+  position: relative;
+  width: auto;
+}
+
+/* Make the image responsive */
+.container-icon img {
+  width: 100%;
+  height: auto;
+}
+/* Стиль кнопки и поместите его в середине контейнера/изображения */
+.container-icon .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container-icon .btn:hover {
+  background-color: black;
+}
+
+.color-nav {
+  background-color: #1C2939;
+}
+
+.color-text{
+  font-color:#66FCF1;
+}
+
+.nav-text-size{
+  font-size: 16px;
+  font-color: #FFFFFF ; 
+}
+
+.collapse ul li a{
+  font-family: Montserrat;
+  color:#66FCF1;
+}
+
+.collapse ul li a#text-a{
+  font-family: Montserrat;
+  font-weight:bold;
+  text-decoration: underline;
+  text-decoration-color:#66FCF1;
+}
+
+.collapse ul li a#text-prj{
+        font-family: Montserrat;
+        font-size: 14px;
+        color:#66FCF1;
+}
+
+body {
+    background: #FCF5EF;
+}
+
+.footer {
+        margin: -100px 0 0 0;
+        height: 100px;
+        background: #808080;
+        position: relative;
+}
+
+.container h5{
+        font-family: Montserrat;
+        font-size: 16px;
+        color:#66FCF1;
+}
+
+.container ul li a{
+        font-family: Montserrat;
+        font-size: 14px;
+        color:#FFFFFF;
+}
+
+.page-footer div{
+        color:#FFFFFF;
+}
+
+.content {
+  min-height: calc(85vh - 70px);
+}
+
+.articl{
+  font-size: 36pt;
+  margin-top: 67px;
+  font-weight: bold;
+}
+
+h1 {
+  border: 1px double black;
+  width: 98%;
+}
+
+.message-text-area{
+  margin-top: 0px;
+  border-radius: 25px;
+  width:98%;
+}
+
+.e-mail{
+  margin-top: 0px;
+  border-radius: 25px;
+  width:40%;
+  border: 1px double;
+}
+
+.button-prj{
+  border-radius: 60px;
+  width: 270px;
+  height: 72px;
+  background-color: #66FCF1;
+  font-size: 24px;
+  border: 1px double; 
+}
