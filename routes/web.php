@@ -24,6 +24,11 @@ Route::get('/question', function()
   return view('question');
 });
 
+Route::get('/main', function()
+{
+  return redirect('/main/all/1');
+});
+
 Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //отображает нужную страницу на одной из вкладок главной страницы
 
 Route::get('/projects', function()
@@ -43,6 +48,11 @@ Route::get('/projects/{id}',                   'ProjectController@showSpecific')
 Route::get('/projects/{id}/{specific}',        'ProjectController@showSpecific');//в зависимости от значения specific проект отобразится вместе с комментариями или спонсорами
 
 Route::get('/create', 'ProjectController@create');
+
+
+//аутентификация
+Auth::routes();
+
 
 
 
@@ -73,3 +83,6 @@ Route::get('/create', 'ProjectController@create');
     //или $atricles = App\Article::take(count)->latest()->get();
     //return view('about',['articles' =>$articles]);
     //либо же передается 1 объект вместо массива и он выводится, как страница проекта
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

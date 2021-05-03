@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends ('layout')
 
+@section ('content')
 <form method = "POST" action = "/projects" enctype="multipart/form-data">
 @csrf
 <p> Название проекта </p>
@@ -20,4 +20,4 @@
 <p><input type="submit" value="Отправить заявку "></p>
 </form>
 
-</html>
+@endsection
