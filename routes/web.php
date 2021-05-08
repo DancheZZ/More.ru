@@ -8,6 +8,7 @@
   /registration форма для регистрации 
   /enter форма для входа 
   /me личный кабинет 
+  /question страница с возможностью задать вопрос
 */
 
 Route::get('/about', function() 
@@ -19,10 +20,9 @@ Route::get('/about', function()
     return view('welcome');
 });*/
 
-Route::get('/question', function()
-{
-  return view('question');
-});
+Route::get('/question', 'QuestionController@show');
+
+Route::post('/question','QuestionController@store');
 
 Route::get('/main', function()
 {
@@ -50,20 +50,28 @@ Route::get('/projects/{id}/{specific}',        'ProjectController@showSpecific')
 Route::get('/create', 'ProjectController@create');
 
 
+Route::get('/polz', function()
+{
+  //Polzovatelskoe_soglashenie
+  return response()->file("documents/Polzovatelskoe_soglashenie.pdf");
+});
+
+
+Route::get('/regulations',function()
+{
+  return response()->file("documents/Pravila_servisa.pdf.pdf");
+});
+
+Route::get('/politic',function()
+{
+  return response()->file("documents/Politika_konfidentsialnosti.pdf");
+});
 //аутентификация
 Auth::routes();
 
 
 
 
-
-//Route::get('/kraudfunding/{mail}', function($mail){
-   // return "Это страница с проектами";
-//});
-
-//Route::get('/kraudfunding/{mail}','Controller@show');
-//вызов у контроллера метода show
-//в представление попадет результат контроллера
 
 
 //чтобы получить определенное кол-во записей из БД: NameTable::table(count)->get()
@@ -83,6 +91,6 @@ Auth::routes();
     //или $atricles = App\Article::take(count)->latest()->get();
     //return view('about',['articles' =>$articles]);
     //либо же передается 1 объект вместо массива и он выводится, как страница проекта
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');

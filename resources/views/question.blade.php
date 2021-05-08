@@ -14,12 +14,14 @@
 		<h1></h1>
     <br>
 
-  <form action="domato@mail.ru" method="post">
+  <form action="/question" method="POST">
+  @csrf
     <p>Напишите свой вопрос или предложение:</p>
-    <textarea rows="10" cols="45" name="text" class="message-text-area"></textarea></p>
+    <textarea rows="10" cols="45" name="text" class="message-text-area" ></textarea></p>
     <br>
     <p>Укажите свой e-mail::</p>
-    <input type="text" class="e-mail"></input></p>
+    <input type="text" class="e-mail" name = "email"></p>
+    
     <br>
     <center><button type="submit" value="Отправить" class="button-prj">Задать вопрос</button></center>
 	  </form>

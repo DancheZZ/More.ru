@@ -1,4 +1,11 @@
 /* Container needed to position the button. Adjust the width as needed */
+@media screen and (max-width: 1300px) {
+  #collapseExample {
+    display: none;
+  }
+}
+
+
 .container-icon {
   position: relative;
   width: auto;
@@ -6,23 +13,46 @@
 
 /* Make the image responsive */
 .container-icon img {
-  width: 100%;
+  width: 1865px;
   height: auto;
 }
+
+.style__supportBtn__nSyMF {
+    margin-top: 40px;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    font-family: Museo;
+    padding: 10px 40px;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-size: 25px;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background: #e7ff64;
+    border-radius: 10px;
+}
+
+
 /* Стиль кнопки и поместите его в середине контейнера/изображения */
 .container-icon .btn {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 80%;
+  left: 30%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
-  font-size: 16px;
+  -ms-transform: translate(-50%, -50%); 
+  height: 80px;
+  width: 280px;
+  font-size: 22px;
+  font-family: Montserrat;
+  background-color: #66FCF1;
+  font-color: black;
   padding: 12px 24px;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 200px;
 }
 
 .container-icon .btn:hover {
@@ -39,7 +69,7 @@
 
 .nav-text-size{
   font-size: 16px;
-  font-color: #FFFFFF ; 
+  font-color: #FFFFFF; 
 }
 
 .collapse ul li a{
@@ -69,6 +99,12 @@ body {
         height: 100px;
         background: #808080;
         position: relative;
+}
+
+.container h4{
+        font-family: Montserrat;
+        font-size: 16px;
+        color:#FFFFFF;
 }
 
 .container h5{
@@ -122,4 +158,69 @@ h1 {
   background-color: #66FCF1;
   font-size: 24px;
   border: 1px double; 
+}
+
+.main-cont{
+  background-color: #1C2939;
+  height: 90px;
+}
+
+.cont-main{
+  height: 550px auto; 
+  width: auto; 
+  background-color: white;  
+  border-radius: 15px;
+}
+
+.cont-text{
+  font-weight:bold;
+  font-size: 18px;
+  font-family: Montserrat;
+}
+
+.cont-text1{
+  font-size: 14px;
+  font-family: Montserrat;
+}
+
+ul.hr {
+    margin: 20px; 
+    padding: 4px; 
+}
+
+ul.hr li {
+    display: inline; 
+    margin-right: 5px; 
+}
+
+.button-sl{
+  height: 30px;
+  width: 200px;
+  border-radius: 15px;
+  background-color: #FFFFFF;
+  margin-left: 5px;
+  border: 0px solid;
+}
+
+ul.hr1 {
+    margin: 20px; 
+    padding: 4px; 
+}
+
+ul.hr1 li {
+    display: inline; 
+    margin-right: 5px; 
+}
+
+.bt{
+  background-color: #FFFFFF;
+  border-radius: 100px; 
+  height: 12px;
+  width: 12px; 
+  border: 1px solid black; 
+  display:inline-block;
+}
+
+.container#ban{
+  max-width: 1500px;
 }

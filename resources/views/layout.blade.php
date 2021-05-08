@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href="/css/main2.css">
-    
+    <script src="/js/foto.js"></script>
 </head>
 
 <!--
@@ -94,10 +94,10 @@
 
         <ul style="margin-left: -20px">
           <li>
-            <a href="#!">Пользовательское соглашение</a>
+            <a href="/polz" target="'_blank'">Пользовательское соглашение</a>
           </li>
           <li>
-            <a href="#!">Политика конфиденциальности</a>
+            <a href="/politic target='_blank'">Политика конфиденциальности</a>
           </li>
         </ul>
 
@@ -113,10 +113,10 @@
             <a href="#!">Частые вопросы</a>
           </li>
           <li>
-            <a href="#!">Правила сервиса</a>
+            <a href="/regulations" target="'_blank'">Правила сервиса</a>
           </li>
           <li>
-            <a href="/question">Задать вопрос</a>
+            <a href="/question" >Задать вопрос</a>
           </li>
         </ul>
 
