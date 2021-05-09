@@ -26,7 +26,8 @@ Route::post('/question','QuestionController@store');
 
 Route::get('/main', function()
 {
-  return redirect('/main/all/1');
+  //return redirect('/main/all/1');
+  return view('main');
 });
 
 Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //отображает нужную страницу на одной из вкладок главной страницы
@@ -59,7 +60,7 @@ Route::get('/polz', function()
 
 Route::get('/regulations',function()
 {
-  return response()->file("documents/Pravila_servisa.pdf.pdf");
+  return response()->file("documents/Pravila_servisa.pdf");
 });
 
 Route::get('/politic',function()

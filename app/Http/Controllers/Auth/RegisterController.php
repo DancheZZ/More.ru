@@ -74,7 +74,6 @@ class RegisterController extends Controller
     {
         $image = request('avatar'); //получаем объект файла
         $image->move(storage_path('Images'), request('avatar')->getClientOriginalName()); //помещаем его в папку с картинками
-        $path = request('avatar')->getClientOriginalName();
          // хранить ли файл с оригинальным названием?
         return User::create([
             'name' => $data['name'],

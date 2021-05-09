@@ -52,7 +52,9 @@ class ProjectController extends Controller
                 ])->orderBy('final_date','desc')->skip(3*$page-3)->limit(3)->get();
                 break;
         }
-        return view('main')->with(array('projects'=>$projects));
+        //return view('main')->with(array('projects'=>$projects));
+        
+        return ['projects'=> $projects];
     }
     
     //{type}/{sorting}/{page}
@@ -126,7 +128,7 @@ class ProjectController extends Controller
         }
 
         
-    
+        
         return view('projects.list', ['projects'=>$projects]);
     }
     
@@ -174,7 +176,7 @@ class ProjectController extends Controller
     
     public function store()
     {
-        //сей методсохраняет новый ресурс
+        //сей метод сохраняет новый ресурс
         //валидация 
         request()->validate
         (
@@ -182,7 +184,8 @@ class ProjectController extends Controller
                 'subjects'=>['required','max:20'],
                 'money_required'=>['required','numeric'],
                 'description' =>['required','max:180'],
-                'final_date' =>['required','numeric']
+                'final_date' =>['required','numeric'],
+                'name' =>['required','max:30']
             ]
         );
 
@@ -198,8 +201,9 @@ class ProjectController extends Controller
         $project->completed = 0;
         $project->comment_moderator = null;
         $project->published = 0;
+        $project->name = request('name');
         $image = request('image'); //получаем объект файла
-        $image->move(storage_path('Images'), request('image')->getClientOriginalName()); //помещаем его в папку с картинками
+        $image->move("D:\OpenServer\OpenServer\domains\More.ru\public\img", request('image')->getClientOriginalName()); //помещаем его в папку с картинками
         $project->image = request('image')->getClientOriginalName();// хранить ли файл с оригинальным названием?
         $project->save(); //сохраняем объект
         //теперь нужно сделать создание файлов ( в отдельной таблице ряд записей)

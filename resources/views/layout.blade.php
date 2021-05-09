@@ -97,7 +97,7 @@
             <a href="/polz" target="'_blank'">Пользовательское соглашение</a>
           </li>
           <li>
-            <a href="/politic target='_blank'">Политика конфиденциальности</a>
+            <a href="/politic" target='_blank'">Политика конфиденциальности</a>
           </li>
         </ul>
 
