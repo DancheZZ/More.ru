@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Эта ссылка загружает с CDN все необходимые файлы Bootstrap -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href="/css/main2.css">
     <script src="/js/foto.js"></script>
 </head>
 
-<!--
+<!--  
 за подчеркивание отвечает .collapse ul li a#text-a
 -->
 
@@ -30,7 +30,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        <a class="nav-link nav-text-size text-white" {{ Request::is('main/*') ? " id = text-a " :  " "}}  href="/main">Главная</a>
+        <a class="nav-link nav-text-size text-white" {{ Request::is('main') ? " id = text-a " :  " "}}  href="/main">Главная</a>
       </li>
       <li class="nav-item">
         <a class="nav-link nav-text-size text-white" {{ Request::is('projects/*')  ? " id = 'text-a' " : " " }} href="/projects">Все проекты</a>
@@ -48,7 +48,62 @@
 		</div>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link text-white" href="/login">Вход</a>
+	    <a class="nav-link text-white popup-open" href = "#" >Вход</a> 
+
+      <div class="popup-fade" style="display: none;">
+
+        <div class="popup" style="display: none;" id = "entry">
+
+                <div style="margin-top: 10px">
+                <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
+                <p style = "margin-left: 70%; font-size: 18px; margin-top: -40px" onclick="entry()" class="text-white">Регистрация</p>
+                </div>
+
+                <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
+
+                <div style="height: 240px; color: #FFFFFF; margin-top: 30px" >
+                <form method = "POST" action = "{{ route('login') }}" >
+                @csrf
+                  <center><input type="email" id = "email" name = "email" placeholder = "Логин" class="btn-reg" ><br><br></center>
+                  <center><input id = "password" type = "password" name = "password" placeholder = "Пароль" class="btn-reg"><br><br>
+                  </center>
+                  <center><button type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> Войти</button></center>
+                  </form>
+                </div>
+                <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; "></div>
+                <center><div style="color: #fff; width:460px;  margin-top: 10px;"><p>Нажав кнопку регистрации, вы принимаете условия пользовательского соглашения и условия политики конфиденциальности и даете согласие на обработку персональных данных</p></div></center>
+        </div> 
+
+        <div class="popup1" id = "registr">
+
+                <div style="margin-top: 10px">
+                <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
+                <p href="" style = "margin-left: 70%; font-size: 18px; margin-top: -40px" class="text-white" onclick="entry()">Регистрация</p>
+                </div>
+
+                <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
+
+                <div style="height: 670px; color: #FFFFFF; margin-top: 30px" >
+                 <form method = "POST" enctype="multipart/form-data" action = "{{ route('register') }}" >
+                 @csrf
+                      <center><input type = "text" id = "name" name = "name" placeholder = "Имя" class="btn-reg"><br><br></center>
+                      <center><input type="text" id = "surname" name = "surname" placeholder = "Фамилия" class="btn-reg"><br><br></center>
+                      <center><input type = "file" id = "avatar" name = "avatar" placeholder = "Фото профиля" class="btn-reg"><br><br></center>
+                      <center><input type="tel" id = 'phone' name = 'phone' placeholder = "Телефон" class="btn-reg"> <br><br></center>
+                      <center><input type="email" id = "email" name = "email" placeholder = "Почта" class="btn-reg"><br><br></center>
+                      <center><input type="date" id="date" name="date" placeholder = "Дата рождения" class="btn-reg"><br><br>
+                      <center><input id = "password" type = "password" name = "password" placeholder = "Пароль" class="btn-reg"><br><br></center>
+                      <center><input id="password-confirm" type="password" name="password_confirmation" placeholder = "Подтверждение пароля" class="btn-reg"><br><br></center>
+                      <button type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> Регистрация</button>
+                  </form>
+                </div>
+                <div style="border: 1px solid #FFF; width:528px; margin-left: -20px;"></div>
+                <center><div style="color: #fff; width:460px;  margin-top: 10px;"><p>Нажав кнопку регистрации, вы принимаете условия пользовательского соглашения и условия политики конфиденциальности и даете согласие на обработку персональных данных</p></div></center>
+              </div> 
+
+      </div>
+
+
 	  </li>
     </ul>
 
@@ -56,8 +111,17 @@
 </div>
 </nav>
 <!--конец шапки -->
+
 <body>
+
+
+<div style = "min-height: calc(100vh - 80px);">
+
 @yield ('content')
+
+</div>
+
+
 <br>
 <!-- Footer -->
 <footer class="page-footer font-small color-nav pt-4">
@@ -134,7 +198,7 @@
 
     <!-- Перед закрывающим тегом <body> подключаем jQuery, Popper и Bootstrap JS, чтобы работали интерактивные компоненты  -->     
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 

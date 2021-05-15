@@ -27,7 +27,10 @@ Route::post('/question','QuestionController@store');
 Route::get('/main', function()
 {
   //return redirect('/main/all/1');
-  return view('main');
+  $people = \App\User::count();
+  $projects = \App\Project::count();
+  $comments = \App\Comment::count();
+  return view('main',['people' => $people, 'projects' => $projects, 'comments'=>$comments]);
 });
 
 Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //отображает нужную страницу на одной из вкладок главной страницы
@@ -69,11 +72,6 @@ Route::get('/politic',function()
 });
 //аутентификация
 Auth::routes();
-
-
-
-
-
 
 //чтобы получить определенное кол-во записей из БД: NameTable::table(count)->get()
 // paginate(count) - возвращает значительно больше информации
