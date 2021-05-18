@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/main'; //изменить
+    protected $redirectTo = '/create'; //изменить
 
     /**
      * Create a new controller instance.
@@ -51,10 +51,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:2', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:2'],
             'surname' =>['required','string','max:255'],
-            'phone' => ['required','string','max:10']
+            'phone' => ['required','string','max:25']
         ]);
     }
     /*Фамилию
@@ -73,7 +73,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $image = request('avatar'); //получаем объект файла
-        $image->move(storage_path('Images'), request('avatar')->getClientOriginalName()); //помещаем его в папку с картинками
+         if ( $image ) $image->move(public_path('Images'), request('avatar')->getClientOriginalName() ); //помещаем его в папку с картинками
          // хранить ли файл с оригинальным названием?
         return User::create([
             'name' => $data['name'],
@@ -84,7 +84,7 @@ class RegisterController extends Controller
             'is_admin' => 0,
             'date_registration' => Carbon::today(),
             'age' => floor((strtotime(Carbon::today()) - strtotime($data['date']) )/ (60*60*24*365)),
-            'avatar' => request('avatar')->getClientOriginalName()
+            'avatar' => request('avatar')->getClientOriginalName() 
             ]);
     }
 }

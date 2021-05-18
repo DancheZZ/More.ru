@@ -1,0 +1,289 @@
+/* Container needed to position the button. Adjust the width as needed */
+.container-icon {
+  position: relative;
+  width: auto;
+}
+
+/* Make the image responsive */
+.container-icon img {
+  width: 100%;
+  height: auto;
+}
+/* Стиль кнопки и поместите его в середине контейнера/изображения */
+.container-icon .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container-icon .btn:hover {
+  background-color: black;
+}
+
+.color-nav {
+  background-color: #1C2939;
+}
+
+.color-text{
+  font-color:#66FCF1;
+}
+
+.nav-text-size{
+  font-size: 16px;
+  font-color: #FFFFFF ; 
+}
+
+.collapse ul li a{
+  font-family: Montserrat;
+  color:#66FCF1;
+}
+
+.collapse ul li a#text-a{
+  font-family: Montserrat;
+  font-weight:bold;
+  text-decoration: underline;
+  text-decoration-color:#66FCF1;
+}
+
+.collapse ul li a#text-prj{
+        font-family: Montserrat;
+        font-size: 14px;
+        color:#66FCF1;
+}
+
+body {
+    background: #FCF5EF;
+}
+
+.footer {
+        margin: -100px 0 0 0;
+        height: 100px;
+        background: #808080;
+        position: relative;
+}
+
+.container h5{
+        font-family: Montserrat;
+        font-size: 16px;
+        color:#66FCF1;
+}
+
+.container ul li a{
+        font-family: Montserrat;
+        font-size: 14px;
+        color:#FFFFFF;
+}
+
+.page-footer div{
+        color:#FFFFFF;
+}
+
+.content {
+  min-height: calc(85vh - 70px);
+}
+
+.articl{
+  font-size: 36pt;
+  margin-top: 67px;
+  font-weight: bold;
+}
+
+h1 {
+  border: 1px double black;
+  width: 98%;
+}
+
+.message-text-area{
+  margin-top: 0px;
+  border-radius: 25px;
+  width:98%;
+}
+
+.e-mail{
+  margin-top: 0px;
+  border-radius: 25px;
+  width:40%;
+  border: 1px double;
+}
+
+.button-prj{
+border-radius: 60px;
+width: 270px;
+height: 72px;
+background-color: #66FCF1;
+font-size: 24px;
+border: 1px double; 
+}
+.second_key {
+padding: 99px 0 39px;
+}
+.second_key h3{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+}
+.second_key p{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+}
+.second_key_2{
+padding-bottom: 99px;
+}
+.second_key_2 h3{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+}
+.second_key_2 p{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+}
+.second_key_3 img{
+padding-right: 16px;
+}
+.second_key_3 h3{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+margin-bottom: 45px;
+}
+.second_key_3 p{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+}
+.second_key_4 h3{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: 22px;
+letter-spacing: 0em;
+margin-top: 94px;
+}
+.second_key_4 span{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+}
+.second_key_4 p{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+}
+.Kontakti{
+/*font-family: Montserrat;
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: 44px;
+letter-spacing: 0em;
+text-align: center;*/
+padding-left: 35px;
+padding-top: 125px;
+}
+.Kontakti h2{
+font-family: Montserrat;
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: 44px;
+letter-spacing: 0em;
+text-align: left;
+color: black;
+padding-left: 120px;
+padding-bottom: 44px;
+}
+.Kontakti h3{
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+padding-left: 115px;
+padding-bottom: 19px;
+}
+.Map{
+  padding-bottom: 100px;
+}
+.Map p{
+  padding-left: 35px;
+}
+.FAQ{
+  padding-top: 25px;
+  padding-bottom: 150px;
+  padding-left: 80px;
+}
+.FAQ h2{
+font-family: Montserrat;
+font-size: 36px;
+font-style: normal;
+font-weight: 800;
+line-height: 44px;
+letter-spacing: 0em;
+text-align: left;
+margin-bottom: 40px;
+}
+.FAQ a{
+color: black;
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: 32px;
+letter-spacing: 0em;
+text-align: left;
+}
+.FAQ h6{
+color: black;
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 32px;
+letter-spacing: 0em;
+text-align: justify;
+}

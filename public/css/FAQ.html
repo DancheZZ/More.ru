@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+     <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Эта ссылка загружает с CDN все необходимые файлы Bootstrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href="css/main.css">
+
+</head>
+
+<!--
+за подчеркивание отвечает .collapse ul li a#text-a
+-->
+
+<body>
+
+<!--НАВИГАЦИОННАЯ ПАНЕЛЬ-->
+  <nav class="navbar navbar-expand-lg navbar-white color-nav">
+  	<div class="container">
+  <a href="..."><img src="img/Логотип.png" alt="Лого" width = "auto" height = "67"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link nav-text-size text-white" id = "text-a" href="...">Главная</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-text-size text-white" href="#">Все проекты</a>
+      </li>
+      <li class="nav-item"	>
+        <a class="nav-link nav-text-size text-white" href="#">Как это работает?</a>
+      </li>
+    </ul>
+
+    <ul  class="nav justify-content-end">
+
+      <li class="nav-item">
+      	<div class="color-button">
+	    	<a class="nav-link color-text" href="#" id="text-prj">Создать проект</a>
+		</div>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link text-white" href="#">Вход</a>
+	  </li>
+    </ul>
+
+  </div>
+</div>
+</nav>
+
+<section class="FAQ">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2> Часто задаваемые вопросы:</h2>
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                1. Просматривает ли команда Море проекты перед их запуском?</a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <h6>Да. Перед запуском автор отправляет свой проект на модерацию. Команда Море оценивает проекты на предмет соответствия критериям, представленным в Правилах площадки.</h6>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                2. Оценивает ли команда Море способность автора завершить проект?
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+             <h6>Нет. Мы считаем, что лучшим показателем жизнеспособности проекта являются оценки, мнения и комментарии участников.</h6>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                3. Как автор может начать проект?
+                </a>
+              </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <h6>На стартовой странице сайта размещена кнопка «Создать проект». Нажав на неё, на открывшейся странице автор выбирает нужный тип проекта и знакомится с дополнительной полезной информацией.
+            По мере готовности автор отправляет проект на модерацию, результаты которой становятся ему известны в течение 7 дней. В случае, если проект удовлетворяет всем критериям платформы, то он одобряется к запуску, а автор может выбрать любое удобное время для запуска проекта.</h6>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                4. Каким образом команда Море производит процедуру проверки проекта?
+                </a>
+              </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+            <h6>Каждый день командой просматриваются новые предлагаемые авторами проекты.
+            В первую очередь оцениваются такие факторы, как: новизна идеи, интересное вознаграждение или видеопрезентация проекта.
+            После отправки проекта на модерацию, он попадает в режим ожидания. После проверки проекта на соответствие Правилам платформы и критериям оформления, автору сообщается о её результатах в течение 7 дней.
+            В случае одобрения проекта автор может приступить к его запуску. При отклонении проекта и несогласии с этим, автор может подать апелляцию в поддержку платформы.</h6>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFive">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                5. Какие проекты принимаются к рассмотрению на Море?
+                </a>
+              </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+            <h6>На Море представлены проекты из разных сфер, таких как музыка, литература, кино, театр, фотография, дизайн, игры и многое другое. Для размещения на платформе проект должен соответствовать требованиям, установленным в Правилах пользования платформой.</h6>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSix">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                6. Какие проекты не принимаются к размещению на платформе?
+                </a>
+              </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
+            <h6>Проекты не принимающиеся к размещению на платформе:<br>
+            · преследующие личную цель и не имеющие прямой связи с творческой или общественно-полезной деятельностью,<br>
+            · имеющие в качестве основной цели сбор средств на рекламу и продвижение,<br>
+            · связанные с политической деятельностью,<br>
+            · связанные с религиозной деятельностью,<br>
+            · противоречащие морально-этическим нормам общества,<br>
+            · противоречащие законодательству Российской Федерации,<br>
+            · размещенные на аналогичной платформе,<br>
+            · не соответствующие целям и задачам платформы.<br>
+            Море имеет право отказать в допуске к запуску проекта без объяснения причин отказа. Однако, автор имеет право подать апелляцию.</h6>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSeven">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                7. Как создать проект на платформе Море?</a>
+              </h4>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSeven">
+            <h6>1. Первым шагом является регистрация пользователя.<br>
+            2. После регистрации на стартовой странице нажать на кнопку «Создать проект».<br>
+            3. Ознакомьтесь с правилами и краткими советами по созданию проекта, а также с условиями «Пользовательского соглашения».<br>
+            4. Заполните все поля редактора проектов (название, описание, срок проекта, его цель, вознаграждения и т.д.).<br>
+            5. Сохраните и отправьте черновик проекта на модерацию.</h6>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingEight">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                8. Как составить грамотное описание проекта?</a>
+              </h4>
+            </div>
+            <div id="collapseEight" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEight">
+            <h6> · В названии должна отражаться цель создания проекта. Она должна быть чёткой и понятной другим пользователям. Можно рассказать, как и почему она возникла, дать краткую историческую справку.<br>
+            · Начать описание проекта следует с представления себя автором: кто он, чем занимается, описать свои достижения, другие интересные работы. Приветствуются ссылки на другие работы и фото и видеопрезентация автора в работе, а также упоминания автора в СМИ, если таковые имеются.<br>
+            · Обязательно распишите что необходимо для достижения цели и реализации идеи.<br>
+            · Описание проекта можно изменять и дополнять в ходе его демонстрации. Этот процесс осуществляется с помощью сервиса поддержки платформы.<br></h6>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br>
+<!-- ФУТЕР -->
+<footer class="page-footer font-small color-nav pt-4">
+  <div class="container text-center text-md-left">
+    <div class="row">
+      <div class="col-md-3 mt-md-0 pt-0">
+        <a href="..."><img src="img/Логотип.png" alt="Лого" width = "auto" height = "67"></a>
+        <p style="margin-bottom: 0.0001rem;font-family: Montserrat;font-size: 18px;font-style: normal;font-weight: 400;line-height: 22px;letter-spacing: 0em; text-align: left">Краудфандинговая</p> 
+        <p style="font-family: Montserrat;font-size: 18px;font-style: normal;font-weight: 400;line-height: 22px;letter-spacing: 0em; text-align: left">платформа</p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 id = "text-footer">О нас</h5>
+
+        <ul style="margin-left: -20px">
+          <li>
+            <a href="#!">Что такое МО₽Е?</a>
+          </li>
+          <li>
+            <a href="#!">Контакты</a>
+          </li>
+        </ul>
+
+      </div>
+ 
+      <div class="col-md-4 mb-md-0 mb-3">
+
+        <h5 class="color-text">Документы</h5>
+
+        <ul style="margin-left: -20px">
+          <li>
+            <a href="#!">Пользовательское соглашение</a>
+          </li>
+          <li>
+            <a href="#!">Политика конфиденциальности</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5>Помощь</h5>
+
+        <ul style="margin-left: -20px">
+          <li>
+            <a href="#!">Частые вопросы</a>
+          </li>
+          <li>
+            <a href="#!">Правила сервиса</a>
+          </li>
+          <li>
+            <a href="#!">Задать вопрос</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+
+</footer>
+<!-- Footer -->
+
+
+    <!-- Перед закрывающим тегом <body> подключаем jQuery, Popper и Bootstrap JS, чтобы работали интерактивные компоненты  -->     
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" ></script>
+
+</body>
+
+</html>

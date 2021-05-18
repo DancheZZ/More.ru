@@ -33,11 +33,11 @@ Route::get('/main', function()
   return view('main',['people' => $people, 'projects' => $projects, 'comments'=>$comments]);
 });
 
-Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //отображает нужную страницу на одной из вкладок главной страницы
+Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //возвращает 3 проекта для главной страницы по каким-либо правилам
 
 Route::get('/projects', function()
 {
-  return redirect('/projects/working/new/1');
+  return view('projects.list');
 });
 
 Route::get('/projects/{type}/{sorting}/{page}','ProjectController@listShow');// отображает страницу со всеми проектами
@@ -72,6 +72,26 @@ Route::get('/politic',function()
 });
 //аутентификация
 Auth::routes();
+
+Route::get('/chto', function()
+{
+  return view('chto');
+});
+
+Route::get('/FAQ', function()
+{
+  return view('FAQ');
+});
+
+Route::get('/contacts', function()
+{
+  return view('contacts');
+});
+
+Route::get('/how', function()
+{
+  return view('how');
+});
 
 //чтобы получить определенное кол-во записей из БД: NameTable::table(count)->get()
 // paginate(count) - возвращает значительно больше информации

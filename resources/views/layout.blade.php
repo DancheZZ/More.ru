@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href="/css/main2.css">
     <script src="/js/foto.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 </head>
 
 <!--  
@@ -33,10 +34,10 @@
         <a class="nav-link nav-text-size text-white" {{ Request::is('main') ? " id = text-a " :  " "}}  href="/main">Главная</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link nav-text-size text-white" {{ Request::is('projects/*')  ? " id = 'text-a' " : " " }} href="/projects">Все проекты</a>
+        <a class="nav-link nav-text-size text-white" {{ Request::is('projects')  ? " id = text-a " : " " }} href="/projects">Все проекты</a>
       </li>
       <li class="nav-item"	>
-        <a class="nav-link nav-text-size text-white" {{ Request::is('hz')  ? " id = 'text-a' " : " " }} href="#">Как это работает?</a>
+        <a class="nav-link nav-text-size text-white" {{ Request::is('how')  ? " id = text-a " : " " }} href="/how">Как это работает?</a>
       </li>
     </ul>
 
@@ -44,7 +45,7 @@
 
       <li class="nav-item">
       <div class="color-button">
-	    <a class="nav-link color-text" href="/create" id="text-prj">Создать проект</a>
+	    <a class="nav-link color-text" href="/create" id="text-prj" >Создать проект</a>
 		</div>
 	  </li>
 	  <li class="nav-item">
@@ -53,7 +54,6 @@
       <div class="popup-fade" style="display: none;">
 
         <div class="popup" style="display: none;" id = "entry">
-
                 <div style="margin-top: 10px">
                 <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
                 <p style = "margin-left: 70%; font-size: 18px; margin-top: -40px" onclick="entry()" class="text-white">Регистрация</p>
@@ -144,10 +144,10 @@
 
         <ul style="margin-left: -20px">
           <li>
-            <a href="#!">Что такое МО₽Е?</a>
+            <a href="/chto">Что такое МО₽Е?</a>
           </li>
           <li>
-            <a href="#!">Контакты</a>
+            <a href="/contacts">Контакты</a>
           </li>
         </ul>
 
@@ -174,7 +174,7 @@
 
         <ul style="margin-left: -20px">
           <li>
-            <a href="#!">Частые вопросы</a>
+            <a href="/FAQ">Частые вопросы</a>
           </li>
           <li>
             <a href="/regulations" target="'_blank'">Правила сервиса</a>

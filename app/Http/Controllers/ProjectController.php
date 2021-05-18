@@ -12,6 +12,7 @@ class ProjectController extends Controller
     public function mainShow($type,$page)
     {
         $projects = null;
+        $authors = Array();
         //здесь и далее выводятся только незавершенные проекты (так ли?)
         switch($type)
         {
@@ -52,9 +53,31 @@ class ProjectController extends Controller
                 ])->orderBy('final_date','desc')->skip(3*$page-3)->limit(3)->get();
                 break;
         }
-        //return view('main')->with(array('projects'=>$projects));
         
-        return ['projects'=> $projects];
+        $firstAuth = $projects[0]['id_user'];
+        $secondAuth = $projects[1]['id_user'];
+        $threeAuth = $projects[2]['id_user'];
+        $authors[0] = \App\User::where
+        (
+            [
+                ['id',$firstAuth]
+            ]
+        )->get();
+
+        $authors[1] = \App\User::where
+        (
+            [
+                ['id',$secondAuth]
+            ]
+        )->get();
+
+        $authors[2] = \App\User::where
+        (
+            [
+                ['id',$threeAuth]
+            ]
+        )->get();
+        return ['projects'=> $projects, 'authors' => $authors];
     }
     
     //{type}/{sorting}/{page}
@@ -75,10 +98,8 @@ class ProjectController extends Controller
         $projects = null;
         $forward = null; //по убыванию или возрастанию (desc или ask)
         $field = null; //поле по которому сортировка (count_likes или start_date)
-        /*if($sorting == 'new' || $sorting=='unknown')
-        {
-            $forward = 'asc';
-        }*/
+       
+        $authors = Array();
 
         switch($sorting)
         {
@@ -108,7 +129,8 @@ class ProjectController extends Controller
                     ['published',1],
                     ['completed',0] 
                 ])
-                    ->orderBy($field,$forward)->skip(3*$page-3)->limit(3)->get();
+                    ->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
+                //находим возможное количество страниц
                 break;
             case 'completed':
                 $projects = Project::where
@@ -116,20 +138,38 @@ class ProjectController extends Controller
                     ['published',1],
                     ['completed',1] 
                 ])
-                    ->orderBy($field,$forward)->skip(3*$page-3)->limit(3)->get();
+                    ->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
                 break;
             case 'record':
                 $projects = Project::where
                 ([
                     ['published',1]
                 ])
-                ->orderBy('collected_money','desc')->orderBy($field,$forward)->skip(3*$page-3)->limit(3)->get();
+                ->orderBy('collected_money','desc')->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
                 break;
         }
 
         
+        /*$firstAuth = $projects[0]['id_user'];
+        $secondAuth = $projects[1]['id_user'];
+        $threeAuth = $projects[2]['id_user'];
+        $fourAuth = $projects[3]['id_user'];
+        $fiveAuth = $projects[4]['id_user'];
+        $sixAuth = $projects[5]['id_user'];*/
+
+
+        for ($i = 0; $i<count($projects); $i++)
+        {
+            $authors[] = \App\User::where
+            (
+                [
+                    ['id',$projects[$i]['id_user']]
+                ]
+            )->get();
+        }
         
-        return view('projects.list', ['projects'=>$projects]);
+        
+        return ['projects'=> $projects, 'authors' => $authors];
     }
     
     public function showDescr($id)
