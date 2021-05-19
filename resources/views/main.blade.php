@@ -6,7 +6,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active container-icon">
       <img class="d-block w-100" src="/img/fon.png" alt="Первый слайд">
-      <button class="btn">Создать проект</button>
+      <button class="btn" onclick = "document.location.href ='/create'">Создать проект</button>
     </div>
     <div class="carousel-item container-icon">
       <img class="d-block w-100" src="/img/fon.png" alt="Второй слайд">

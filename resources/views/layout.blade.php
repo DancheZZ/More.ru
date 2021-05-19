@@ -49,14 +49,14 @@
 		</div>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link text-white popup-open" href = "#" >Вход</a> 
+	    <a class="nav-link text-white popup-open"  href = "#" >Вход</a> 
 
       <div class="popup-fade" style="display: none;">
 
         <div class="popup" style="display: none;" id = "entry">
                 <div style="margin-top: 10px">
-                <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
-                <p style = "margin-left: 70%; font-size: 18px; margin-top: -40px" onclick="entry()" class="text-white">Регистрация</p>
+                <p style = "font-size: 18px; margin-left: 9%; cursor: pointer" class="text-white" onclick="registr()">Войти</p>
+                <p style = "margin-left: 70%; font-size: 18px; margin-top: -40px; cursor: pointer;" onclick="entry()" class="text-white">Регистрация</p>
                 </div>
 
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
@@ -77,8 +77,8 @@
         <div class="popup1" id = "registr">
 
                 <div style="margin-top: 10px">
-                <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
-                <p href="" style = "margin-left: 70%; font-size: 18px; margin-top: -40px" class="text-white" onclick="entry()">Регистрация</p>
+                <p style = " cursor: pointer; font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
+                <p href="" style = "cursor: pointer; margin-left: 70%; font-size: 18px; margin-top: -40px" class="text-white" onclick="entry()">Регистрация</p>
                 </div>
 
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
@@ -105,6 +105,16 @@
 
 
 	  </li>
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Языки
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="#" style="color: black">Русский</a>
+    <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#" style="color: black">Английский</a>
+    </div>  
+    </li>
     </ul>
 
   </div>

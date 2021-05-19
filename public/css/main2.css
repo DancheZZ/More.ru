@@ -459,3 +459,54 @@ select {
   letter-spacing: 0em;
   text-align: justify;
   }
+
+  .text-one-prj{
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 8%;
+    line-height: 1;
+  }
+  
+  progress { /* контейнер */
+    -webkit-appearance: none; /* убрать вид, который задан браузером по умолчанию */
+            appearance: none;
+    border: none; /* убрать рамку в Firefox */
+    width: 100%;
+    height: 20px;  
+    border-radius: 3px; 
+    color: #4d7198; /* цветная линия-индикатор в IE */
+    background: #eee;
+    background-image: linear-gradient(to right, #e4e4e4 1px, transparent 1px),
+      linear-gradient(rgba(0, 0, 0, .2) 1px, rgba(255, 255, 255, .4) 1px, rgba(0, 0, 0, .2));
+    background-size: 10% 100%, 100% 100%;
+  }
+  .progress::-webkit-progress-bar { /* контейнер в Webkit */
+    border-radius: 3px;
+    background: #eee;
+    background-image: linear-gradient(to right, #e4e4e4 1px, transparent 1px),
+      linear-gradient(rgba(0, 0, 0, .2) 1px, rgba(255, 255, 255, .4) 1px, rgba(0, 0, 0, .2));
+    background-size: 10% 100%, 100% 100%;
+  }
+  .progress::-moz-progress-bar { /* разноцветная линия-индикатор в Firefox */
+    border-radius: 3px 5px 5px 3px;
+    background: #4d7198;
+    background-image:
+      linear-gradient(135deg, transparent, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%),
+      linear-gradient(rgba(0, 0, 0, .2) 1px, rgba(255, 255, 255, .4) 1px, rgba(0, 0, 0, .2)),
+      linear-gradient(to left, #00baff, #4d7198);
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+  }
+  .progress::-webkit-progress-value { /* разноцветная линия-индикатор в Webkit */
+    border-radius: 3px 5px 5px 3px;
+    background: #4d7198;
+    background-image:
+      linear-gradient(135deg, transparent, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%),
+      linear-gradient(rgba(0, 0, 0, .2) 1px, rgba(255, 255, 255, .4) 1px, rgba(0, 0, 0, .2)),
+      linear-gradient(to left, #00baff, #4d7198);
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+    -webkit-animation: animate-stripes 4s linear infinite;
+  }
+  @-webkit-keyframes animate-stripes { 
+    0% { background-position: 0 0, 0 0, 0 0; } 
+    100% { background-position: -105px 0, 0 0, 0 0; } 
+  }

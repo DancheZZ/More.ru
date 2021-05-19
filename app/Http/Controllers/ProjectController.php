@@ -98,7 +98,7 @@ class ProjectController extends Controller
         $projects = null;
         $forward = null; //по убыванию или возрастанию (desc или ask)
         $field = null; //поле по которому сортировка (count_likes или start_date)
-       
+        $countPages = 0;
         $authors = Array();
 
         switch($sorting)
@@ -131,6 +131,11 @@ class ProjectController extends Controller
                 ])
                     ->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
                 //находим возможное количество страниц
+                $countPages = Project::where
+                ([
+                    ['published',1],
+                    ['completed',0] 
+                ])->count();
                 break;
             case 'completed':
                 $projects = Project::where
@@ -139,6 +144,11 @@ class ProjectController extends Controller
                     ['completed',1] 
                 ])
                     ->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
+                $countPages = Project::where
+                ([
+                    ['published',1],
+                    ['completed',1] 
+                ])->count();
                 break;
             case 'record':
                 $projects = Project::where
@@ -146,6 +156,10 @@ class ProjectController extends Controller
                     ['published',1]
                 ])
                 ->orderBy('collected_money','desc')->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
+                $countPages = Project::where
+                ([
+                    ['published',1]
+                ])->count();
                 break;
         }
 
@@ -168,8 +182,10 @@ class ProjectController extends Controller
             )->get();
         }
         
-        
-        return ['projects'=> $projects, 'authors' => $authors];
+        $resultcountPages = floor($countPages / 6);
+        if ($countPages % 6 > 0 )
+        $resultcountPages++;
+        return ['projects'=> $projects, 'authors' => $authors, 'countPages' => $resultcountPages];
     }
     
     public function showDescr($id)
@@ -193,24 +209,36 @@ class ProjectController extends Controller
         $sponsors = null;
         //в зависимости от значения $specific одна из переменных созданных выше станет не нулевой, 
         //что обработается в представлении при помощи управляющих конструкций
-        switch($specific)
-        {
-            case 'description':
-                $descripton = $project->description;
-                break;
-            case 'comments':
-                $comments = \App\comment::where('id_project','=',$id)->get();
-                break;
-            case 'sponsors':
-                //поиск айди пользователей, которые поддержали проект
-                $users_id = \App\donate::select('id_user')->where('id_project','=',$id)->get();
-                //dump($users_id);
-                //поиск пользователей спонсоров
-                $sponsors = \App\User::whereIn('id',$users_id)->get();
-               // dump($sponsors);
-                break;
-        }
-        return view('projects.show',['project'=>$project,'description'=>$descripton,'comments'=>$comments,'sponsors'=>$sponsors]);
+        $descripton = $project->description;
+        $comments = \App\comment::where('id_project','=',$id)->get();
+        //поиск айди пользователей, которые поддержали проект
+        $users_id = \App\donate::select('id_user')->where('id_project','=',$id)->get();
+        //поиск пользователей спонсоров
+        $sponsors = \App\User::whereIn('id',$users_id)->get();
+        //расчет дней до окончания проекта
+        $countDays = floor((  strtotime($project->final_date) - strtotime(date("y.m.d")) )/ (60*60*24));
+        //автор проекта
+        $author = \App\User::where('id',$project->id_user)->get();
+        //процент заполнения проекта
+        $procent = ($project->collected_money / $project->money_required) * 100;
+        //комментаторы
+        // найдем все айди пользователей, которые прокомментировали
+        $id_commentators = \App\comment::select('id_user')->where('id_project','=',$id)->get();
+        //теперь всех пользователей
+        $commentators = \App\User::whereIn('id',$id_commentators)->get();
+        //ищем спонсоров
+        dump($sponsors);
+        return view('projects.show',
+        [
+        'project'=>$project,
+        'description'=>$descripton,
+        'comments'=>$comments,
+        'sponsors'=>$sponsors, 
+        'author'=>$author,
+        'countDays'=> $countDays,
+        'procent' => $procent,
+        'commentators' =>$commentators
+        ]);
 
     }
     
