@@ -1,0 +1,304 @@
+<html lang="ru">
+
+<head>
+
+     <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Эта ссылка загружает с CDN все необходимые файлы Bootstrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href="css/main.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/foto.js"></script>
+
+</head>
+
+<!--
+за подчеркивание отвечает .collapse ul li a#text-a
+-->
+
+<body>
+
+<!--НАВИГАЦИОННАЯ ПАНЕЛЬ-->
+  <nav class="navbar navbar-expand-lg navbar-white color-nav">
+  	<div class="container">
+  <a href="..."><img src="img/Логотип.png" alt="Лого" width = "auto" height = "67"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link nav-text-size text-white" id = "text-a" href="...">Главная</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-text-size text-white" href="#">Все проекты</a>
+      </li>
+      <li class="nav-item"	>
+        <a class="nav-link nav-text-size text-white" href="#">Как это работает?</a>
+      </li>
+    </ul>
+
+    <ul  class="nav justify-content-end">
+
+      <li class="nav-item">
+      	<div class="color-button">
+	    	<a class="nav-link color-text" href="#" id="text-prj">Создать проект</a>
+		</div>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link text-white popup-open" href="#">Вход</a>
+
+      <div class="popup-fade" style="display: none;">
+
+        <div class="popup" style="display: none;" id = "entry">
+
+                <div style="margin-top: 10px">
+                <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
+                <p style = "margin-left: 70%; font-size: 18px; margin-top: -40px" onclick="entry()" class="text-white">Регистрация</p>
+                </div>
+
+                <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
+
+                <div style="height: 240px; color: #FFFFFF; margin-top: 30px" >
+                <form method = "POST" action = "{{ route('login') }}" >
+                  <center><input type="email" id = "email" name = "email" placeholder = "Логин" class="btn-reg" ><br><br></center>
+                  <center><input id = "password" type = "password" name = "password" placeholder = "Пароль" class="btn-reg"><br><br>
+                  </center>
+                  <center><button type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> Войти</button></center>
+                  </form>
+                </div>
+                <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; "></div>
+                <center><div style="color: #fff; width:460px;  margin-top: 10px;"><p>Нажав кнопку регистрации, вы принимаете условия пользовательского соглашения и условия политики конфиденциальности и даете согласие на обработку персональных данных</p></div></center>
+        </div> 
+
+        <div class="popup1" id = "registr">
+
+                <div style="margin-top: 10px">
+                <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
+                <p href="" style = "margin-left: 70%; font-size: 18px; margin-top: -40px" class="text-white" onclick="entry()">Регистрация</p>
+                </div>
+
+                <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
+
+                <div style="height: 670px; color: #FFFFFF; margin-top: 30px" >
+                 <form method = "POST" enctype="multipart/form-data" action = "{{ route('register') }}" >
+                      <center><input type = "text" id = "name" name = "name" placeholder = "Имя" class="btn-reg"><br><br></center>
+                      <center><input type="text" id = "surname" name = "surname" placeholder = "Фамилия" class="btn-reg"><br><br></center>
+                      <center><input type = "file" id = "avatar" name = "avatar" placeholder = "Фото профиля" class="btn-reg"><br><br></center>
+                      <center><input type="tel" id = 'phone' name = 'phone' placeholder = "Телефон" class="btn-reg"> <br><br></center>
+                      <center><input type="email" id = "email" name = "email" placeholder = "Почта" class="btn-reg"><br><br></center>
+                      <center><input type="date" id="date" name="date" placeholder = "Дата рождения" class="btn-reg"><br><br>
+                      <center><input id = "password" type = "password" name = "password" placeholder = "Пароль" class="btn-reg"><br><br></center>
+                      <center><input id="password-confirm" type="password" name="password_confirmation" placeholder = "Подтверждение пароля" class="btn-reg"><br><br></center>
+                      <button type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> Регистрация</button>
+                  </form>
+                </div>
+                <div style="border: 1px solid #FFF; width:528px; margin-left: -20px;"></div>
+                <center><div style="color: #fff; width:460px;  margin-top: 10px;"><p>Нажав кнопку регистрации, вы принимаете условия пользовательского соглашения и условия политики конфиденциальности и даете согласие на обработку персональных данных</p></div></center>
+              </div> 
+
+      </div>
+
+
+
+	  </li>
+    </ul>
+
+  </div>
+</div>
+</nav>
+
+<div style="min-height: calc(100vh - 80px);">
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6">
+          <img src="img/собака.png" width="530" height="auto" style="margin-top: 10%;">
+        </div>
+
+        <div class="col-md-6">
+          <center><p class="text-one-prj">InGo- социальная сеть для обучения и развития</p></center>
+          <br>
+          <p style="margin-left: 10"><img src="img/собака.png" height="30" width="30"> adasds</p>
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <ul style="list-style-type:none; margin-top: -30px">
+                <li class="text-one-prj">200000₽</li>
+                <li>из 200000₽</li>
+              </ul>
+            </div>
+
+            <div class="col-md-6">
+              <div style=" text-align: right;">
+              <ul style="list-style-type:none;">
+                <li>322 спонсора</li>
+                <li>осталось 6 дней</li>
+              </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <progress value="30" max="100"></progress>
+
+            <div class="col-md-6">
+              <button style="height: 70px; width: 270px; margin-top: 30px"></button>
+            </div>
+
+                <div class="col-md-4" style="text-align: right; margin-top: 30px">
+                  <img src="img/собака.png" height="60" width="60">
+                  <p>2323213</p>
+                </div>
+
+                <div class="col-md-2" style="text-align: right; margin-top: 30px">
+                  <img src="img/собака.png" height="60" width="60">
+                  <p>2323213</p>
+                </div>
+
+          </div>
+        </div>
+
+    </div>                        
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-white color-nav">
+
+  <div class="container" style="height: 20px">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1" style="margin-left: auto; margin-right: auto; width: 100px;">
+    
+
+        <div class="row" style="width: 100%">
+
+            <div class="col-md-1 color-fr1 text-white" style="margin-top: 10px">
+              <p>Проект </p>
+            </div>
+
+            <div class="col-md-1 color-fr1 text-white" style="margin-right: 60px; margin-top: 10px">
+              <p>Комментарии</p>
+            </div>
+
+            <div class="col-md-1 color-fr1 text-white" style="margin-top: 10px">
+              <p>Спонсоры </p>
+            </div>
+
+        </div>
+
+  </div>
+  </div>
+  </nav>
+
+<br>
+<div class="container">
+  <p>dsklfsklfsdklfslkdfkl</p>
+</div>
+
+
+<div class="container">
+    <center><div style="display: inline-block; width: 100%; margin-top: 15%;">
+      <button class="button-ad" style="margin-right: 5%">Вернуть на доработку</button>
+      <button class="button-ad">Одобрить проект</button>
+    </div></center>
+</div>
+
+
+<br>
+</div>
+<!-- ФУТЕР -->
+<footer class="page-footer font-small color-nav pt-4">
+  <div class="container text-center text-md-left">
+    <div class="row">
+      <div class="col-md-3 mt-md-0 pt-0">
+        <a href="..."><img src="img/Логотип.png" alt="Лого" width = "auto" height = "67"></a>
+        <p style="margin-bottom: 0.0001rem">Краудфандинговая</p>
+        <p>платформа</p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 id = "text-footer">О нас</h5>
+
+        <ul style="margin-left: -20px">
+          <li>
+            <a href="#!">Что такое МО₽Е?</a>
+          </li>
+          <li>
+            <a href="#!">Контакты</a>
+          </li>
+        </ul>
+
+      </div>
+ 
+      <div class="col-md-4 mb-md-0 mb-3">
+
+        <h5 class="color-text">Документы</h5>
+
+        <ul style="margin-left: -20px">
+          <li>
+            <a href="#!">Пользовательское соглашение</a>
+          </li>
+          <li>
+            <a href="#!">Политика конфиденциальности</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5>Помощь</h5>
+
+        <ul style="margin-left: -20px">
+          <li>
+            <a href="#!">Частые вопросы</a>
+          </li>
+          <li>
+            <a href="#!">Правила сервиса</a>
+          </li>
+          <li>
+            <a href="#!">Задать вопрос</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->  
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+
+</footer>
+<!-- Footer -->
+
+
+    <!-- Перед закрывающим тегом <body> подключаем jQuery, Popper и Bootstrap JS, чтобы работали интерактивные компоненты  -->     
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" ></script>
+
+</body>
+
+</html>
