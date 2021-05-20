@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\comment;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
     /**
@@ -33,9 +33,21 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id_project)
     {
-        //
+        request()->validate
+        (
+            [
+                'text'=>['required','max:180']
+            ]
+        );
+        $commentik = new Comment();
+        $commentik->text =  request('text');
+        $commentik->id_user = Auth::user()->id;
+        $commentik->id_project = $id_project;
+        $commentik->date = date("Y-m-d");
+        $commentik->save();
+        return back()->withInput();
     }
 
     /**

@@ -49,8 +49,16 @@
 		</div>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link text-white popup-open"  href = "#" >Вход</a> 
+      @if(!Auth::user())
+	      <a class="nav-link text-white popup-open"  href = "#" >Вход</a> 
+      @endif
 
+      @if(Auth::user())
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/me">{{ Auth::user()->name }} {{ Auth::user()->surname }}</a>
+        </li>
+        
+      @endif
       <div class="popup-fade" style="display: none;">
 
         <div class="popup" style="display: none;" id = "entry">
@@ -115,6 +123,15 @@
       <a class="dropdown-item" href="#" style="color: black">Английский</a>
     </div>  
     </li>
+    @if(Auth::user())
+    <li class="nav-item">
+          
+          <form id = "logout" method = "POST" action = "{{ route('logout') }}">@csrf <a class="nav-link text-white"
+                                                href="{{ url('/logout') }}"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout').submit();" >Выйти</a> </form>
+        </li>
+    @endif
     </ul>
 
   </div>

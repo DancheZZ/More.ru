@@ -10,6 +10,10 @@
   /me личный кабинет 
   /question страница с возможностью задать вопрос
 */
+Route::get('/', function()
+{
+  return redirect('/main');
+});
 
 Route::get('/about', function() 
 {
@@ -32,6 +36,12 @@ Route::get('/main', function()
   $comments = \App\Comment::count();
   return view('main',['people' => $people, 'projects' => $projects, 'comments'=>$comments]);
 });
+
+Route::get('admin/main', 'Admin@main');
+
+Route::post('/comment/add/{id_project}', 'CommentController@store');
+
+Route::get('/grade/{project_id}/{opinion}', 'GradeController@setGrade');
 
 Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //возвращает 3 проекта для главной страницы по каким-либо правилам
 

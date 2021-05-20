@@ -510,3 +510,45 @@ select {
     0% { background-position: 0 0, 0 0, 0 0; } 
     100% { background-position: -105px 0, 0 0, 0 0; } 
   }
+
+  td{
+    border: 1px solid black;
+  }
+  
+  tr{
+    border: 1px solid black;
+  }
+  
+  th{
+    border: 1px solid black;
+  }
+  
+  .btn-one-prj{
+    height: 70px; 
+    width: 270px; 
+    margin-top: 30px; 
+    border-radius: 75px; 
+    background-color: #66FCF1; 
+    border: 0px solid black; 
+    font-family: Montserrat; 
+      font-size: 24px
+  }
+  
+  .btn-one-prj1{
+    height: 40px; 
+    width: 270px; 
+    margin-top: 30px; 
+    border-radius: 75px; 
+    background-color: #66FCF1; 
+    border: 0px solid black; 
+    font-family: Montserrat; 
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
+  
+  h1{
+    border: 1px solid #D5CFCA;
+    width: 190px;
+    margin-top: 10px;
+  }

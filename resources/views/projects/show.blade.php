@@ -3,6 +3,58 @@
 @section ('content')
 <div style="min-height: calc(100vh - 80px);">
 
+<script type="text/javascript" language="javascript">
+
+function descrUp()
+{
+  $("#comments").css("display","none");
+  $("#sponsors").css("display","none");
+  $("#descr").css("display","");
+} 
+
+function commUp()
+{
+  $("#sponsors").css("display","none");
+  $("#descr").css("display","none");
+  $("#comments").css("display","");
+}
+
+function sponsUp()
+{
+  $("#comments").css("display","none");
+  $("#descr").css("display","none");
+  $("#sponsors").css("display","");
+}
+
+
+function setGrade(opinion)
+{
+  let url = '/grade/' + {{ $project->id }} + '/' + opinion;
+  $.get
+  (
+    url,
+    {},
+    function(data)
+    {
+      console.log(data['result']);
+      if (data['result'] == 'change')
+      {
+        if (opinion == 1)
+        {
+          $('#likes').css('color','#66FCF1');
+          $('#dislikes').css('color','#000000');        }
+        if (opinion == 0)
+        {
+          $('#dislikes').css('color','#66FCF1');
+          $('#likes').css('color','#000000')
+        }
+      }
+    }
+  )
+}
+
+</script>
+
 <div class="container">
     <div class="row">
 
@@ -44,17 +96,50 @@
             <progress value="{{ $procent }}" max="100"></progress>
 
             <div class="col-md-6">
-              <button style="height: 70px; width: 270px; margin-top: 30px"></button>
+              <button class="btn-one-prj">Поддержать</button>
             </div>
 
                 <div class="col-md-4" style="text-align: right; margin-top: 30px">
-                  <img src="/img/like.png" height="60" width="60" style = "margin-top: -30px;">
-                  <p style = "margin-right : 20px; margin-top: 30px">{{ $project->count_likes }}</p>
+                  <img onclick = "setGrade(1)" src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
+                  <p id = "likes" 
+                  
+                  @if(!Auth::user()) 
+                  style = "margin-right : 20px; margin-top: 30px"
+                  @endif
+                  @if(Auth::user())
+                    @if ($grade)
+                      @if ($grade[0]->opinion == 0)
+                      style = "margin-right : 20px; margin-top: 30px; color : #000000"
+                      @endif
+                      @if ($grade[0]->opinion == 1)
+                        style = "margin-right : 20px; margin-top: 30px; color : #66FCF1"
+                      @endif
+                    @endif
+                  @endif
+                  
+                  >{{ $project->count_likes }}</p>
                 </div>
 
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
-                  <img src="/img/dislike.png" height="60" width="60">
-                  <p style = "text-align: center;">{{ $project->count_dislikes }}</p>
+                  <img onclick = "setGrade(0)"
+                  src="/img/dislike.png" 
+                  height="60" 
+                  width="60">
+                  <p id = "dislikes" 
+                  @if(!Auth::user()) 
+                  style = "text-align: center;"
+                  @endif
+                  @if(Auth::user())
+                    @if ($grade)
+                      @if ($grade[0]->opinion == 1)
+                      style = "text-align: center; color : #000000"
+                      @endif
+                      @if($grade[0]->opinion == 0)
+                        style = "text-align: center; color : #66FCF1"
+                      @endif
+                    @endif
+                  @endif
+                  >{{ $project->count_dislikes }}</p>
                 </div>
 
           </div>
@@ -73,15 +158,15 @@
         <div class="row" style="width: 100%">
 
             <div class="col-md-1 color-fr1 text-white" style="margin-top: 10px">
-              <p>Проект </p>
+              <p style ="cursor: pointer;" onclick = "descrUp();">Проект </p>
             </div>
 
             <div class="col-md-1 color-fr1 text-white" style="margin-right: 60px; margin-top: 10px">
-              <p>Комментарии</p>
+              <p style ="cursor: pointer;" onclick = "commUp();">Комментарии</p>
             </div>
 
             <div class="col-md-1 color-fr1 text-white" style="margin-top: 10px">
-              <p>Спонсоры </p>
+              <p style ="cursor: pointer;" onclick = "sponsUp();">Спонсоры </p>
             </div>
 
         </div>
@@ -96,20 +181,36 @@
 </div>
 
 <br>
-<div id = "comments">
+<div id = "comments" style = "display: none">
+
+    @if(Auth::user())
+    <div class="container">
+      <form method = "POST" action = "/comment/add/{{ $project->id }}">
+        @csrf
+        <p>Коментарий:<br><textarea name = "text" style="height: auto; width: 1100px; height: 150px; border: 1px solid black; border-radius: 15px"></textarea>
+        <br>
+        <center><button class="btn-one-prj1">Отправить комментарий</button></center></p>
+      </form>
+    </div>
+    @endif
     <div class="container">
         @for ($i = 0; $i<count($comments); $i++)
-        <div style="height: auto; width: 800px auto; border: 1px solid black">
-            <p style="font-weight: bold;"><img src="/Images/{{ $commentators[$i]->avatar }}" height="35" width="35" style="margin-right: 12px">{{ $commentators[$i]->name }} {{ $commentators[$i]->surname }}</p>
+        <div style="height: auto; width: 800px auto; border: 1px solid black; border-radius: 15px">
+            <p style="font-weight: bold;"><img src="/Images/{{ $commentators[$i]->avatar }}" height="35" width="35" style="margin-right: 12px; border-radius: 15px; padding: 3px">{{ $commentators[$i]->name }} {{ $commentators[$i]->surname }}</p>
             <p style="margin-left: 40px; margin-top: -10px"> {{ $comments[$i]->text }}</p>
-            <p style="margin-left: 40px;">{{ $comments[$i]->date }}</p>
+
+            <div style="overflow: hidden; margin-left: 40px;">
+              <p style="float: left;">{{ $comments[$i]->date }}</p>
+              <a style="float: left; margin-left: 2%; cursor: pointer;">Удалить</a>
+            </div>
         </div>
+        <br>  
         @endfor
     </div>
 
 </div>
 
-<div id = "sponsors" class="container">
+<div id = "sponsors" class="container" style = "display: none">
   <div class="row">   
     @for ($j = 0; $j<count($sponsors); $j ++)
         <div class="col-md-4">

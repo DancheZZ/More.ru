@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\grade;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class GradeController extends Controller
 {
     /**
@@ -17,6 +17,38 @@ class GradeController extends Controller
         //
     }
 
+    public function setGrade($project_id,$opinion)
+    {
+        if (!Auth::user()) return ['2' => '1'];
+        $gradik = grade::where('id_project',$project_id)->get();
+        //return ['2'=>$gradik];
+        if (count($gradik) == 0)
+        {
+            return ['2'=>'3'];
+            $Newgradik = new grade(); 
+            $Newgradik->opinion = $opinion;
+            $Newgradik->id_user = Auth::user()->id;
+            $Newgradik->id_project = $project_id;
+            $Newgradik->save();
+            $result = 'create';
+            return ['result' => $result ];
+        }
+        else
+        {
+            if ($gradik[0]->opinion != $opinion)
+            {
+                $gradik[0]->opinion = $opinion;
+                $gradik[0]->save();
+                $result = 'change';
+                return ['result' =>$result];
+            }
+            else
+            {
+                $result = 'no';
+                return ['result' => $result];
+            }
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *

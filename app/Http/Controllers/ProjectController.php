@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class ProjectController extends Controller
 {
     //метод для вывода проектов на главной странице постранично ($page) согласно какому-то типу ($type)
@@ -163,15 +163,6 @@ class ProjectController extends Controller
                 break;
         }
 
-        
-        /*$firstAuth = $projects[0]['id_user'];
-        $secondAuth = $projects[1]['id_user'];
-        $threeAuth = $projects[2]['id_user'];
-        $fourAuth = $projects[3]['id_user'];
-        $fiveAuth = $projects[4]['id_user'];
-        $sixAuth = $projects[5]['id_user'];*/
-
-
         for ($i = 0; $i<count($projects); $i++)
         {
             $authors[] = \App\User::where
@@ -227,7 +218,31 @@ class ProjectController extends Controller
         //теперь всех пользователей
         $commentators = \App\User::whereIn('id',$id_commentators)->get();
         //ищем спонсоров
-        dump($sponsors);
+        //смотрим оценил ли пользователь этот проект
+        $Grade= null;
+        if (Auth::user())
+        $Grade = \App\grade::where
+        (
+            [
+                ['id_user',Auth::user()->id],
+                ['id_project',$project->id] 
+            ]
+        )->get();
+        else 
+        {
+            
+        }
+        /*if ($Grade)
+        {
+            $Isgrade = True;
+        }
+        else
+        {
+            $Isgrade = False;
+        }*/
+
+        //Auth::user()->id;
+
         return view('projects.show',
         [
         'project'=>$project,
@@ -237,7 +252,8 @@ class ProjectController extends Controller
         'author'=>$author,
         'countDays'=> $countDays,
         'procent' => $procent,
-        'commentators' =>$commentators
+        'commentators' =>$commentators,
+        'grade' => $Grade
         ]);
 
     }
@@ -285,7 +301,7 @@ class ProjectController extends Controller
         }
         //dump(request()->all());
         
-        return redirect ('/projects/working/new/1');
+        return redirect ('/projects');
     }
 
     public function create()
@@ -309,13 +325,5 @@ class ProjectController extends Controller
         //ясен пень уничтожение
     }
 
-
-    /* public function show($id,$type)
-    {
-        //показывает вьюшку конкретного проекта
-        $project = Project::find($id);
-        //будет выведен проект либо с описанием в нижнем подразделе, либо спонсоры, либо комментарии
-        return view('projects.show',['project' => $project,'type'=>$type]);
-    }*/
 
 }
