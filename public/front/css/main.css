@@ -1,0 +1,394 @@
+/* Container needed to position the button. Adjust the width as needed */
+@media screen and (max-width: 1300px) {
+  #collapseExample {
+    display: none;
+  }
+}
+
+
+.container-icon {
+  position: relative;
+  width: 1865px;
+  height: auto;
+}
+
+/* Make the image responsive */
+.container-icon img {
+  width: 1865px;
+  height: auto;
+}
+
+
+/* Стиль кнопки и поместите его в середине контейнера/изображения */
+.container-icon .btn {
+  position: absolute;
+  top: 80%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); 
+  height: 80px;
+  width: 280px;
+  font-size: 22px;
+  font-family: Montserrat;
+  background-color: #66FCF1;
+  font-color: black;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 200px;
+}
+
+.container-icon .btn:hover {
+  background-color: black;
+}
+
+.color-nav {
+  background-color: #1C2939;
+}
+
+.color-nav1 {
+  background-color: #66FCF1;
+}
+
+.color-text{
+  font-color:#66FCF1;
+}
+
+.nav-text-size{
+  font-size: 16px;
+  font-color: #FFFFFF; 
+}
+
+.collapse ul li a{
+  font-family: Montserrat;
+  color:#66FCF1;
+}
+
+.collapse ul li a#text-a{
+  font-family: Montserrat;
+  font-weight:bold;
+  text-decoration: underline;
+  text-decoration-color:#66FCF1;
+}
+
+.collapse ul li a#text-prj{
+        font-family: Montserrat;
+        font-size: 14px;
+        color:#66FCF1;
+}
+
+body {
+    background: #FCF5EF;
+}
+
+.footer {
+        margin: -100px 0 0 0;
+        height: 100px;
+        background: #808080;
+        position: relative;
+}
+
+.container h4{
+        font-family: Montserrat;
+        font-size: 16px;
+        color:#FFFFFF;
+}
+
+.container h5{
+        font-family: Montserrat;
+        font-size: 16px;
+        color:#66FCF1;
+}
+
+.container ul li a{
+        font-family: Montserrat;
+        font-size: 14px;
+        color:#FFFFFF;
+}
+
+.page-footer div{
+        color:#FFFFFF;
+}
+
+.content {
+  min-height: calc(92vh - 20px);
+}
+
+.articl{
+  font-size: 36pt;
+  margin-top: 67px;
+  font-weight: bold;
+}
+
+h1 {
+  border: 1px double black;
+  width: 98%;
+}
+
+.message-text-area{
+  margin-top: 0px;
+  border-radius: 25px;
+  width:98%;
+}
+
+.e-mail{
+  margin-top: 0px;
+  border-radius: 25px;
+  width:40%;
+  border: 1px double;
+}
+
+.button-prj{
+  border-radius: 60px;
+  width: 270px;
+  height: 72px;
+  background-color: #66FCF1;
+  font-size: 24px;
+  border: 1px double; 
+}
+
+.main-cont{
+  background-color: #1C2939;
+  height: 90px;
+}
+
+.cont-main{
+  height: 550px auto; 
+  width: auto; 
+  background-color: white;  
+  border-radius: 15px;
+}
+
+.cont-text{
+  font-weight:bold;
+  font-size: 18px;
+  font-family: Montserrat;
+}
+
+.cont-text1{
+  font-size: 14px;
+  font-family: Montserrat;
+}
+
+ul.hr {
+    margin: 20px; 
+    padding: 4px; 
+}
+
+ul.hr li {
+    display: inline; 
+    margin-right: 5px; 
+}
+
+.button-sl{
+  height: 30px;
+  width: 200px;
+  border-radius: 15px;
+  background-color: #FFFFFF;
+  margin-left: 5px;
+  border: 0px solid;
+}
+
+.button-ad{
+  height: 60px;
+  width: 250px;
+  border-radius: 150px;
+  background-color: #66FCF1;
+  margin-left: 5px;
+  border: 0px solid;
+  font-size: 20px;
+}
+
+ul.hr1 {
+    margin: 20px; 
+    padding: 4px; 
+}
+
+ul.hr1 li {
+    display: inline; 
+    margin-right: 5px; 
+}
+
+.bt{
+  background-color: #FFFFFF;
+  border-radius: 100px; 
+  height: 12px;
+  width: 12px; 
+  border: 1px solid black; 
+  display:inline-block;
+}
+
+.container#ban{
+  max-width: 1500px;
+}
+
+.popup-fade:before {
+  content: '';
+  background: #000;
+  position: fixed; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  opacity: 0.7;
+  z-index: 9999;
+}
+.popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  padding: 20px;
+  width: 530px;
+  height: 490px;
+  margin-left: -200px;  
+  background: #000;
+  border: 1px solid orange;
+  border-radius: 20px; 
+  z-index: 99999;
+  opacity: 1; 
+}
+
+.popup1 {
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  padding: 20px;
+  width: 530px;
+  height: 920px;
+  margin-left: -200px;  
+  background: #000;
+  border: 1px solid orange;
+  border-radius: 20px; 
+  z-index: 99999;
+  opacity: 1; 
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btn-reg{
+  height: 50px;
+  width: 420px;
+  border-radius: 15px;
+}
+
+.color-fr{
+  background-color: #000;
+  color: #fff;
+  width: 60%;
+  border-radius: 15px;
+  font-size: 24px;
+  font-family: Montserrat;
+  font-weight: bold;
+}
+
+.color-fr1{
+  color: #000;
+  font-size: 18px;
+  font-family: Montserrat;
+}
+
+select {
+    color: black;
+    white-space: pre;
+    background-color: #FCF5EF;
+    cursor: default;
+    font: 400 13.3333px Montserrat;
+    border-color: #FCF5EF;
+}
+
+.text-one-prj{
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 8%;
+  line-height: 1;
+}
+
+progress { /* контейнер */
+  -webkit-appearance: none; /* убрать вид, который задан браузером по умолчанию */
+          appearance: none;
+  border: none; /* убрать рамку в Firefox */
+  width: 100%;
+  height: 20px;  
+  border-radius: 3px; 
+  color: #4d7198; /* цветная линия-индикатор в IE */
+  background: #eee;
+  background-image: linear-gradient(to right, #e4e4e4 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, .2) 1px, rgba(255, 255, 255, .4) 1px, rgba(0, 0, 0, .2));
+  background-size: 10% 100%, 100% 100%;
+}
+.progress::-webkit-progress-bar { /* контейнер в Webkit */
+  border-radius: 3px;
+  background: #eee;
+  background-image: linear-gradient(to right, #e4e4e4 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, .2) 1px, rgba(255, 255, 255, .4) 1px, rgba(0, 0, 0, .2));
+  background-size: 10% 100%, 100% 100%;
+}
+.progress::-moz-progress-bar { /* разноцветная линия-индикатор в Firefox */
+  border-radius: 3px 5px 5px 3px;
+  background: #4d7198;
+  background-image:
+    linear-gradient(135deg, transparent, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%),
+    linear-gradient(rgba(0, 0, 0, .2) 1px, rgba(255, 255, 255, .4) 1px, rgba(0, 0, 0, .2)),
+    linear-gradient(to left, #00baff, #4d7198);
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+.progress::-webkit-progress-value { /* разноцветная линия-индикатор в Webkit */
+  border-radius: 3px 5px 5px 3px;
+  background: #4d7198;
+  background-image:
+    linear-gradient(135deg, transparent, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%),
+    linear-gradient(rgba(0, 0, 0, .2) 1px, rgba(255, 255, 255, .4) 1px, rgba(0, 0, 0, .2)),
+    linear-gradient(to left, #00baff, #4d7198);
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  -webkit-animation: animate-stripes 4s linear infinite;
+}
+@-webkit-keyframes animate-stripes { 
+  0% { background-position: 0 0, 0 0, 0 0; } 
+  100% { background-position: -105px 0, 0 0, 0 0; } 
+}
+
+td{
+  border: 1px solid black;
+}
+
+tr{
+  border: 1px solid black;
+}
+
+th{
+  border: 1px solid black;
+}
+
+.btn-one-prj{
+  height: 70px; 
+  width: 270px; 
+  margin-top: 30px; 
+  border-radius: 75px; 
+  background-color: #66FCF1; 
+  border: 0px solid black; 
+  font-family: Montserrat; 
+    font-size: 24px
+}
+
+.btn-one-prj1{
+  height: 40px; 
+  width: 270px; 
+  margin-top: 30px; 
+  border-radius: 75px; 
+  background-color: #66FCF1; 
+  border: 0px solid black; 
+  font-family: Montserrat; 
+  font-size: 16px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+h1{
+  border: 1px solid #D5CFCA;
+  width: 190px;
+  margin-top: 10px;
+}
