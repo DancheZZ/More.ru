@@ -10,6 +10,10 @@
   /me личный кабинет 
   /question страница с возможностью задать вопрос
 */
+Route::get('/', function()
+{
+  return redirect('/main');
+});
 
 Route::get('/about', function() 
 {
@@ -33,23 +37,55 @@ Route::get('/main', function()
   return view('main',['people' => $people, 'projects' => $projects, 'comments'=>$comments]);
 });
 
-Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //отображает нужную страницу на одной из вкладок главной страницы
+
+
+//админка
+Route::get('admin/main', 'Admin@main');
+
+//показ заявки на проект
+Route::get('admin/request/{id}','Admin@request');
+
+//показ формы для отказа проекта со вводом комментария администратора
+Route::get('admin/response/{id}', function($id)
+{
+  return view('admin.response',['id' => $id]);
+}
+);
+
+//сохранение проекта как отправленнного на доработку
+Route::post('admin/response/{id}', 'Admin@setResponse');
+
+//принятие проекта
+Route::get('admin/accept/{id}', 'Admin@accept');
+//конец админки
+
+
+
+Route::post('/comment/add/{id_project}', 'CommentController@store');
+
+Route::get('/grade/{project_id}/{opinion}', 'GradeController@setGrade');
+
+Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //возвращает 3 проекта для главной страницы по каким-либо правилам
+
+Route::get('/projects/create',                 'ProjectController@create'); //вызывает view для создания элемента
+
+Route::get('/projects/{id}',                   'ProjectController@showSpecific');//показывает проект и описание к нему 
 
 Route::get('/projects', function()
 {
-  return redirect('/projects/working/new/1');
+  return view('projects.list');
 });
 
 Route::get('/projects/{type}/{sorting}/{page}','ProjectController@listShow');// отображает страницу со всеми проектами
 
-Route::get('/projects/create',                 'ProjectController@create'); //вызывает view для создания элемента
+
 
 Route::post('/projects',                       'ProjectController@store'); //сохраняет новый проект
 
-Route::get('/projects/{id}',                   'ProjectController@showSpecific');//показывает проект и описание к нему 
 
 
-Route::get('/projects/{id}/{specific}',        'ProjectController@showSpecific');//в зависимости от значения specific проект отобразится вместе с комментариями или спонсорами
+
+//Route::get('/projects/{id}/{specific}',        'ProjectController@showSpecific');//в зависимости от значения specific проект отобразится вместе с комментариями или спонсорами
 
 Route::get('/create', 'ProjectController@create');
 
@@ -72,6 +108,26 @@ Route::get('/politic',function()
 });
 //аутентификация
 Auth::routes();
+
+Route::get('/chto', function()
+{
+  return view('chto');
+});
+
+Route::get('/FAQ', function()
+{
+  return view('FAQ');
+});
+
+Route::get('/contacts', function()
+{
+  return view('contacts');
+});
+
+Route::get('/how', function()
+{
+  return view('how');
+});
 
 //чтобы получить определенное кол-во записей из БД: NameTable::table(count)->get()
 // paginate(count) - возвращает значительно больше информации

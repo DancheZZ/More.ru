@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class ProjectController extends Controller
 {
     //метод для вывода проектов на главной странице постранично ($page) согласно какому-то типу ($type)
@@ -12,6 +12,7 @@ class ProjectController extends Controller
     public function mainShow($type,$page)
     {
         $projects = null;
+        $authors = Array();
         //здесь и далее выводятся только незавершенные проекты (так ли?)
         switch($type)
         {
@@ -52,9 +53,31 @@ class ProjectController extends Controller
                 ])->orderBy('final_date','desc')->skip(3*$page-3)->limit(3)->get();
                 break;
         }
-        //return view('main')->with(array('projects'=>$projects));
         
-        return ['projects'=> $projects];
+        $firstAuth = $projects[0]['id_user'];
+        $secondAuth = $projects[1]['id_user'];
+        $threeAuth = $projects[2]['id_user'];
+        $authors[0] = \App\User::where
+        (
+            [
+                ['id',$firstAuth]
+            ]
+        )->get();
+
+        $authors[1] = \App\User::where
+        (
+            [
+                ['id',$secondAuth]
+            ]
+        )->get();
+
+        $authors[2] = \App\User::where
+        (
+            [
+                ['id',$threeAuth]
+            ]
+        )->get();
+        return ['projects'=> $projects, 'authors' => $authors];
     }
     
     //{type}/{sorting}/{page}
@@ -75,10 +98,8 @@ class ProjectController extends Controller
         $projects = null;
         $forward = null; //по убыванию или возрастанию (desc или ask)
         $field = null; //поле по которому сортировка (count_likes или start_date)
-        /*if($sorting == 'new' || $sorting=='unknown')
-        {
-            $forward = 'asc';
-        }*/
+        $countPages = 0;
+        $authors = Array();
 
         switch($sorting)
         {
@@ -108,7 +129,13 @@ class ProjectController extends Controller
                     ['published',1],
                     ['completed',0] 
                 ])
-                    ->orderBy($field,$forward)->skip(3*$page-3)->limit(3)->get();
+                    ->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
+                //находим возможное количество страниц
+                $countPages = Project::where
+                ([
+                    ['published',1],
+                    ['completed',0] 
+                ])->count();
                 break;
             case 'completed':
                 $projects = Project::where
@@ -116,20 +143,40 @@ class ProjectController extends Controller
                     ['published',1],
                     ['completed',1] 
                 ])
-                    ->orderBy($field,$forward)->skip(3*$page-3)->limit(3)->get();
+                    ->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
+                $countPages = Project::where
+                ([
+                    ['published',1],
+                    ['completed',1] 
+                ])->count();
                 break;
             case 'record':
                 $projects = Project::where
                 ([
                     ['published',1]
                 ])
-                ->orderBy('collected_money','desc')->orderBy($field,$forward)->skip(3*$page-3)->limit(3)->get();
+                ->orderBy('collected_money','desc')->orderBy($field,$forward)->skip(6*$page-6)->limit(6)->get();
+                $countPages = Project::where
+                ([
+                    ['published',1]
+                ])->count();
                 break;
         }
 
+        for ($i = 0; $i<count($projects); $i++)
+        {
+            $authors[] = \App\User::where
+            (
+                [
+                    ['id',$projects[$i]['id_user']]
+                ]
+            )->get();
+        }
         
-        
-        return view('projects.list', ['projects'=>$projects]);
+        $resultcountPages = floor($countPages / 6);
+        if ($countPages % 6 > 0 )
+        $resultcountPages++;
+        return ['projects'=> $projects, 'authors' => $authors, 'countPages' => $resultcountPages];
     }
     
     public function showDescr($id)
@@ -153,24 +200,51 @@ class ProjectController extends Controller
         $sponsors = null;
         //в зависимости от значения $specific одна из переменных созданных выше станет не нулевой, 
         //что обработается в представлении при помощи управляющих конструкций
-        switch($specific)
+        $descripton = $project->description;
+        $comments = \App\comment::where('id_project','=',$id)->get();
+        //поиск айди пользователей, которые поддержали проект
+        $users_id = \App\donate::select('id_user')->where('id_project','=',$id)->get();
+        //поиск пользователей спонсоров
+        $sponsors = \App\User::whereIn('id',$users_id)->get();
+        //расчет дней до окончания проекта
+        $countDays = floor((  strtotime($project->final_date) - strtotime(date("y.m.d")) )/ (60*60*24));
+        //автор проекта
+        $author = \App\User::where('id',$project->id_user)->get();
+        //процент заполнения проекта
+        $procent = ($project->collected_money / $project->money_required) * 100;
+        //комментаторы
+        // найдем все айди пользователей, которые прокомментировали
+        $id_commentators = \App\comment::select('id_user')->where('id_project','=',$id)->get();
+        //теперь всех пользователей
+        $commentators = \App\User::whereIn('id',$id_commentators)->get();
+        //ищем спонсоров
+        //смотрим оценил ли пользователь этот проект
+        $Grade= array();
+        if (Auth::user())
+        $Grade = \App\grade::where
+        (
+            [
+                ['id_user',Auth::user()->id],
+                ['id_project',$project->id] 
+            ]
+        )->get();
+        else 
         {
-            case 'description':
-                $descripton = $project->description;
-                break;
-            case 'comments':
-                $comments = \App\comment::where('id_project','=',$id)->get();
-                break;
-            case 'sponsors':
-                //поиск айди пользователей, которые поддержали проект
-                $users_id = \App\donate::select('id_user')->where('id_project','=',$id)->get();
-                //dump($users_id);
-                //поиск пользователей спонсоров
-                $sponsors = \App\User::whereIn('id',$users_id)->get();
-               // dump($sponsors);
-                break;
+            
         }
-        return view('projects.show',['project'=>$project,'description'=>$descripton,'comments'=>$comments,'sponsors'=>$sponsors]);
+        if (count($Grade) == 0) $Grade = null;
+        return view('projects.show',
+        [
+        'project'=>$project,
+        'description'=>$descripton,
+        'comments'=>$comments,
+        'sponsors'=>$sponsors, 
+        'author'=>$author,
+        'countDays'=> $countDays,
+        'procent' => $procent,
+        'commentators' =>$commentators,
+        'grade' => $Grade
+        ]);
 
     }
     
@@ -217,7 +291,7 @@ class ProjectController extends Controller
         }
         //dump(request()->all());
         
-        return redirect ('/projects/working/new/1');
+        return redirect ('/projects');
     }
 
     public function create()
@@ -241,13 +315,5 @@ class ProjectController extends Controller
         //ясен пень уничтожение
     }
 
-
-    /* public function show($id,$type)
-    {
-        //показывает вьюшку конкретного проекта
-        $project = Project::find($id);
-        //будет выведен проект либо с описанием в нижнем подразделе, либо спонсоры, либо комментарии
-        return view('projects.show',['project' => $project,'type'=>$type]);
-    }*/
 
 }

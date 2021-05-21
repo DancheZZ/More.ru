@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href="/css/main2.css">
     <script src="/js/foto.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 </head>
 
 <!--  
@@ -33,10 +34,10 @@
         <a class="nav-link nav-text-size text-white" {{ Request::is('main') ? " id = text-a " :  " "}}  href="/main">Главная</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link nav-text-size text-white" {{ Request::is('projects/*')  ? " id = 'text-a' " : " " }} href="/projects">Все проекты</a>
+        <a class="nav-link nav-text-size text-white" {{ Request::is('projects')  ? " id = text-a " : " " }} href="/projects">Все проекты</a>
       </li>
       <li class="nav-item"	>
-        <a class="nav-link nav-text-size text-white" {{ Request::is('hz')  ? " id = 'text-a' " : " " }} href="#">Как это работает?</a>
+        <a class="nav-link nav-text-size text-white" {{ Request::is('how')  ? " id = text-a " : " " }} href="/how">Как это работает?</a>
       </li>
     </ul>
 
@@ -44,19 +45,33 @@
 
       <li class="nav-item">
       <div class="color-button">
-	    <a class="nav-link color-text" href="/create" id="text-prj">Создать проект</a>
+	    <a class="nav-link color-text" href="/create" id="text-prj" >Создать проект</a>
 		</div>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link text-white popup-open" href = "#" >Вход</a> 
+      @if(!Auth::user())
+	      <a class="nav-link text-white popup-open"  href = "#" >Вход</a> 
+      @endif
 
+      @if(Auth::user())
+        <li class="nav-item">
+          <a class="nav-link text-white" 
+          @if(!Auth::user()->is_admin)
+          href="/me"
+          @endif
+          @if(Auth::user()->is_admin)
+            href ="/admin/main"
+          @endif
+          >{{ Auth::user()->name }} {{ Auth::user()->surname }}</a>
+        </li>
+        
+      @endif
       <div class="popup-fade" style="display: none;">
 
         <div class="popup" style="display: none;" id = "entry">
-
                 <div style="margin-top: 10px">
-                <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
-                <p style = "margin-left: 70%; font-size: 18px; margin-top: -40px" onclick="entry()" class="text-white">Регистрация</p>
+                <p style = "font-size: 18px; margin-left: 9%; cursor: pointer" class="text-white" onclick="registr()">Войти</p>
+                <p style = "margin-left: 70%; font-size: 18px; margin-top: -40px; cursor: pointer;" onclick="entry()" class="text-white">Регистрация</p>
                 </div>
 
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
@@ -77,8 +92,8 @@
         <div class="popup1" id = "registr">
 
                 <div style="margin-top: 10px">
-                <p style = "font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
-                <p href="" style = "margin-left: 70%; font-size: 18px; margin-top: -40px" class="text-white" onclick="entry()">Регистрация</p>
+                <p style = " cursor: pointer; font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">Войти</p>
+                <p href="" style = "cursor: pointer; margin-left: 70%; font-size: 18px; margin-top: -40px" class="text-white" onclick="entry()">Регистрация</p>
                 </div>
 
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
@@ -105,6 +120,25 @@
 
 
 	  </li>
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Языки
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="#" style="color: black">Русский</a>
+    <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#" style="color: black">Английский</a>
+    </div>  
+    </li>
+    @if(Auth::user())
+    <li class="nav-item">
+          
+          <form id = "logout" method = "POST" action = "{{ route('logout') }}">@csrf <a class="nav-link text-white"
+                                                href="{{ url('/logout') }}"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout').submit();" >Выйти</a> </form>
+        </li>
+    @endif
     </ul>
 
   </div>
@@ -144,10 +178,10 @@
 
         <ul style="margin-left: -20px">
           <li>
-            <a href="#!">Что такое МО₽Е?</a>
+            <a href="/chto">Что такое МО₽Е?</a>
           </li>
           <li>
-            <a href="#!">Контакты</a>
+            <a href="/contacts">Контакты</a>
           </li>
         </ul>
 
@@ -174,7 +208,7 @@
 
         <ul style="margin-left: -20px">
           <li>
-            <a href="#!">Частые вопросы</a>
+            <a href="/FAQ">Частые вопросы</a>
           </li>
           <li>
             <a href="/regulations" target="'_blank'">Правила сервиса</a>

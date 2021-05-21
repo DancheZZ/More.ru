@@ -12,7 +12,7 @@
           <p>С помощью краудфандинга можно не только воплотить в жизнь бизнес-идеи, но и проверить их востребованность.</p>
       </div>
       <div class="col-md-6">
-        <img src="/img/Как.png" width="497" height="331">
+        <img src="img/Как.png" width="497" height="331">
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <img src="/img/Что.png" width="445" height="296">
+        <img src="img/Что.png" width="445" height="296">
       </div>
       <div class="col-md-6">
         <h3> Что такое МО₽Е? </h3>
@@ -36,13 +36,13 @@
     <div class="row">
       <div class="col-md-6">
         <h3> Правила успешного краудфандинга: </h3>
-          <p><img src="/img/1.png" width="58">Составьте план</p>
-          <p><img src="/img/2.png" width="58">Будьте убедительны</p>
-          <p><img src="/img/3.png" width="58">Учитесь у лучших</p>
-          <p><img src="/img/4.png" width="58">Выглядите профессионально</p>
+          <p><img src="img/1.png" width="58">Составьте план</p>
+          <p><img src="img/2.png" width="58">Будьте убедительны</p>
+          <p><img src="img/3.png" width="58">Учитесь у лучших</p>
+          <p><img src="img/4.png" width="58">Выглядите профессионально</p>
       </div>
       <div class="col-md-6">
-        <img src="/img/Правила.png" width="497" height="289">
+        <img src="img/Правила.png" width="497" height="289">
       </div>
     </div>
   </div>
@@ -51,8 +51,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-1">
-        <img src="/img/анкета.png" width="81" style="padding-top: 93px">
-        <img src="/img/шестеренка.png" width="81" style="padding-top: 91px">
+        <img src="img/анкета.png" width="81" style="padding-top: 93px">
+        <img src="img/шестеренка.png" width="81" style="padding-top: 91px">
       </div>
       <div align="center" class="col-md-10">
         <h3> Пошаговая инструкция по сбору средств: </h3>
@@ -63,8 +63,8 @@
           <p style="margin-top: 15px">Пятый шаг - вы можете видеть комментарии пользователей о вашем проекте и количество лайков и дизлайков.</p>
       </div>
       <div class="col-md-1">
-        <img src="/img/блокнот.png" width="79" style="padding-top: 180px">
-        <img src="/img/Рисунок5.png" width="58" style="padding-top: 115px; margin-left: 15px">
+        <img src="img/блокнот.png" width="79" style="padding-top: 180px">
+        <img src="img/Рисунок5.png" width="58" style="padding-top: 115px; margin-left: 15px">
     </div>
   </div>
 </section>
