@@ -19,12 +19,13 @@ class GradeController extends Controller
 
     public function setGrade($project_id,$opinion)
     {
-        if (!Auth::user()) return ['2' => '1'];
+       
+        if (!Auth::user()) return ['result' => '1'];
         $gradik = grade::where('id_project',$project_id)->get();
-        //return ['2'=>$gradik];
+        //return ['result'=>'2'];
         if (count($gradik) == 0)
         {
-            return ['2'=>'3'];
+            //return ['2'=>'3'];
             $Newgradik = new grade(); 
             $Newgradik->opinion = $opinion;
             $Newgradik->id_user = Auth::user()->id;

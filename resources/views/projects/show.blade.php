@@ -26,6 +26,19 @@ function sponsUp()
   $("#sponsors").css("display","");
 }
 
+function deleteComment(id)
+{
+  let url = "/admin/deleteComment/" + id;
+  $.get
+  (
+    url,
+    {},
+    function(data)
+    {
+      $("#comment"+id).remove();
+    }
+  )
+}
 
 function setGrade(opinion)
 {
@@ -49,9 +62,23 @@ function setGrade(opinion)
           $('#likes').css('color','#000000')
         }
       }
+      else
+      {
+        if (opinion == 1)
+        {
+          $('#likes').css('color','#66FCF1');
+          $('#dislikes').css('color','#000000');        }
+        if (opinion == 0)
+        {
+          $('#dislikes').css('color','#66FCF1');
+          $('#likes').css('color','#000000')
+        }
+      }
     }
   )
 }
+
+
 
 </script>
 
@@ -101,24 +128,37 @@ function setGrade(opinion)
 
                 <div class="col-md-4" style="text-align: right; margin-top: 30px">
                   <img onclick = "setGrade(1)" src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
-                  <p id = "likes" 
+                  <strong><p id = "likes" 
                   
                   @if(! Auth::User()) 
-                    style = "margin-right : 20px; margin-top: 30px"
+                    style = "margin-right : -60px; margin-top: 30px"
                   @endif
                   
-                  
-                  >{{ $project->count_likes }}</p>
+                  @if(Auth::User())
+                    @if ($grade != null)
+                      @if ($grade[0]->opinion == 0)
+                        style = "margin-right : -60px; margin-top: 30px; text-align: center; color : #000000"
+                      @endif
+                      @if($grade[0]->opinion == 1)
+                        style = "margin-right : -60px; margin-top: 30px; text-align: center; color : #66FCF1"
+                      @endif
+                    @endif
+                    
+                    @if ($grade == null)
+                      style = "color : #000000;  margin-right : -60px; text-align: center;"
+                    @endif
+                  @endif
+                  >{{ $project->count_likes }}</p></strong>
                 </div>
 
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
-                  <img onclick = "setGrade(0)"
+                  <img onclick = "setGrade(0)" style = "cursor: pointer;"
                   src="/img/dislike.png" 
                   height="60" 
                   width="60">
-                  <p id = "dislikes" 
+                  <strong><p id = "dislikes" 
                   @if(! Auth::User()) 
-                  style = "text-align: center;"
+                    style = "text-align: center;"
                   @endif
                   @if(Auth::User())
                     @if ($grade != null)
@@ -134,7 +174,7 @@ function setGrade(opinion)
                       style = "text-align: center;"
                     @endif
                   @endif
-                  >{{ $project->count_dislikes }}</p>
+                  >{{ $project->count_dislikes }}</p></strong>
                 </div>
 
           </div>
@@ -190,14 +230,14 @@ function setGrade(opinion)
     @endif
     <div class="container">
         @for ($i = 0; $i<count($comments); $i++)
-        <div style="height: auto; width: 800px auto; border: 1px solid black; border-radius: 15px">
+        <div id = "comment{{ $comments[$i]->id }}" style="height: auto; width: 800px auto; border: 1px solid black; border-radius: 15px">
             <p style="font-weight: bold;"><img src="/Images/{{ $commentators[$i]->avatar }}" height="35" width="35" style="margin-right: 12px; border-radius: 15px; padding: 3px">{{ $commentators[$i]->name }} {{ $commentators[$i]->surname }}</p>
             <p style="margin-left: 40px; margin-top: -10px"> {{ $comments[$i]->text }}</p>
             <div style="overflow: hidden; margin-left: 40px;">
               <p style="float: left;">{{ $comments[$i]->date }}</p>
             @if(Auth::user())
               @if(Auth::user()->is_admin)
-                <a style="float: left; margin-left: 2%; cursor: pointer;">Удалить</a>
+                <a onclick = "deleteComment({{ $comments[$i]->id }})" style="float: left; margin-left: 2%; cursor: pointer;">Удалить</a>
               @endif
             @endif
               

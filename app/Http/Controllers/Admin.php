@@ -107,6 +107,6 @@ class Admin extends Controller
             return redirect('/main');
         }
 
-        $commentik = find($id);
+        \App\Comment::find($id)->delete();
     }
 }
