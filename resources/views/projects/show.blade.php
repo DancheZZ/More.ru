@@ -103,19 +103,10 @@ function setGrade(opinion)
                   <img onclick = "setGrade(1)" src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
                   <p id = "likes" 
                   
-                  @if(!Auth::user()) 
-                  style = "margin-right : 20px; margin-top: 30px"
+                  @if(! Auth::User()) 
+                    style = "margin-right : 20px; margin-top: 30px"
                   @endif
-                  @if(Auth::user())
-                    @if ($grade)
-                      @if ($grade[0]->opinion == 0)
-                      style = "margin-right : 20px; margin-top: 30px; color : #000000"
-                      @endif
-                      @if ($grade[0]->opinion == 1)
-                        style = "margin-right : 20px; margin-top: 30px; color : #66FCF1"
-                      @endif
-                    @endif
-                  @endif
+                  
                   
                   >{{ $project->count_likes }}</p>
                 </div>
@@ -126,17 +117,21 @@ function setGrade(opinion)
                   height="60" 
                   width="60">
                   <p id = "dislikes" 
-                  @if(!Auth::user()) 
+                  @if(! Auth::User()) 
                   style = "text-align: center;"
                   @endif
-                  @if(Auth::user())
-                    @if ($grade)
+                  @if(Auth::User())
+                    @if ($grade != null)
                       @if ($grade[0]->opinion == 1)
-                      style = "text-align: center; color : #000000"
+                        style = "text-align: center; color : #000000"
                       @endif
                       @if($grade[0]->opinion == 0)
                         style = "text-align: center; color : #66FCF1"
                       @endif
+                    @endif
+                    
+                    @if ($grade == null)
+                      style = "text-align: center;"
                     @endif
                   @endif
                   >{{ $project->count_dislikes }}</p>
@@ -183,7 +178,7 @@ function setGrade(opinion)
 <br>
 <div id = "comments" style = "display: none">
 
-    @if(Auth::user())
+    @if(Auth::User())
     <div class="container">
       <form method = "POST" action = "/comment/add/{{ $project->id }}">
         @csrf

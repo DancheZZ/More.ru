@@ -37,13 +37,37 @@ Route::get('/main', function()
   return view('main',['people' => $people, 'projects' => $projects, 'comments'=>$comments]);
 });
 
+
+
+//админка
 Route::get('admin/main', 'Admin@main');
+
+//показ заявки на проект
+Route::get('admin/request/{id}','Admin@request');
+
+//показ формы для отказа проекта со вводом комментария администратора
+Route::get('admin/response/{id}', function($id)
+{
+  return view('admin.response',['id' => $id]);
+}
+);
+
+//сохранение проекта как отправленнного на доработку
+Route::post('admin/response/{id}', 'Admin@setResponse');
+
+//принятие проекта
+Route::get('admin/accept/{id}', 'Admin@accept');
+//конец админки
+
+
 
 Route::post('/comment/add/{id_project}', 'CommentController@store');
 
 Route::get('/grade/{project_id}/{opinion}', 'GradeController@setGrade');
 
 Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //возвращает 3 проекта для главной страницы по каким-либо правилам
+
+Route::get('/projects/create',                 'ProjectController@create'); //вызывает view для создания элемента
 
 Route::get('/projects/{id}',                   'ProjectController@showSpecific');//показывает проект и описание к нему 
 
@@ -54,7 +78,7 @@ Route::get('/projects', function()
 
 Route::get('/projects/{type}/{sorting}/{page}','ProjectController@listShow');// отображает страницу со всеми проектами
 
-Route::get('/projects/create',                 'ProjectController@create'); //вызывает view для создания элемента
+
 
 Route::post('/projects',                       'ProjectController@store'); //сохраняет новый проект
 

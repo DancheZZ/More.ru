@@ -219,7 +219,7 @@ class ProjectController extends Controller
         $commentators = \App\User::whereIn('id',$id_commentators)->get();
         //ищем спонсоров
         //смотрим оценил ли пользователь этот проект
-        $Grade= null;
+        $Grade= array();
         if (Auth::user())
         $Grade = \App\grade::where
         (
@@ -232,17 +232,7 @@ class ProjectController extends Controller
         {
             
         }
-        /*if ($Grade)
-        {
-            $Isgrade = True;
-        }
-        else
-        {
-            $Isgrade = False;
-        }*/
-
-        //Auth::user()->id;
-
+        if (count($Grade) == 0) $Grade = null;
         return view('projects.show',
         [
         'project'=>$project,

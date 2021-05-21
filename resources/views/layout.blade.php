@@ -55,7 +55,14 @@
 
       @if(Auth::user())
         <li class="nav-item">
-          <a class="nav-link text-white" href="/me">{{ Auth::user()->name }} {{ Auth::user()->surname }}</a>
+          <a class="nav-link text-white" 
+          @if(!Auth::user()->is_admin)
+          href="/me"
+          @endif
+          @if(Auth::user()->is_admin)
+            href ="/admin/main"
+          @endif
+          >{{ Auth::user()->name }} {{ Auth::user()->surname }}</a>
         </li>
         
       @endif

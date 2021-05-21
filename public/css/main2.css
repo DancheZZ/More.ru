@@ -552,3 +552,12 @@ select {
     width: 190px;
     margin-top: 10px;
   }
+  .button-ad{
+    height: 60px;
+    width: 250px;
+    border-radius: 150px;
+    background-color: #66FCF1;
+    margin-left: 5px;
+    border: 0px solid;
+    font-size: 20px;
+  }
