@@ -79,6 +79,11 @@ class Admin extends Controller
 
     function accept($id)
     {
+        if (!Auth::user() )
+        {
+            return redirect('/main');
+        }
+
         if (!Auth::user()->is_admin)
         {
             return redirect('/main');
@@ -88,5 +93,20 @@ class Admin extends Controller
         $project->published = 1;
         $project->save();
         return redirect('/admin/main');
+    }
+
+    function deleteComment($id)
+    {
+        if (!Auth::user() )
+        {
+            return redirect('/main');
+        }
+        
+        if (!Auth::user()->is_admin)
+        {
+            return redirect('/main');
+        }
+
+        $commentik = find($id);
     }
 }

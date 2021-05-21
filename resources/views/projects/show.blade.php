@@ -193,10 +193,14 @@ function setGrade(opinion)
         <div style="height: auto; width: 800px auto; border: 1px solid black; border-radius: 15px">
             <p style="font-weight: bold;"><img src="/Images/{{ $commentators[$i]->avatar }}" height="35" width="35" style="margin-right: 12px; border-radius: 15px; padding: 3px">{{ $commentators[$i]->name }} {{ $commentators[$i]->surname }}</p>
             <p style="margin-left: 40px; margin-top: -10px"> {{ $comments[$i]->text }}</p>
-
             <div style="overflow: hidden; margin-left: 40px;">
               <p style="float: left;">{{ $comments[$i]->date }}</p>
-              <a style="float: left; margin-left: 2%; cursor: pointer;">Удалить</a>
+            @if(Auth::user())
+              @if(Auth::user()->is_admin)
+                <a style="float: left; margin-left: 2%; cursor: pointer;">Удалить</a>
+              @endif
+            @endif
+              
             </div>
         </div>
         <br>  

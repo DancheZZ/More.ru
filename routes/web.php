@@ -59,7 +59,7 @@ Route::post('admin/response/{id}', 'Admin@setResponse');
 Route::get('admin/accept/{id}', 'Admin@accept');
 //конец админки
 
-
+Route::get('admin/deleteComment/{id}','Admin@deleteComment');
 
 Route::post('/comment/add/{id_project}', 'CommentController@store');
 

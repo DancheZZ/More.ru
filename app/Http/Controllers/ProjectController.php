@@ -232,7 +232,7 @@ class ProjectController extends Controller
         {
             
         }
-        if (count($Grade) == 0) $Grade = null;
+        if (count($Grade) == 0) $Grade = null                                                                                                                                                 ;
         return view('projects.show',
         [
         'project'=>$project,
