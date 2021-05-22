@@ -6,7 +6,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active container-icon">
       <img class="d-block w-100" src="/img/fon.png" alt="Первый слайд">
-      <button class="btn" onclick = "document.location.href ='/create'">Создать проект</button>
+      <button class="btn" onclick = "document.location.href ='/create'">{{ __('layout.create_project') }}</button>
     </div>
     <div class="carousel-item container-icon">
       <img class="d-block w-100" src="/img/fon.png" alt="Второй слайд">
@@ -47,7 +47,7 @@
 
         <ul style="margin-top: -10px; margin-left: -40px">
           <li>
-            <p class="text-white">Человек уже с нами</p>
+            <center><p class="text-white">{{ __('layout.people') }}</p></center>
           </li>
         </ul>
       </div>
@@ -65,7 +65,7 @@
 
         <ul style="margin-top: -10px; margin-left: -100px">
           <li>
-            <center><p class="text-white">Проектов</p></center>
+            <center><p class="text-white">{{ __('layout.prj') }}</p></center>
           </li>
         </ul>
       </div>
@@ -80,7 +80,7 @@
         <h4 style="margin-top: 22px; margin-left: 30px">{{ $comments }}</h4>
         <ul style="margin-top: -10px; margin-left: -40px">
           <li>
-            <p class="text-white">Комментариев</p>
+            <p class="text-white">{{ __('layout.comments') }}</p>
           </li>
         </ul>
 
@@ -245,10 +245,10 @@ function GoForward()
 <br>
 <div class="container">
     <center><div style="display: inline-block; width: 100%">
-      <button id = "all"      class="button-sl" onclick = "GetFirst('all')">Все проекты</button>
-      <button id = "popular"  class="button-sl" onclick = "GetFirst('popular')">Популярные </button>
-      <button id = "new"      class="button-sl" onclick = "GetFirst('new')">Новые</button>
-      <button id = "soon"     class="button-sl" onclick = "GetFirst('soon')">Близкие к завершению</button>
+      <button id = "all"      class="button-sl" onclick = "GetFirst('all')">{{ __('layout.projects') }}</button>
+      <button id = "popular"  class="button-sl" onclick = "GetFirst('popular')">{{ __('layout.popular') }} </button>
+      <button id = "new"      class="button-sl" onclick = "GetFirst('new')">{{ __('layout.new') }}</button>
+      <button id = "soon"     class="button-sl" onclick = "GetFirst('soon')">{{ __('layout.close') }}</button>
     </div></center>
 </div>
 <br>
@@ -345,7 +345,7 @@ function GoForward()
     <ul style="width: 100%; list-style-type:none;">
 
       <li>
-        <center><div class="color-fr"><p>Краудфандинг с МО₽Е  - это возможность</p></div></center>
+        <center><div class="color-fr"><p>{{ __('layout.banner_title') }}</p></div></center>
       </li>
 
       <li style="margin-left: 10%">
@@ -353,22 +353,22 @@ function GoForward()
 
         <div class="col-md-3 color-fr1">
           <center><img src="/img/т4.png" alt="Лого" width = "67" height = "67">
-          <p>Получить поддержку СМИ</p></center>
+          <p>{{ __('layout.smi') }}</p></center>
         </div>
 
         <div class="col-md-3 color-fr1">
           <center><img src="/img/т3.png" alt="Лого" width = "67" height = "67">
-          <p>Протестировать спрос</p></center>
+          <p>{{ __('layout.test') }}</p></center>
         </div>
 
         <div class="col-md-3 color-fr1">
           <center><img src="/img/т5.png" alt="Лого" width = "67" height = "67">
-          <p>Найти инвесторов</p></center>
+          <p>{{ __('layout.invest') }}</p></center>
         </div>
 
         <div class="col-md-3 color-fr1">
           <center><img src="/img/т1.png" alt="Лого" width = "67" height = "67">
-          <p>Собрать обратную связь</p></center>
+          <p>{{ __('layout.back') }}</p></center>
         </div>
 
         </div>

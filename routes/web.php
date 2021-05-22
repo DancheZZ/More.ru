@@ -20,9 +20,6 @@ Route::get('/about', function()
   return view('about');
 });
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 
 Route::get('/question', 'QuestionController@show');
 
@@ -137,23 +134,10 @@ Route::get('/how', function()
   return view('how');
 });
 
-//чтобы получить определенное кол-во записей из БД: NameTable::table(count)->get()
-// paginate(count) - возвращает значительно больше информации
-// all() - возвращает все
-// latest(['pole']) - сортирует по убыванию, если дано поле - то по нему
-
-// get - запрос для просмотра
-// put - для обновления какого-то элемента
-// delete - удаление элемента
-//  будут вызваны соответствующие методы у контроллера для этого
-// get /projects/2/edit - будет вызвана форма для редактирования
-// с create так же самое
-
-//пример возврата view и массива объектов:
-    //$atricles = App\Article::latest()->get();
-    //или $atricles = App\Article::take(count)->latest()->get();
-    //return view('about',['articles' =>$articles]);
-    //либо же передается 1 объект вместо массива и он выводится, как страница проекта
-
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/setLang/{language}', function($language)
+{
+  App::setLocale($language);
+  return redirect('/main');
+});
