@@ -38,6 +38,12 @@ Route::get('/main', function()
 });
 
 
+Route::get('/me','MeController@show');
+
+//личный кабинект пользователя, смена данных
+Route::post('/changeMe','MeController@changeMe');
+
+Route::post('/changeAva','MeController@changeAva');
 
 //админка
 Route::get('admin/main', 'Admin@main');
@@ -55,11 +61,13 @@ Route::get('admin/response/{id}', function($id)
 //сохранение проекта как отправленнного на доработку
 Route::post('/admin/response/{id}', 'Admin@setResponse');
 
+Route::get('/admin/deleteComment/{id}','Admin@deleteComment');
+
 //принятие проекта
 Route::get('/admin/accept/{id}', 'Admin@accept');
 //конец админки
 
-Route::get('/admin/deleteComment/{id}','Admin@deleteComment');
+
 
 Route::post('/comment/add/{id_project}', 'CommentController@store');
 

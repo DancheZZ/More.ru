@@ -127,11 +127,15 @@ function setGrade(opinion)
             </div>
 
                 <div class="col-md-4" style="text-align: right; margin-top: 30px">
-                  <img onclick = "setGrade(1)" src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
+                  <img
+                  @if(Auth::User())
+                  onclick = "setGrade(1)" 
+                  @endif
+                  src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
                   <strong><p id = "likes" 
                   
                   @if(! Auth::User()) 
-                    style = "margin-right : -60px; margin-top: 30px"
+                    style = "margin-right : -60px; margin-top: 30px; text-align: center; color : #000000"
                   @endif
                   
                   @if(Auth::User())
@@ -152,7 +156,11 @@ function setGrade(opinion)
                 </div>
 
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
-                  <img onclick = "setGrade(0)" style = "cursor: pointer;"
+                  <img
+                  @if(Auth::User())
+                  onclick = "setGrade(0)" 
+                  @endif
+                  style = "cursor: pointer;"
                   src="/img/dislike.png" 
                   height="60" 
                   width="60">
