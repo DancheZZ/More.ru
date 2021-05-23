@@ -31,6 +31,17 @@ class GradeController extends Controller
             $Newgradik->id_user = Auth::user()->id;
             $Newgradik->id_project = $project_id;
             $Newgradik->save();
+            $projectik = \App\Project::find($project_id);
+            if ($opinion)
+            {
+                $projectik->count_likes++;
+            }
+            else
+            {
+                $projectik->count_dislikes++;
+                
+            }
+            $projectik->save();
             $result = 'create';
             return ['result' => $result ];
         }
@@ -40,7 +51,19 @@ class GradeController extends Controller
             {
                 $gradik[0]->opinion = $opinion;
                 $gradik[0]->save();
+                $projectik = \App\Project::find($project_id);
+                if ($opinion)
+                {
+                    $projectik->count_likes++;
+                    $projectik->count_likes--;
+                }
+                else
+                {
+                    $projectik->count_dislikes++;
+                    $projectik->count_likes--;
+                }
                 $result = 'change';
+                $projectik->save();
                 return ['result' =>$result];
             }
             else
