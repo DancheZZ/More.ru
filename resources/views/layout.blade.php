@@ -79,8 +79,8 @@
                 <div style="height: 240px; color: #FFFFFF; margin-top: 30px" >
                 <form method = "POST" action = "{{ route('login') }}" >
                 @csrf
-                  <center><input type="email" id = "email" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg" ><br><br></center>
-                  <center><input id = "password" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br>
+                  <center><input  style = "height : 30px"  type="email" id = "email" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg" ><br><br></center>
+                  <center><input  style = "height : 30px"  id = "password" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br>
                   </center>
                   <center><button type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> {{ __('layout.enter') }}</button></center>
                   </form>
@@ -91,29 +91,30 @@
 
         <div class="popup1" id = "registr">
 
-                <div style="margin-top: 10px">
-                <p style = " cursor: pointer; font-size: 18px; margin-left: 9%" class="text-white" onclick="registr()">{{ __('layout.enter') }}</p>
-                <p href="" style = "cursor: pointer; margin-left: 70%; font-size: 18px; margin-top: -40px" class="text-white" onclick="entry()">{{ __('layout.registration') }}</p>
+                <div style="height : 15px">
+                <p style = " cursor: pointer; font-size: 18px; margin-left: 9%;  " class="text-white" onclick="registr()">{{ __('layout.enter') }}</p>
+                <p  style = "cursor: pointer; margin-left: 70%; font-size: 18px; margin-top: -40px " class="text-white" onclick="entry()">{{ __('layout.registration') }}</p>
                 </div>
 
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
 
-                <div style="height: 670px; color: #FFFFFF; margin-top: 30px" >
+                <div style="height: 520px; color: #FFFFFF; margin-top: 10px" >
                   <form method = "POST" enctype="multipart/form-data" action = "{{ route('register') }}" >
                   @csrf
-                      <center><input type = "text" id = "name" name = "name" placeholder = "{{ __('layout.name') }}" class="btn-reg"><br><br></center>
-                      <center><input type="text" id = "surname" name = "surname" placeholder = "{{ __('layout.surname') }}" class="btn-reg"><br><br></center>
-                      <center><input type = "file" id = "avatar" name = "avatar" placeholder = "{{ __('layout.avatar') }}" class="btn-reg"><br><br></center>
-                      <center><input type="tel" id = 'phone' name = 'phone' placeholder = "{{ __('layout.number') }}" class="btn-reg"> <br><br></center>
-                      <center><input type="email" id = "email" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg"><br><br></center>
-                      <center><input type="date" id="date" name="date" placeholder = "{{ __('layout.date_birth') }}" class="btn-reg"><br><br>
-                      <center><input id = "password" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br></center>
-                      <center><input id="password-confirm" type="password" name="password_confirmation" placeholder = "{{ __('layout.confirm_password') }}" class="btn-reg"><br><br></center>
+                      <center><input style = "height : 30px" type = "text" id = "name" name = "name" placeholder = "{{ __('layout.name') }}" class="btn-reg"><br><br></center>
+                      <center><input style = "height : 30px" type="text" id = "surname" name = "surname" placeholder = "{{ __('layout.surname') }}" class="btn-reg"><br><br></center>
+                      <p style="margin-left: 40px; margin-top: -2%; height : 30px" >{{ __('layout.avatar') }}</p>
+                      <center><input style = "height : 30px" type = "file" id = "avatar" name = "avatar" placeholder = "{{ __('layout.avatar') }}" class="btn-reg"><br><br></center>
+                      <center><input style = "height : 30px" type="tel" id = 'phone' name = 'phone' placeholder = "{{ __('layout.number') }}" class="btn-reg"> <br><br></center>
+                      <center><input style = "height : 30px" type="email" id = "email" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg"><br><br></center>
+                      <center><input style = "height : 30px" type="date" id="date" name="date" placeholder = "{{ __('layout.date_birth') }}" class="btn-reg"><br><br>
+                      <center><input style = "height : 30px" id = "password" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br></center>
+                      <center><input style = "height : 30px" id="password-confirm" type="password" name="password_confirmation" placeholder = "{{ __('layout.confirm_password') }}" class="btn-reg"><br><br></center>
                       <button type = "submit" value = "{{ __('layout.register') }}" class="btn-reg" style="background-color: #66FCF1"> {{ __('layout.registration') }}</button>
                   </form>
                 </div>
                 <div style="border: 1px solid #FFF; width:528px; margin-left: -20px;"></div>
-                <center><div style="color: #fff; width:460px;  margin-top: 10px;"><p>{{ __('layout.descr_form') }}</p></div></center>
+                <center><div style="color: #fff; width:460px; height : 80px; margin-top: 10px;"><p>{{ __('layout.descr_form') }}</p></div></center>
               </div> 
 
       </div>
@@ -136,7 +137,7 @@
           <form id = "logout" method = "POST" action = "{{ route('logout') }}">@csrf <a class="nav-link text-white"
                                                 href="{{ url('/logout') }}"
                                                 onclick="event.preventDefault();
-                                                document.getElementById('logout').submit();" >Выйти</a> </form>
+                                                document.getElementById('logout').submit();" >{{ __('layout.logout') }}</a> </form>
         </li>
     @endif
     </ul>

@@ -10,6 +10,9 @@
   /me личный кабинет 
   /question страница с возможностью задать вопрос
 */
+use Illuminate\Support\Facades\Session;
+
+
 Route::get('/', function()
 {
   return redirect('/main');
@@ -27,7 +30,6 @@ Route::post('/question','QuestionController@store');
 
 Route::get('/main', function()
 {
-  //return redirect('/main/all/1');
   $people = \App\User::count();
   $projects = \App\Project::count();
   $comments = \App\Comment::count();
@@ -37,7 +39,7 @@ Route::get('/main', function()
 
 Route::get('/me','MeController@show');
 
-//личный кабинект пользователя, смена данных
+//личный кабинет пользователя, смена данных
 Route::post('/changeMe','MeController@changeMe');
 
 Route::post('/changeAva','MeController@changeAva');
@@ -111,8 +113,7 @@ Route::get('/politic',function()
 {
   return response()->file("documents/Politika_konfidentsialnosti.pdf");
 });
-//аутентификация
-Auth::routes();
+
 
 Route::get('/chto', function()
 {
@@ -134,10 +135,14 @@ Route::get('/how', function()
   return view('how');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/setLang/{language}', function($language)
 {
-  App::setLocale($language);
-  return redirect('/main');
+  //App::setLocale($language);
+  session(['applocale' => $language]);
+  return back()->withInput();
 });
+
+
+//аутентификация
+Auth::routes();

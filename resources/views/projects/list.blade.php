@@ -298,16 +298,16 @@ function ChangePages()
 <!--Форма для настройки сортировки-->
     <form style="margin-top: -20px;">
         <div style="margin-bottom: 5%">
-                <input type="radio" checked = "true" onchange="SetType('working')"   name="btn" value=   "working"   style="vertical-align:middle; margin:0;"> Собирают
-                <input type="radio"                  onchange="SetType('completed')" name="btn" value=   "completed" style="vertical-align:middle; margin:0;"> Завершились
-                <input type="radio"                  onchange="SetType('record')"    name="btn" value=   "record"    style="vertical-align:middle; margin:0;"> Рекордсмены
+                <input type="radio" checked = "true" onchange="SetType('working')"   name="btn" value=   "working"   style="vertical-align:middle; margin:0;"> {{ __('layout.working') }}
+                <input type="radio"                  onchange="SetType('completed')" name="btn" value=   "completed" style="vertical-align:middle; margin:0;"> {{ __('layout.ended') }}
+                <input type="radio"                  onchange="SetType('record')"    name="btn" value=   "record"    style="vertical-align:middle; margin:0;"> {{ __('layout.record') }}
             <br>
-            <p>Сортировать по:
+            <p>{{ __('layout.sort_by:') }}
                 <select onchange="SetSorting(this)">
-                    <option value="popular" checked = "true" onchange="SetSorting('popular')"> популярности&#8595;</option>
-                    <option value="unknown"                  onchange="SetSorting('unknown')"> популярности&#8593;</option>
-                    <option value="new"                      onchange="SetSorting('new')"> новизне     &#8595;</option>
-                    <option value="old"                      onchange="SetSorting('old')"> новизне     &#8593;</option>
+                    <option value="popular" checked = "true" onchange="SetSorting('popular')"> {{ __('layout.popularity') }}&#8595;</option>
+                    <option value="unknown"                  onchange="SetSorting('unknown')"> {{ __('layout.popularity') }}&#8593;</option>
+                    <option value="new"                      onchange="SetSorting('new')"> {{ __('layout.novelty') }}     &#8595;</option>
+                    <option value="old"                      onchange="SetSorting('old')"> {{ __('layout.novelty') }}     &#8593;</option>
                 </select>
             </p>
         </div>

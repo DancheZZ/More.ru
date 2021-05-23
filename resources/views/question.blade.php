@@ -9,21 +9,21 @@
 
   <div class="col-md-9 mt-md-0 pt-0">
 		<p class="articl">
-			Связаться со службой поддержки
+		{{ __('layout.svyaz') }}
 		</p>
 		<h1></h1>
     <br>
 
   <form action="/question" method="POST">
   @csrf
-    <p>Напишите свой вопрос или предложение:</p>
+    <p>{{ __('layout.write_question') }}</p>
     <textarea rows="10" cols="45" name="text" class="message-text-area" ></textarea></p>
     <br>
-    <p>Укажите свой e-mail::</p>
+    <p>{{ __('layout.ur_email') }}</p>
     <input type="text" class="e-mail" name = "email"></p>
     
     <br>
-    <center><button type="submit" value="Отправить" class="button-prj">Задать вопрос</button></center>
+    <center><button type="submit" value="{{ __('layout.get_question') }}" class="button-prj">{{ __('layout.get_question') }}</button></center>
 	  </form>
 
   </div>

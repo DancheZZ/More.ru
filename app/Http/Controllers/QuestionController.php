@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -19,13 +20,13 @@ class QuestionController extends Controller
                 'email' => 'required|email',
                 'text' =>'required'
             ]);
-        //изменить язык текста ошибок
-        $mail = request('email');
-
-        Mail::raw('It works!', function($message)
-        {
-            $message->to("dancher228228@gmail.com")->subject('Hello There');
-        });
+        
+        $questik = new Question();
+        $questik->email = request('email');
+        $questik->text = request('text');
+        $questik->status = 0;
+        $questik->date = date("Y-m-d");
+        $questik->save();
 
         return redirect('/question');
         
