@@ -271,6 +271,7 @@ class ProjectController extends Controller
         $project->count_likes = 0;
         $project->count_dislikes =0;
         $project->start_date = date("Y-m-d");
+        $project->id_user = Auth::user()->id;
         $project->final_date = strftime("%Y/%m/%d", strtotime($project->start_date." +".request('final_date') ." day"));
         $project->completed = 0;
         $project->comment_moderator = null;
