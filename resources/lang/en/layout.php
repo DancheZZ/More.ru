@@ -18,7 +18,7 @@ return
     'politic' => 'Privacy Policy',
     'help' => 'Help',
     'questions' => 'FAQ',
-    'roules' => 'Service rules',
+    'roulesN' => 'Service rules',
     'question' => 'Ask a Question',
     'crowd' => 'Crowdfunding',
     'platform' => 'platform',
@@ -151,6 +151,17 @@ return
             'ur_email' => 'Enter your e-mail:',
             'get_question' => 'Ask a Question',
 
+        //один проект
+            'sponsors1' => 'sponsors',
+            'late1' => 'late',
+            'days1' => 'days',
+            'support1' => 'Support',
+            'prj1' => 'Project',
+            'comm1' => 'Comments',
+            'sponsors2' => 'Sponsors',
+            'from' => 'from',
+            'agree' => 'Approve the project',
+            'disagree' => 'Return for revision'
 
 
 ];

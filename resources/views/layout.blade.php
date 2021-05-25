@@ -212,7 +212,7 @@
             <a href="/FAQ">{{ __('layout.questions') }}</a>
           </li>
           <li>
-            <a href="/regulations" target="'_blank'">{{ __('layout.roules') }}</a>
+            <a href="/regulations" target="'_blank'">{{ __('layout.roulesN') }}</a>
           </li>
           <li>
             <a href="/question" >{{ __('layout.question') }}</a>

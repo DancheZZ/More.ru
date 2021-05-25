@@ -50,15 +50,15 @@ function sponsUp()
             <div class="col-md-6">
                 <ul style="list-style-type:none; margin-top: -30px">
                     <li class="text-one-prj">0</li>
-                    <li>из {{ $project->money_required }}</li>
+                    <li>{{ __('layout.from') }} {{ $project->money_required }}</li>
                 </ul>
             </div>
 
             <div class="col-md-6">
                 <div style=" text-align: right;">
                 <ul style="list-style-type:none;">
-                <li> 0 спонсора</li>
-                <li>осталось {{ $countDays }} дней</li>
+                <li> 0 {{ __('layout.sponsors1') }}</li>
+                <li>{{ __('layout.late1') }} {{ $countDays }} {{ __('layout.days1') }}</li>
                 </ul>
                 </div>
             </div>
@@ -67,25 +67,28 @@ function sponsUp()
 
             <div class="row">
 
-            <progress value="0" max="100"></progress>
-
-            <div class="col-md-6">
-                <button class="btn-one-prj">Поддержать</button>
+            <div class="container" style="margin-left: 20px;">
+              <div class="progress" style="height: 25px; border-radius: 30px;background-color:#FCF5EF">
+                <div class="progress-bar" style="width: 5%; background-color:#66FCF1A3; color: black; border-radius: 30px;">0%</div>
             </div>
-
+            </div>
+            <div class="col-md-6">
+                <button class="btn-one-prj">{{ __('layout.support1') }}</button>
+            </div>
                 <div class="col-md-4" style="text-align: right; margin-top: 30px">
                 <img src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
                 <p id = "likes" 
-                style = "margin-right : 20px; margin-top: 30px">0</p>
+                  style = "margin-right : -60px; margin-top: 30px; text-align: center; color : #000000">0</p>
                 </div>
 
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
-                <img 
-                src="/img/dislike.png" 
-                height="60" 
-                width="60">
-                <p id = "dislikes" 
-                style = "text-align: center;">0</p>
+                  <img 
+                    src="/img/dislike.png" 
+                    style = "cursor: pointer;"
+                    height="60" 
+                    width="60">
+                  <p id = "dislikes" 
+                  style = "text-align: center;">0</p>
                 </div>
 
           </div>
@@ -104,15 +107,15 @@ function sponsUp()
         <div class="row" style="width: 100%">
 
             <div class="col-md-1 color-fr1 text-white" style="margin-top: 10px">
-              <p style ="cursor: pointer;" onclick = "descrUp();">Проект </p>
+              <p style ="cursor: pointer;" onclick = "descrUp();">{{ __('layout.prj1') }} </p>
             </div>
 
             <div class="col-md-1 color-fr1 text-white" style="margin-right: 60px; margin-top: 10px">
-              <p style ="cursor: pointer;" onclick = "commUp();">Комментарии</p>
+              <p style ="cursor: pointer;" onclick = "commUp();">{{ __('layout.comm1') }}</p>
             </div>
 
             <div class="col-md-1 color-fr1 text-white" style="margin-top: 10px">
-              <p style ="cursor: pointer;" onclick = "sponsUp();">Спонсоры </p>
+              <p style ="cursor: pointer;" onclick = "sponsUp();">{{ __('layout.sponsors2') }} </p>
             </div>
 
         </div>
@@ -143,8 +146,8 @@ function sponsUp()
 <div class="container">
     <center>
     <div style="display: inline-block; width: 100%; margin-top: 15%;">
-        <button onClick='location.href="/admin/response/{{ $project->id }}" ' class="button-ad" style="margin-right: 5%">Вернуть на доработку</button>
-        <button onClick='location.href="/admin/accept/{{ $project->id }}" ' class="button-ad">Одобрить проект</button>
+        <button onClick='location.href="/admin/response/{{ $project->id }}" ' class="button-ad" style="margin-right: 5%">{{ __('layout.agree') }}</button>
+        <button onClick='location.href="/admin/accept/{{ $project->id }}" ' class="button-ad">{{ __('layout.disagree') }}</button>
     </div>
     </center>
 </div>

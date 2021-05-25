@@ -102,16 +102,16 @@ function setGrade(opinion)
 
             <div class="col-md-6">
               <ul style="list-style-type:none; margin-top: -30px">
-                <li class="text-one-prj">{{ $project->collected_money }}</li>
-                <li>из {{ $project->money_required }}</li>
+                <li class="text-one-prj">{{ $project->collected_money }}₽</li>
+                <li>{{ __('layout.from') }} {{ $project->money_required }}₽</li>
               </ul>
             </div>
 
             <div class="col-md-6">
               <div style=" text-align: right;">
               <ul style="list-style-type:none;">
-                <li>{{ count($sponsors) }} спонсора</li>
-                <li>осталось {{ $countDays }} дней</li>
+                <li>{{ count($sponsors) }} {{ __('layout.sponsors1') }}</li>
+                <li>{{ __('layout.late1') }} {{ $countDays }} {{ __('layout.days1') }}</li>
               </ul>
               </div>
             </div>
@@ -120,10 +120,13 @@ function setGrade(opinion)
 
           <div class="row">
 
-            <progress value="{{ $procent }}" max="100"></progress>
-
+            <div class="container" style="margin-left: 20px;">
+              <div class="progress" style="height: 25px; border-radius: 30px;background-color:#FCF5EF">
+                <div class="progress-bar" style="width: {{ $procent }}%; background-color:#66FCF1A3; color: black; border-radius: 30px;">{{ $procent }}%</div>
+            </div>
+          </div>
             <div class="col-md-6">
-              <button class="btn-one-prj">Поддержать</button>
+              <button class="btn-one-prj">{{ __('layout.support1') }}</button>
             </div>
 
                 <div class="col-md-4" style="text-align: right; margin-top: 30px">
@@ -135,7 +138,7 @@ function setGrade(opinion)
                   <strong><p id = "likes" 
                   
                   @if(! Auth::User()) 
-                    style = "margin-right : -60px; margin-top: 30px; text-align: center; color : #000000"
+                    style = "margin-right : -30px; margin-top: 30px;  color : #000000"
                   @endif
                   
                   @if(Auth::User())
@@ -152,13 +155,13 @@ function setGrade(opinion)
                       style = "color : #000000;  margin-right : -60px; text-align: center;"
                     @endif
                   @endif
-                  >{{ $project->count_likes }}</p></strong>
+                  >     {{ $project->count_likes }}   </p></strong>
                 </div>
 
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
                   <img
                   @if(Auth::User())
-                  onclick = "setGrade(0)" 
+                    onclick = "setGrade(0)" 
                   @endif
                   style = "cursor: pointer;"
                   src="/img/dislike.png" 
@@ -184,7 +187,6 @@ function setGrade(opinion)
                   @endif
                   >{{ $project->count_dislikes }}</p></strong>
                 </div>
-
           </div>
         </div>
 
@@ -201,15 +203,15 @@ function setGrade(opinion)
         <div class="row" style="width: 100%">
 
             <div class="col-md-1 color-fr1 text-white" style="margin-top: 10px">
-              <p style ="cursor: pointer;" onclick = "descrUp();">Проект </p>
+              <p style ="cursor: pointer;" onclick = "descrUp();">{{ __('layout.prj1') }} </p>
             </div>
 
             <div class="col-md-1 color-fr1 text-white" style="margin-right: 60px; margin-top: 10px">
-              <p style ="cursor: pointer;" onclick = "commUp();">Комментарии</p>
+              <p style ="cursor: pointer;" onclick = "commUp();">{{ __('layout.comm1') }}</p>
             </div>
 
             <div class="col-md-1 color-fr1 text-white" style="margin-top: 10px">
-              <p style ="cursor: pointer;" onclick = "sponsUp();">Спонсоры </p>
+              <p style ="cursor: pointer;" onclick = "sponsUp();">{{ __('layout.sponsors2') }} </p>
             </div>
 
         </div>

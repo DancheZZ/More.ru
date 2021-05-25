@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
-        <a href="#"><h2>Главная</h2></a>
+        <a href="/main"><h2>Главная</h2></a>
         <h3> Адрес: г.Севастополь, ул.Университетская,33 </h3>
         <h3> Почта: crowdmore@mail.ru </h3>
       </div>

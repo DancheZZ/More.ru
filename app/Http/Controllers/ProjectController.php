@@ -211,7 +211,7 @@ class ProjectController extends Controller
         //автор проекта
         $author = \App\User::where('id',$project->id_user)->get();
         //процент заполнения проекта
-        $procent = ($project->collected_money / $project->money_required) * 100;
+        $procent = floor(($project->collected_money / $project->money_required) * 100) ;
         //комментаторы
         // найдем все айди пользователей, которые прокомментировали
         $id_commentators = \App\comment::select('id_user')->where('id_project','=',$id)->get();
@@ -219,7 +219,12 @@ class ProjectController extends Controller
         $commentators = \App\User::whereIn('id',$id_commentators)->get();
         //ищем спонсоров
         //смотрим оценил ли пользователь этот проект
-        $Grade= array();
+        if ($project->final_date < date("y.m.d"))
+        {
+            $project->completed = true;
+            $project->save();
+        }
+        $Grade= null;
         if (Auth::user())
         $Grade = \App\grade::where
         (
@@ -232,18 +237,18 @@ class ProjectController extends Controller
         {
             
         }
-        if (count($Grade) == 0) $Grade = null                                                                                                                                                 ;
+        if (count($Grade) == 0) $Grade = null;                                                                                                                                                 ;
         return view('projects.show',
         [
-        'project'=>$project,
-        'description'=>$descripton,
-        'comments'=>$comments,
-        'sponsors'=>$sponsors, 
-        'author'=>$author,
-        'countDays'=> $countDays,
-        'procent' => $procent,
-        'commentators' =>$commentators,
-        'grade' => $Grade
+            'project'=>$project,
+            'description'=>$descripton,
+            'comments'=>$comments,
+            'sponsors'=>$sponsors, 
+            'author'=>$author,
+            'countDays'=> $countDays,
+            'procent' => $procent,
+            'commentators' =>$commentators,
+            'grade' => $Grade
         ]);
 
     }
