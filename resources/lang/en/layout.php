@@ -161,7 +161,22 @@ return
             'sponsors2' => 'Sponsors',
             'from' => 'from',
             'agree' => 'Approve the project',
-            'disagree' => 'Return for revision'
+            'disagree' => 'Return for revision',
+        
+        //личный кабинет пользователя
+            'lk_name' => 'Name',
+            'required_money' => 'Collected amount',
+            'need_money' => 'Required amount',
+            'statusYes' => 'Published',
+            'statusNo' => 'No published',
+            'statusLk' => 'Status',
+            'changePr' => 'Profile change',
+            'photoLk' => 'Profile photo',
+            'sendLk' => 'Send',
+            'commAdm' => 'Admin comment',
+            'logoutLk' => 'Logout',
+            'projectsLk' => 'Projects',
+            'settingsLk' => 'Settings',
 
 
 ];
