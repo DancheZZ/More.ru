@@ -9,10 +9,10 @@
       <button class="btn" onclick = "document.location.href ='/create'">{{ __('layout.create_project') }}</button>
     </div>
     <div class="carousel-item container-icon">
-      <img class="d-block w-100" src="/img/fon.png" alt="Второй слайд">
+      <img class="d-block w-100" src="/img/2баннер.png" alt="Второй слайд">
     </div>
     <div class="carousel-item container-icon">
-      <img class="d-block w-100" src="/img/fon.png" alt="Третий слайд">
+      <img class="d-block w-100" src="/img/баннер_3.png" alt="Третий слайд">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
