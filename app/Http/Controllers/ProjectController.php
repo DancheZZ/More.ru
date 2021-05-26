@@ -219,7 +219,7 @@ class ProjectController extends Controller
         $commentators = \App\User::whereIn('id',$id_commentators)->get();
         //ищем спонсоров
         //смотрим оценил ли пользователь этот проект
-        if ($project->final_date < date("y.m.d"))
+        if (strtotime($project->final_date) <= strtotime(date("y.m.d")))
         {
             $project->completed = true;
             $project->save();

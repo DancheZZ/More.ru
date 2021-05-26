@@ -121,7 +121,7 @@ function setGrade(opinion)
           <div class="row">
 
             <div class="container" style="margin-left: 20px;">
-              <div class="progress" style="height: 25px; border-radius: 30px;background-color:#black">
+              <div class="progress" style="height: 25px; border-radius: 30px;">
                 <div class="progress-bar" style="width : 
                 @if($procent <= 5)
                   {{ 5 }} %
