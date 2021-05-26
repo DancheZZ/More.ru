@@ -121,8 +121,15 @@ function setGrade(opinion)
           <div class="row">
 
             <div class="container" style="margin-left: 20px;">
-              <div class="progress" style="height: 25px; border-radius: 30px;background-color:#FCF5EF">
-                <div class="progress-bar" style="width: {{ $procent }}%; background-color:#66FCF1A3; color: black; border-radius: 30px;">{{ $procent }}%</div>
+              <div class="progress" style="height: 25px; border-radius: 30px;background-color:#black">
+                <div class="progress-bar" style="width : 
+                @if($procent <= 5)
+                  {{ 5 }} %
+                @endif
+                @if($procent > 5)
+                {{ $procent }}%
+                @endif
+               ; background-color:#66FCF1A3; color: black; border-radius: 30px;">{{ $procent }}%</div>
             </div>
           </div>
             <div class="col-md-6">
@@ -132,27 +139,27 @@ function setGrade(opinion)
                 <div class="col-md-4" style="text-align: right; margin-top: 30px">
                   <img
                   @if(Auth::User())
-                  onclick = "setGrade(1)" 
+                    onclick = "setGrade(1)" 
                   @endif
                   src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
                   <strong><p id = "likes" 
                   
                   @if(! Auth::User()) 
-                    style = "margin-right : -30px; margin-top: 30px;  color : #000000"
+                    style = "margin-left : 95px; margin-top: 30px;  color : #000000"
                   @endif
                   
                   @if(Auth::User())
                     @if ($grade != null)
                       @if ($grade[0]->opinion == 0)
-                        style = "margin-right : -60px; margin-top: 30px; text-align: center; color : #000000"
+                        style = "margin-left : 95px; margin-top: 30px; text-align: center; color : #000000"
                       @endif
                       @if($grade[0]->opinion == 1)
-                        style = "margin-right : -60px; margin-top: 30px; text-align: center; color : #66FCF1"
+                        style = "margin-left : 95px; margin-top: 30px; text-align: center; color : #66FCF1"
                       @endif
                     @endif
                     
                     @if ($grade == null)
-                      style = "color : #000000;  margin-right : -60px; text-align: center;"
+                      style = "color : #000000; margin-top: 30px; margin-left : 95px; text-align: center;"
                     @endif
                   @endif
                   >     {{ $project->count_likes }}   </p></strong>
