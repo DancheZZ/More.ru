@@ -270,21 +270,33 @@ class ProjectController extends Controller
         );
 
         $project = new Project();//создание объетка модели
+        //задается тематика проекта
         $project->subjects = request('subjects');
         $project->money_required = request('money_required');
+        //пока что не собрал денег
         $project->collected_money = 0;
         $project->description = request('description');
+        //пока что никем не оценен
         $project->count_likes = 0;
         $project->count_dislikes =0;
+        //дата старта сегодня
         $project->start_date = date("Y-m-d");
+        //принадлежит текущему авторизованному пользователю
         $project->id_user = Auth::user()->id;
+        //рассчитываем дату окончания зная срок проекта и сегодняшнюю дату
         $project->final_date = strftime("%Y/%m/%d", strtotime($project->start_date." +".request('final_date') ." day"));
         $project->completed = 0;
+        //это не модератор
         $project->comment_moderator = null;
+        //проект не опубликован
         $project->published = 0;
+        //задается имя проекта
         $project->name = request('name');
+        //формируется обложка проекта
         $image = request('image'); //получаем объект файла
+        //перемещатся на сервер
         $image->move("D:\OpenServer\OpenServer\domains\More.ru\public\img", request('image')->getClientOriginalName()); //помещаем его в папку с картинками
+        //сохраняем его название в БД в кортеж проекта
         $project->image = request('image')->getClientOriginalName();// хранить ли файл с оригинальным названием?
         $project->save(); //сохраняем объект
         //теперь нужно сделать создание файлов ( в отдельной таблице ряд записей)
@@ -296,8 +308,6 @@ class ProjectController extends Controller
             $doc->move(storage_path('Documents'), $doc->getClientOriginalName()); //сохраняем файл у себя на сервере
             $document->save(); //сохраняем строку таблицы
         }
-        //dump(request()->all());
-        
         return redirect ('/projects');
     }
 
