@@ -26,7 +26,7 @@
 		<div class="row">
 			@if(auth::user())
 				<div class="col-lg-12">
-					<center><button type="submit" value="Отправить заявку" class="button-prj" style="height: 61px;width: 415px;border-radius: 15px;font-family: Montserrat;font-size: 24px;font-style: normal;font-weight: 400;line-height: 29px;letter-spacing: 0em;text-align: center">Отправить заявку</button></center>
+					<center><button type="submit" value="{{ __('laout.send') }}" class="button-prj" style="height: 61px;width: 415px;border-radius: 15px;font-family: Montserrat;font-size: 24px;font-style: normal;font-weight: 400;line-height: 29px;letter-spacing: 0em;text-align: center">{{ __('layout.send') }}</button></center>
 				</div>
 			@endif
 			@if (!auth::user())
