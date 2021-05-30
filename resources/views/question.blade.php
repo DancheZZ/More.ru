@@ -23,7 +23,7 @@
     <input type="email" class="e-mail" name = "email2" id = "email2" onblur = "validate_email_quest()"></p>
     
     <br>
-    <center><button type="submit" value="{{ __('layout.get_question') }}" class="button-prj" id = "sub1" onclick = "prov()">{{ __('layout.get_question') }}</button></center>
+    <center><button type="submit" value="{{ __('layout.get_question') }}" class="button-prj" id = "sub1" onclick = "prov()" style = "margin-bottom: 30px">{{ __('layout.get_question') }}</button></center>
 	  </form>
 
   </div>
