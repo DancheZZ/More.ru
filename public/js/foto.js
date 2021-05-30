@@ -60,7 +60,7 @@ function validate_email(){
         if (mail.val().search(pattern) == -1){
             p.attr("id", "mail_error");
             mail.focus();
-            p.html("Неверно введен mail");
+            p.html("Неверно введен email/Incorrectly entered email");
             p.css("color", "red");
             mail.parent().append(p);
             error += 1;
@@ -82,7 +82,7 @@ function validate_phone(){
         if (phone.val().search(pattern) == -1){
             p.attr("id", "phone_error");
             phone.focus();
-            p.html("Неверно введен телефон");
+            p.html("Неверно введен телефон/Incorrectly entered phone");
             p.css("color", "red");
             phone.parent().append(p);
             error = error + 1;
@@ -104,7 +104,7 @@ function validate_password(){
         if (pas1.val() != pas2.val()){
             p.attr("id", "pas_error");
             pas2.focus();
-            p.html("Пароли не совпадают");
+            p.html("Пароли не совпадают/Password mismatch");
             p.css("color", "red");
             pas2.parent().append(p);
             error += 1;
@@ -142,7 +142,7 @@ function prov(){
         sub.attr("disabled", "disabled");
         return false;
     }
-    alert("Ваш вопрос уже расматривается!");
+    alert("Ваш вопрос уже расматривается!/Your question is already under consideration!");
 }
 
 function validate_email_quest(){
@@ -155,7 +155,7 @@ function validate_email_quest(){
         if (mail.val().search(pattern) == -1){
             p.attr("id", "mail_gue_error");
             mail.focus();
-            p.html("Неверно введен mail");
+            p.html("Неверно введен email/Incorrectly entered email");
             p.css("color", "red");
             p.css("margin-top", "-100px");
             mail.parent().append(p);
