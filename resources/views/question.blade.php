@@ -17,13 +17,13 @@
   <form action="/question" method="POST">
   @csrf
     <p>{{ __('layout.write_question') }}</p>
-    <textarea rows="10" cols="45" name="text" class="message-text-area" ></textarea></p>
+    <textarea rows="10" cols="45" name="text" class="message-text-area" maxlength="180"></textarea></p>
     <br>
     <p>{{ __('layout.ur_email') }}</p>
-    <input type="text" class="e-mail" name = "email"></p>
+    <input type="email" class="e-mail" name = "email2" id = "email2" onblur = "validate_email_quest()"></p>
     
     <br>
-    <center><button type="submit" value="{{ __('layout.get_question') }}" class="button-prj">{{ __('layout.get_question') }}</button></center>
+    <center><button type="submit" value="{{ __('layout.get_question') }}" class="button-prj" id = "sub1" onclick = "prov()">{{ __('layout.get_question') }}</button></center>
 	  </form>
 
   </div>

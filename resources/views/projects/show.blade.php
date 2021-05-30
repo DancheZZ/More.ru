@@ -142,7 +142,7 @@ function setGrade(opinion)
                     onclick = "setGrade(1)" 
                   @endif
                   src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
-                  <strong><p id = "likes" 
+                  <strong><p id = "likes"
                   
                   @if(! Auth::User()) 
                     style = "margin-left : 95px; margin-top: 30px;  color : #000000"
@@ -151,15 +151,15 @@ function setGrade(opinion)
                   @if(Auth::User())
                     @if ($grade != null)
                       @if ($grade[0]->opinion == 0)
-                        style = "margin-left : 95px; margin-top: 30px; text-align: center; color : #000000"
+                        style = "margin-left : 95px; margin-top: 30px; color : #000000"
                       @endif
                       @if($grade[0]->opinion == 1)
-                        style = "margin-left : 95px; margin-top: 30px; text-align: center; color : #66FCF1"
+                        style = "margin-left : 95px; margin-top: 30px; color : #66FCF1"
                       @endif
                     @endif
                     
                     @if ($grade == null)
-                      style = "color : #000000; margin-top: 30px; margin-left : 95px; text-align: center;"
+                      style = "color : #000000; margin-top: 30px; margin-left : 95px; "
                     @endif
                   @endif
                   >     {{ $project->count_likes }}   </p></strong>

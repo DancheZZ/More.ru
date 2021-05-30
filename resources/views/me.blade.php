@@ -22,7 +22,7 @@
 <div class="container">
 <div class="row">
   <div class="col-md-6"  style="width: 50px; margin-top: 5%">
-    <img style = "margin-left : auto;" width ="100px" src = "/Images/{{ Auth::user()->avatar }}">
+    <img style = "margin-left : auto;" width ="240px" height = "240px" src = "/Images/{{ Auth::user()->avatar }}">
     <br>  <br>
     <p style = " font-family: Montserrat; font-size : 20px"> {{ Auth::user()->name }} {{ Auth::user()->surname }}</p>
    
