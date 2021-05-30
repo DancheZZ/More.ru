@@ -162,6 +162,11 @@ return
             'from' => 'from',
             'agree' => 'Approve the project',
             'disagree' => 'Return for revision',
+            'comment1' => 'Comment:',
+            'sendComm' => 'Send comment',
+            'delete' => 'Delete',
+            'noComments' =>'No comments yet.',
+            'noSpons' => 'No sponsors yet.',
         
         //личный кабинет пользователя
             'lk_name' => 'Name',
