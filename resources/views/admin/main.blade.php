@@ -90,13 +90,13 @@
             </tr>
              @for($i = 0; $i<count($projects); $i++)
                 <tr> 
-                    <td>{{ $projects[$i]->id }}</td>
-                    <td><a href = "/admin/request/{{ $projects[$i]->id }}">{{ $projects[$i]->name }}</a></td>
+                    <td><center>{{ $projects[$i]->id }}</center></td>
+                    <td><center><a href = "/admin/request/{{ $projects[$i]->id }}">{{ $projects[$i]->name }}</a></center></td>
                     @if($projects[$i]->published)
-                        <td>Опубликован</td>
+                        <td><center>Опубликован</center></td>
                     @endif
                     @if(!$projects[$i]->published)
-                        <td>Не опубликован</td>
+                        <td><center>Не опубликован</center></td>
                     @endif
                 </tr>
             @endfor

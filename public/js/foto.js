@@ -110,7 +110,7 @@ function validate_password(){
         if (pas1.val() != pas2.val()){
             div.css("height", "640px");
             p.attr("id", "pas_error");
-            pas2.focus();
+            //pas2.focus();
             p.html("Пароли не совпадают/Password mismatch");
             p.css("color", "red");
             pas2.parent().append(p);

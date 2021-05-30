@@ -45,7 +45,7 @@ function sponsUp()
           <br>
           <br>
 
-          <div class="row">
+          <div class="row">   
 
             <div class="col-md-6">
                 <ul style="list-style-type:none; margin-top: -30px">
@@ -68,7 +68,7 @@ function sponsUp()
             <div class="row">
 
             <div class="container" style="margin-left: 20px;">
-              <div class="progress" style="height: 25px; border-radius: 30px;background-color:#FCF5EF">
+              <div class="progress" style="height: 25px; border-radius: 30px;">
                 <div class="progress-bar" style="width: 5%; background-color:#66FCF1A3; color: black; border-radius: 30px;">0%</div>
             </div>
             </div>
@@ -76,9 +76,9 @@ function sponsUp()
                 <button class="btn-one-prj">{{ __('layout.support1') }}</button>
             </div>
                 <div class="col-md-4" style="text-align: right; margin-top: 30px">
-                <img src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
+                <img src="/img/like.png"height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
                 <p id = "likes" 
-                  style = "margin-right : -60px; margin-top: 30px; text-align: center; color : #000000">0</p>
+                  style = "margin-left : 95px; margin-top: 30px;  color : #000000;  text-align: center;">0</p>
                 </div>
 
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
@@ -88,7 +88,7 @@ function sponsUp()
                     height="60" 
                     width="60">
                   <p id = "dislikes" 
-                  style = "text-align: center;">0</p>
+                  style = "text-align: center; color : #000000">0</p>
                 </div>
 
           </div>
@@ -146,8 +146,8 @@ function sponsUp()
 <div class="container">
     <center>
     <div style="display: inline-block; width: 100%; margin-top: 15%;">
-        <button onClick='location.href="/admin/response/{{ $project->id }}" ' class="button-ad" style="margin-right: 5%">{{ __('layout.agree') }}</button>
-        <button onClick='location.href="/admin/accept/{{ $project->id }}" ' class="button-ad">{{ __('layout.disagree') }}</button>
+        <button onClick='location.href="/admin/response/{{ $project->id }}" ' class="button-ad" style="margin-right: 5%">{{ __('layout.disagree') }}</button>
+        <button onClick='location.href="/admin/accept/{{ $project->id }}" ' class="button-ad">{{ __('layout.agree') }}</button>
     </div>
     </center>
 </div>
