@@ -228,9 +228,9 @@ ul.hr1 li {
   z-index: 9999;
 }
 .popup {
-position: fixed;
-top: 20%;
-left: 46%;
+position: absolute;
+top: 100px;
+left: 50%;
 padding: 20px;
 width: 530px;
 height: 490px;
@@ -243,9 +243,9 @@ opacity: 1;
 }
 
 .popup1 {
-  position: fixed;
-  top: 0%;
-  left: 46%;
+  position: absolute;
+  top: 100px;
+  left: 50%;
   padding: 20px;
   width: 530px;
   height: 920px;

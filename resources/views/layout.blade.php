@@ -104,7 +104,7 @@
                       <center><input style = "height : 30px" type = "text" id = "name" name = "name" placeholder = "{{ __('layout.name') }}" class="btn-reg"><br><br></center>
                       <center><input style = "height : 30px" type="text" id = "surname" name = "surname" placeholder = "{{ __('layout.surname') }}" class="btn-reg"><br><br></center>
                       <p style="margin-left: 40px; margin-top: -2%; height : 30px" >{{ __('layout.avatar') }}</p>
-                      <center><input style = "height : 30px" type = "file" id = "avatar" name = "avatar" placeholder = "{{ __('layout.avatar') }}" class="btn-reg" accept="image/*"><br><br></center>
+                      <center><input style = "height : 30px" type = "file" id = "avatar" name = "avatar" placeholder = "{{ __('layout.avatar') }}" class="btn-reg" accept="image/png, image/jpeg, image/jpg"><br><br></center>
                       <center><input style = "height : 30px" type="tel" id = 'phone1' name = 'phone' placeholder = "{{ __('layout.number') }}" class="btn-reg" onblur = "validate_phone()"> <br><br></center>
                       <center><input style = "height : 30px" type="email" id = "email1" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg" onblur = "validate_email()"><br><br></center>
                       <center><input style = "height : 30px" type="date" id="date" name="date" placeholder = "{{ __('layout.date_birth') }}" class="btn-reg"><br><br>
