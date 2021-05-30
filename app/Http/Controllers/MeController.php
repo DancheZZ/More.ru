@@ -20,6 +20,12 @@ class MeController extends Controller
 
     function changeAva()
     {
+        request()->validate
+        (
+            [
+                'avatar' =>['required','mimes: jpg,jpeg,png,bmp']
+            ]
+        );
         $image = request('avatar'); //получаем объект файла
         if(!$image)
         {
