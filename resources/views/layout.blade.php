@@ -128,7 +128,7 @@
 
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
 
-                <div style="height: 520px; margin-top: 10px; color: #FFF" id = "block_header">
+                <div style="height: 535px; margin-top: 10px; color: #FFF" id = "block_header">
                   <form method = "POST" enctype="multipart/form-data" action = "{{ route('register') }}" >
                   @csrf
                       <center><input style = "height : 30px" type = "text" id = "name" name = "name" placeholder = "{{ __('layout.name') }}" class="btn-reg"><br><br></center>
@@ -139,7 +139,7 @@
                       <center><input style = "height : 30px" type="email" id = "email1" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg" onblur = "validate_email()"><br><br></center>
                       <center><input style = "height : 30px" type="date" id="date" name="date" placeholder = "{{ __('layout.date_birth') }}" class="btn-reg"><br><br>
                       <center><input style = "height : 30px" id = "password1" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br></center>
-                      <center><input style = "height : 30px" id="password-confirm1" type="password" name="password_confirmation" placeholder = "{{ __('layout.confirm_password') }}" class="btn-reg" onblur = "validate_password()"><br><br></center>
+                      <center><input style = "height : 30px; margin-bottom: 0px" id="password-confirm1" type="password" name="password_confirmation" placeholder = "{{ __('layout.confirm_password') }}" class="btn-reg" onblur = "validate_password()"><br><br></center>
                       <button type = "submit" value = "{{ __('layout.register') }}" class="btn-reg" style="background-color: #66FCF1" onclick = "proverka()" id = "sub"> {{ __('layout.registration') }}</button>
                   </form>
                 </div>
