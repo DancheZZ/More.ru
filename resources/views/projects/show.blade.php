@@ -111,7 +111,14 @@ function setGrade(opinion)
               <div style=" text-align: right;">
               <ul style="list-style-type:none;">
                 <li>{{ count($sponsors) }} {{ __('layout.sponsors1') }}</li>
-                <li>{{ __('layout.late1') }} {{ $countDays }} {{ __('layout.days1') }}</li>
+                <li>{{ __('layout.late1') }} 
+                @if($countDays < 0)
+                  0
+                @endif 
+                @if ( $countDays >0 )
+                  {{ $countDays }}
+                @endif
+                {{ __('layout.days1') }}</li>
               </ul>
               </div>
             </div>

@@ -34,7 +34,7 @@
                                                 href="{{ url('/logout') }}"
                                                 onclick="event.preventDefault();
                                                 document.getElementById('logout').submit();" 
-                                                style = "color: black;"
+                                                style = "color: black; font-family: Montserrat;"
                                                 >{{ __('layout.logoutLk') }}</a> </form>
   </div>
 

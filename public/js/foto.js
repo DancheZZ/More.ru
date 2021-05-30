@@ -56,6 +56,7 @@ function validate_email(){
     var sub = $("#sub");
     em.remove();
     var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.[a-z]{2,6}$/i;
+    var div = $("#block_header");
     var p = $("<p></p>");
         if (mail.val().search(pattern) == -1){
             p.attr("id", "mail_error");
@@ -68,6 +69,7 @@ function validate_email(){
             return false;
         }
     error = 0;
+    div.css("height", "520px");
     sub.removeAttr('disabled');
 }
 
@@ -78,9 +80,11 @@ function validate_phone(){
     em.remove();
     var pattern = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
     var p = $("<p></p>");
+    var div = $("#block_header");
     var sub = $("#sub");
         if (phone.val().search(pattern) == -1){
             p.attr("id", "phone_error");
+            div.css("height", "640px");
             phone.focus();
             p.html("Неверно введен телефон/Incorrectly entered phone");
             p.css("color", "red");
@@ -90,6 +94,7 @@ function validate_phone(){
             return false;
         }
     error = 0;
+    div.css("height", "520px");
     sub.removeAttr('disabled');
 }
 
@@ -99,9 +104,11 @@ function validate_password(){
     var pas2 = $("#password-confirm1");
     var em = $("#pas_error");  
     var sub = $("#sub");
+    var div = $("#block_header");
     em.remove();
     var p = $("<p></p>");
         if (pas1.val() != pas2.val()){
+            div.css("height", "640px");
             p.attr("id", "pas_error");
             pas2.focus();
             p.html("Пароли не совпадают/Password mismatch");
@@ -112,6 +119,7 @@ function validate_password(){
             return false;
         }
     error = 0;
+    div.css("height", "520px");
     sub.removeAttr('disabled');
 }
 
