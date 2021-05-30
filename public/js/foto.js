@@ -58,6 +58,7 @@ function validate_email(){
     var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.[a-z]{2,6}$/i;
     var div = $("#block_header");
     var p = $("<p></p>");
+    var reg = $("#registr");
         if (mail.val().search(pattern) == -1){
             p.attr("id", "mail_error");
             mail.focus();
@@ -67,9 +68,11 @@ function validate_email(){
             mail.parent().append(p);
             error += 1;
             sub.attr("disabled", "disabled");
+            reg.css("height", "860px");
             return false;
         }
     error = 0;
+    reg.css("height", "740px");
     div.css("height", "520px");
     sub.removeAttr('disabled');
 }
@@ -78,14 +81,17 @@ function validate_phone(){
     var phone = $("#phone1");
     var em = $("#phone_error");  
     var sub = $("#sub");
+    var reg = $("#registr");
     em.remove();
     var pattern = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
     var p = $("<p></p>");
     var div = $("#block_header");
     var sub = $("#sub");
+    var reg = $("#registr");
         if (phone.val().search(pattern) == -1){
             p.attr("id", "phone_error");
             div.css("height", "640px");
+            reg.css("height", "860px");
             phone.focus();
             p.html("Неверно введен телефон");
             p.css("color", "red");
@@ -95,6 +101,7 @@ function validate_phone(){
             return false;
         }
     error = 0;
+    reg.css("height", "740px");
     div.css("height", "520px");
     sub.removeAttr('disabled');
 }
@@ -106,6 +113,7 @@ function validate_password(){
     var em = $("#pas_error");  
     var sub = $("#sub");
     var div = $("#block_header");
+    var reg = $("#registr");
     em.remove();
     var p = $("<p></p>");
         if (pas1.val() != pas2.val()){
@@ -114,11 +122,13 @@ function validate_password(){
             p.html("Пароли не совпадают");
             p.css("color", "red");
             pas2.parent().append(p);
+            reg.css("height", "860px");
             error += 1;
             sub.attr("disabled", "disabled");
             return false;
         }
     error = 0;
+    reg.css("height", "740px");
     div.css("height", "520px");
     sub.removeAttr('disabled');
 }
