@@ -319,7 +319,7 @@ function ChangePages()
             <br>
             <p style="font-family: Montserrat;">{{ __('layout.sort_by:') }}
                 <select onchange="SetSorting(this)">
-                    <option  value="popular" checked = "true" onchange="SetSorting('popular')"> {{ __('layout.popularity') }}&#8595;</option>
+                    <option style="font-family: Montserrat;" value="popular" checked = "true" onchange="SetSorting('popular')"> {{ __('layout.popularity') }}&#8595;</option>
                     <option value="unknown"                  onchange="SetSorting('unknown')"> {{ __('layout.popularity') }}&#8593;</option>
                     <option value="new"                      onchange="SetSorting('new')"> {{ __('layout.novelty') }}     &#8595;</option>
                     <option value="old"                      onchange="SetSorting('old')"> {{ __('layout.novelty') }}     &#8593;</option>
