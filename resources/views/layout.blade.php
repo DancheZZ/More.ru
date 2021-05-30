@@ -32,11 +32,16 @@
         
         $.post('/checkuser', $('#authForm').serialize() , function(data)
         {
-          //alert(data["result"]);
+          console.log(data["result"]);
           if (data["result"] == 'no')
           {
             alert("Вы ввели неверные данные!");
-            
+            $("#auth").attr("disabled",true);
+          }
+          
+          if(data["result"] == 'yes')
+          {
+            $("#auth").attr("disabled",false);
           }
         });
     }
@@ -105,9 +110,9 @@
                 <form method = "POST" action = "{{ route('login') }}" id = "authForm" >
                 @csrf
                   <center><input  style = "height : 30px"  type="email" id = "email" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg" ><br><br></center>
-                  <center><input onchange = "checkAccount()" style = "height : 30px"  id = "password" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br>
+                  <center><input onblur = "checkAccount()" style = "height : 30px"  id = "password" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br>
                   </center>
-                  <center><button  type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> {{ __('layout.enter') }}</button></center>
+                  <center><button id = "auth"  type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> {{ __('layout.enter') }}</button></center>
                   </form>
                 </div>
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; "></div>

@@ -26,18 +26,27 @@ class MeController extends Controller
         //$result = 'yes';
         //$result = 'no';
         $email = request('email');
-        $pass = Hash::make (request('password'));
+        $pass = request('password');
+        
 
         $search = \App\User::where
         (
             [
-                ['email',$email],
-                ['password',$pass]
+                ['email',"$email"]
             ]
         )->get();
 
-        if (!count($search)) return ['result' => 'no'];
-        else return ['result' => 'yes'];
+        if (count($search) == 0) 
+        {
+            return ['result' =>"no"];
+        }
+        else 
+        {
+            if (Hash::check($pass,$search[0]->password))
+            return ['result' => 'yes'];
+            else
+            return ['result' =>"no"];
+        }
     }
 
     function changeAva()
