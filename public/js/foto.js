@@ -159,17 +159,19 @@ function validate_email_quest(){
     var sub = $("#sub1");
     em.remove();
     var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.[a-z]{2,6}$/i;
-    var p = $("<p></p>");
+    var p = $("#mail_gue_error2");
         if (mail.val().search(pattern) == -1){
-            p.attr("id", "mail_gue_error");
+            //p.attr("id", "mail_gue_error");
             mail.focus();
-            p.html("Неверно введен email/Incorrectly entered email");
+            //p.html("Неверно введен email/Incorrectly entered email");
             p.css("color", "red");
-            p.css("margin-top", "-100px");
-            mail.parent().append(p);
+            //p.css("margin-top", "-100px");
+            $("#mail_gue_error2").html("Неверно введен email/Incorrectly entered email");
+
             error += 1;
             return false;
         }
     error = 0;
+    p.html("");
     sub.removeAttr('disabled');
 }

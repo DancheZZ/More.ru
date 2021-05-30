@@ -20,6 +20,31 @@
 за подчеркивание отвечает .collapse ul li a#text-a
 -->
 
+<script type="text/javascript" language="javascript">
+
+  function checkAccount()
+  {
+    em = $("#email").val();
+    pas = $("#password").val();
+    
+    if (em!=null && pas!=null)
+    {
+        
+        $.post('/checkuser', $('#authForm').serialize() , function(data)
+        {
+          //alert(data["result"]);
+          if (data["result"] == 'no')
+          {
+            alert("Вы ввели неверные данные!");
+            
+          }
+        });
+    }
+    
+  }
+
+</script>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-white color-nav">
   	<div class="container">
@@ -77,12 +102,12 @@
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
 
                 <div style="height: 240px; color: #FFFFFF; margin-top: 30px" >
-                <form method = "POST" action = "{{ route('login') }}" >
+                <form method = "POST" action = "{{ route('login') }}" id = "authForm" >
                 @csrf
                   <center><input  style = "height : 30px"  type="email" id = "email" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg" ><br><br></center>
-                  <center><input  style = "height : 30px"  id = "password" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br>
+                  <center><input onchange = "checkAccount()" style = "height : 30px"  id = "password" type = "password" name = "password" placeholder = "{{ __('layout.password') }}" class="btn-reg"><br><br>
                   </center>
-                  <center><button type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> {{ __('layout.enter') }}</button></center>
+                  <center><button  type = "submit" value = "Зарегистрироваться" class="btn-reg" style="background-color: #66FCF1"> {{ __('layout.enter') }}</button></center>
                   </form>
                 </div>
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; "></div>
@@ -104,7 +129,7 @@
                       <center><input style = "height : 30px" type = "text" id = "name" name = "name" placeholder = "{{ __('layout.name') }}" class="btn-reg"><br><br></center>
                       <center><input style = "height : 30px" type="text" id = "surname" name = "surname" placeholder = "{{ __('layout.surname') }}" class="btn-reg"><br><br></center>
                       <p style="margin-left: 40px; margin-top: -2%; height : 30px" >{{ __('layout.avatar') }}</p>
-                      <center><input style = "height : 30px" type = "file" id = "avatar" name = "avatar" placeholder = "{{ __('layout.avatar') }}" class="btn-reg" accept="image/png, image/jpeg, image/jpg"><br><br></center>
+                      <center><input style = "height : 30px" type = "file" id = "avatar" name = "avatar" placeholder = "{{ __('layout.avatar') }}" class="btn-reg" accept=".jpg, .jpeg, .png" ><br><br></center>
                       <center><input style = "height : 30px" type="tel" id = 'phone1' name = 'phone' placeholder = "{{ __('layout.number') }}" class="btn-reg" onblur = "validate_phone()"> <br><br></center>
                       <center><input style = "height : 30px" type="email" id = "email1" name = "email" placeholder = "{{ __('layout.email') }}" class="btn-reg" onblur = "validate_email()"><br><br></center>
                       <center><input style = "height : 30px" type="date" id="date" name="date" placeholder = "{{ __('layout.date_birth') }}" class="btn-reg"><br><br>

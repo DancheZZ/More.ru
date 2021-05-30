@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class MeController extends Controller
 {
@@ -16,6 +17,27 @@ class MeController extends Controller
         $projects = \App\Project::where('id_user',Auth::user()->id)->get();
         //dump($projects);
         return view('me',['projects'=>$projects]);
+    }
+
+    function checkUser()
+    {
+        //$em = $_POST['email'];
+        //$pas = $_POST['password'];
+        //$result = 'yes';
+        //$result = 'no';
+        $email = request('email');
+        $pass = Hash::make (request('password'));
+
+        $search = \App\User::where
+        (
+            [
+                ['email',$email],
+                ['password',$pass]
+            ]
+        )->get();
+
+        if (!count($search)) return ['result' => 'no'];
+        else return ['result' => 'yes'];
     }
 
     function changeAva()

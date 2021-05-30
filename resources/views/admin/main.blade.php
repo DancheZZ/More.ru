@@ -65,15 +65,15 @@
             </tr>
             @for($i = 0; $i<count($quests); $i++)
                 <tr> 
-                    <td>{{ $quests[$i]->id }}</td>
-                    <td>{{ $quests[$i]->text }}</td>
-                    <td>{{ $quests[$i]->email }}</td>
-                    <td>{{ $quests[$i]->date }}</td>
+                    <td><center>{{ $quests[$i]->id }}<center></td>
+                    <td><center>{{ $quests[$i]->text }}<center></td>
+                    <td><center>{{ $quests[$i]->email }}<center></td>
+                    <td><center>{{ $quests[$i]->date }}<center></td>
                     @if($quests[$i]->status)
-                        <td>Отвечено</td>
+                        <td><center>Отвечено<center></td>
                     @endif
                     @if(!$quests[$i]->status)
-                        <td>Не отвечено</td>
+                        <td><center>Не отвечено<center></td>
                     @endif
                 </tr>
 
