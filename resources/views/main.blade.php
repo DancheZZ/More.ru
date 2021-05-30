@@ -267,7 +267,7 @@ function GoForward()
         <ul class="hr">
            <li id = "auth1"></li>
            <li><div><img  src="/img/like.png" style="  width: 30px; height: 30px; margin-left: 85%; margin-top: -10%;">
-            <p id = "likes1" style="margin-left: 85%; margin-bottom: -7%; margin-top: -3%;"></p> 
+            <p id = "likes1" style="text-align: center; margin-left: 80%; margin-bottom: -7%; margin-top: -3%;"></p> 
            </div></li>
         </ul>
        </div>
@@ -284,7 +284,7 @@ function GoForward()
         <ul class="hr">
            <li id = "auth2"></li>
            <li><div><img  src="/img/like.png" style="width: 30px; height: 30px; margin-left: 85%; margin-top: -10%;">
-            <p id = "likes2" style="margin-left: 85%; margin-bottom: -7%; margin-top: -3%;"></p> 
+            <p id = "likes2" style="text-align: center; margin-left: 80%; margin-bottom: -7%; margin-top: -3%;"></p> 
            </div></li>
         </ul>
        </div>
@@ -301,7 +301,7 @@ function GoForward()
         <ul class="hr">
            <li id = "auth3"></li>
            <li><div><img src="/img/like.png" style="width: 30px; height: 30px; margin-left: 85%; margin-top: -10%;">
-            <p id = "likes3" style="margin-left: 85%; margin-bottom: -7%; margin-top: -3%;"></p> 
+            <p id = "likes3" style="text-align: center; margin-left: 80%; margin-bottom: -7%; margin-top: -3%;"></p> 
            </div></li>
         </ul>
        </div>
