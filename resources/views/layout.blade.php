@@ -98,7 +98,7 @@
 
                 <div style="border: 1px solid #FFF; width:530px; margin-left: -20px; margin-top: 30px"></div>
 
-                <div style="height: 520px; margin-top: 10px; color: #FFF">
+                <div style="height: 520px; margin-top: 10px; color: #FFF" id = "block_header">
                   <form method = "POST" enctype="multipart/form-data" action = "{{ route('register') }}" >
                   @csrf
                       <center><input style = "height : 30px" type = "text" id = "name" name = "name" placeholder = "{{ __('layout.name') }}" class="btn-reg"><br><br></center>
