@@ -145,7 +145,7 @@ function setGrade(opinion)
                   <strong><p id = "likes"
                   
                   @if(! Auth::User()) 
-                    style = "margin-left : 95px; margin-top: 30px;  color : #000000"
+                    style = "margin-left : 95px; margin-top: 30px;  color : #000000;  text-align: center;"
                   @endif
                   
                   @if(Auth::User())
@@ -164,7 +164,6 @@ function setGrade(opinion)
                   @endif
                   >     {{ $project->count_likes }}   </p></strong>
                 </div>
-
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
                   <img
                   @if(Auth::User())
@@ -239,13 +238,16 @@ function setGrade(opinion)
     <div class="container">
       <form method = "POST" action = "/comment/add/{{ $project->id }}">
         @csrf
-        <p>Коментарий:<br><textarea name = "text" style="height: auto; width: 1100px; height: 150px; border: 1px solid black; border-radius: 15px"></textarea>
+        <p>{{ __('layout.comment1') }}<br><textarea name = "text" style="height: auto; width: 1100px; height: 150px; border: 1px solid black; border-radius: 15px"></textarea>
         <br>
-        <center><button class="btn-one-prj1">Отправить комментарий</button></center></p>
+        <center><button class="btn-one-prj1">{{ __('layout.sendComm') }}</button></center></p>
       </form>
     </div>
     @endif
     <div class="container">
+        @if(count($comments) == 0)
+            <p>{{ __('layout.noComments') }} </p>
+        @endif
         @for ($i = 0; $i<count($comments); $i++)
         <div id = "comment{{ $comments[$i]->id }}" style="height: auto; width: 800px auto; border: 1px solid black; border-radius: 15px">
             <p style="font-weight: bold;"><img src="/Images/{{ $commentators[$i]->avatar }}" height="35" width="35" style="margin-right: 12px; border-radius: 15px; padding: 3px">{{ $commentators[$i]->name }} {{ $commentators[$i]->surname }}</p>
@@ -254,7 +256,7 @@ function setGrade(opinion)
               <p style="float: left;">{{ $comments[$i]->date }}</p>
             @if(Auth::user())
               @if(Auth::user()->is_admin)
-                <a onclick = "deleteComment({{ $comments[$i]->id }})" style="float: left; margin-left: 2%; cursor: pointer;">Удалить</a>
+                <a onclick = "deleteComment({{ $comments[$i]->id }})" style="float: left; margin-left: 2%; cursor: pointer;">{{ __('layout.delete') }}</a>
               @endif
             @endif
               
@@ -267,7 +269,10 @@ function setGrade(opinion)
 </div>
 
 <div id = "sponsors" class="container" style = "display: none">
-  <div class="row">   
+  <div class="row"> 
+   @if(count($sponsors) == 0)
+      <p>{{ __('layout.noSpons') }}</p>
+    @endif  
     @for ($j = 0; $j<count($sponsors); $j ++)
         <div class="col-md-4">
             <div style="height: auto; width: 800px auto;">

@@ -54,7 +54,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:2','confirmed'],
             'surname' =>['required','string','max:255'],
-            'phone' => ['required','string','max:25']
+            'phone' => ['required','string','max:25'],
+            'avatar' => ['mimes:jpg,bmp,png']
         ]);
     }
     /*Фамилию
