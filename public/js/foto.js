@@ -21,6 +21,18 @@ $(document).ready(function($) {
     var container = $('.popup-fade');
     if (container.has(e.target).length === 0)
     {
+        $("#email").val("");
+        $("#password").val("");
+        $("#password1").val("");
+        $("#email").val("");
+        $("#surname").val("");
+        $("#phone1").val("");
+        $("#date").val("");
+        $("#email").val("");
+        $("#password-confirm1").val("");
+        $("#mail_error").remove();  
+        $("#phone_error").remove();
+        $("#mail_gue_error").remove();  
         container.fadeOut();     
     }
     });
@@ -68,6 +80,7 @@ function validate_email(){
             error += 1;
             sub.attr("disabled", "disabled");
             reg.css("height", "860px");
+            div.css("height", "640px");
             return false;
         }
     error = 0;
