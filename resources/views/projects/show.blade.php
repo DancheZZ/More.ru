@@ -158,18 +158,18 @@ function setGrade(opinion)
                   @if(Auth::User())
                     @if ($grade != null)
                       @if ($grade[0]->opinion == 0)
-                        style = "margin-left : 95px; margin-top: 30px; color : #000000"
+                        style = "margin-left : 95px; margin-top: 30px; color : #000000;text-align: center;"
                       @endif
                       @if($grade[0]->opinion == 1)
-                        style = "margin-left : 75px; margin-top: 30px; color : #66FCF1"
+                        style = "margin-left : 95px; margin-top: 30px; color : #66FCF1;text-align: center;"
                       @endif
                     @endif
                     
                     @if ($grade == null)
-                      style = "color : #000000; margin-top: 30px; margin-left : 75px; "
+                      style = "color : #000000; margin-top: 30px; margin-left : 95px; "
                     @endif
                   @endif
-                  >     {{ $project->count_likes }}   </p></strong>
+                  >{{ $project->count_likes }}</p></strong>
                 </div>
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
                   <img
