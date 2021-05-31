@@ -5,45 +5,52 @@
 <section class="second_key">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-xl-6">
         <h3> {{ __('layout.how') }} </h3>
           {!! __('layout.how_descr') !!}
       </div>
       <div class="col-md-6">
-        <img src="/img/Как.png" width="497" height="331">
+        <img src="/img/Как.png" width="auto" height="331" class="options">
       </div>
     </div>
   </div>
 </section>
+
 <section class="second_key_2">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <img src="/img/Что.png" width="445" height="296">
+      <div class="col-md-6 col-sm-3">
+        <img src="/img/Что.png" width="auto" height="296" class="options">
       </div>
-      <div class="col-md-6">
-        <h3> {{ __('layout.what') }} </h3>
-          {!! __('layout.what_descr') !!}
+      <div class="col-md-6 col-sm-3">
+        <div>
+          <h3> {{ __('layout.what') }} </h3>
+            {!! __('layout.what_descr') !!}
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 <section class="second_key_3">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <h3> {{ __('layout.roulesW') }} </h3>
-          <p><img src="/img/1.png" width="58">{{ __('layout.roule1') }}</p>
-          <p><img src="/img/2.png" width="58">{{ __('layout.roule2') }}</p>
-          <p><img src="/img/3.png" width="58">{{ __('layout.roule3') }}</p>
-          <p><img src="/img/4.png" width="58">{{ __('layout.roule4') }}</p>
+      <div class="col-md-6 col-sm-3">
+        <div>
+          <h3> {{ __('layout.roulesW') }} </h3>
+            <p><img src="/img/1.png" width="58">{{ __('layout.roule1') }}</p>
+            <p><img src="/img/2.png" width="58">{{ __('layout.roule2') }}</p>
+            <p><img src="/img/3.png" width="58">{{ __('layout.roule3') }}</p>
+            <p><img src="/img/4.png" width="58">{{ __('layout.roule4') }}</p>
+        </div>  
       </div>
-      <div class="col-md-6">
-        <img src="/img/Правила.png" width="497" height="289">
+      <div class="col-md-6 col-sm-3">
+        <img src="/img/Правила.png" width="auto" height="289">
       </div>
     </div>
   </div>
 </section>
+
 <section class="second_key_4">
   <div class="container">
     <div class="row">
