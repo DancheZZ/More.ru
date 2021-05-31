@@ -5,6 +5,48 @@
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .options{
+      height: 80%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .options1{
+      width: 100%;
+      height: auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .options2#titel{
+      width: 100%;
+      height: auto;
+      font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .options2#titel{
+      width: 40%;
+      height: auto;
+      font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .options3#likes{
+      text-align: right;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .options3#dislikes{
+      text-align: right;
+  }
+}
+
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 .container-icon {
@@ -230,7 +272,7 @@ ul.hr1 li {
 .popup {
 position: absolute;
 top: 100px;
-left: 50%;
+left: 46.5%;
 padding: 20px;
 width: 530px;
 height: 490px;
@@ -245,7 +287,7 @@ opacity: 1;
 .popup1 {
   position: absolute;
   top: 100px;
-  left: 50%;
+  left: 46.5%;
   padding: 20px;
   width: 530px;
   height: 740px;

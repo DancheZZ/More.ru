@@ -54,7 +54,7 @@
   <nav class="navbar navbar-expand-lg navbar-white color-nav">
   	<div class="container">
   <a href="/main"><img src="/img/Логотип.png" alt="Лого" width = "auto" height = "67"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button style = "border-color: white" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
