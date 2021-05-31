@@ -86,7 +86,7 @@ function setGrade(opinion)
     <div class="row">
 
         <div class="col-md-6">
-          <img src="/img/{{ $project->image }}" width="530" height="auto" style="margin-top: 10%;">
+          <img src="/img/{{ $project->image }}" width="530" height="auto" style="margin-top: 10%;" class = "options1">
         </div>
 
         <div class="col-md-6">
@@ -133,7 +133,7 @@ function setGrade(opinion)
             </div>
           </div>
             <div class="col-md-6">
-              <button class="btn-one-prj">{{ __('layout.support1') }}</button>
+              <button class="btn-one-prj options2" id = "titel">{{ __('layout.support1') }}</button>
             </div>
 
                 <div class="col-md-4" style="text-align: right; margin-top: 30px">
@@ -142,7 +142,7 @@ function setGrade(opinion)
                     onclick = "setGrade(1)" 
                   @endif
                   src="/img/like.png" height="60" width="60" style = "margin-top: -30px; cursor: pointer;">
-                  <strong><p id = "likes"
+                  <strong><p id = "likes" class = "options3"
                   
                   @if(! Auth::User()) 
                     style = "margin-left : 95px; margin-top: 30px;  color : #000000;  text-align: center;"
@@ -151,19 +151,20 @@ function setGrade(opinion)
                   @if(Auth::User())
                     @if ($grade != null)
                       @if ($grade[0]->opinion == 0)
-                        style = "margin-left : 95px; margin-top: 30px; color : #000000"
+                        style = "margin-left : 95px; margin-top: 30px; color : #000000; text-align: center;"
                       @endif
                       @if($grade[0]->opinion == 1)
-                        style = "margin-left : 95px; margin-top: 30px; color : #66FCF1"
+                        style = "margin-left : 95px; margin-top: 30px; color : #66FCF1; text-align: center;"
                       @endif
                     @endif
                     
                     @if ($grade == null)
-                      style = "color : #000000; margin-top: 30px; margin-left : 95px; "
+                      style = "color : #000000; margin-top: 30px; margin-left : 95px; text-align: center;"
                     @endif
                   @endif
                   >     {{ $project->count_likes }}   </p></strong>
                 </div>
+                
                 <div class="col-md-2" style="text-align: right; margin-top: 30px">
                   <img
                   @if(Auth::User())
@@ -173,22 +174,22 @@ function setGrade(opinion)
                   src="/img/dislike.png" 
                   height="60" 
                   width="60">
-                  <strong><p id = "dislikes" 
+                  <strong><p id = "dislikes" class = "options3"
                   @if(! Auth::User()) 
                     style = "text-align: center;"
                   @endif
                   @if(Auth::User())
                     @if ($grade != null)
                       @if ($grade[0]->opinion == 1)
-                        style = "text-align: center; color : #000000"
+                        style = "text-align: center; color : #000000; text-align: center;"
                       @endif
                       @if($grade[0]->opinion == 0)
-                        style = "text-align: center; color : #66FCF1"
+                        style = "text-align: center; color : #66FCF1; text-align: center;"
                       @endif
                     @endif
                     
                     @if ($grade == null)
-                      style = "text-align: center;"
+                      style = "text-align: center; text-align: center;"
                     @endif
                   @endif
                   >{{ $project->count_dislikes }}</p></strong>

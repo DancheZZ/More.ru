@@ -4,7 +4,7 @@
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active container-icon">
+    <div class="carousel-item active container-icon" style="align: center">
       <img class="d-block w-100" src="/img/fon.png" alt="Первый слайд">
       <button class="btn" onclick = "document.location.href ='/create'">{{ __('layout.create_project') }}</button>
     </div>
