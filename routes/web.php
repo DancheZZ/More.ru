@@ -72,6 +72,8 @@ Route::post('/comment/add/{id_project}', 'CommentController@store');
 
 Route::get('/grade/{project_id}/{opinion}', 'GradeController@setGrade');
 
+Route::post('/checkuser','MeController@checkUser');
+
 Route::get('/main/{type}/{page}',                'ProjectController@mainShow'); //возвращает 3 проекта для главной страницы по каким-либо правилам
 
 Route::get('/projects/create',                 'ProjectController@create'); //вызывает view для создания элемента

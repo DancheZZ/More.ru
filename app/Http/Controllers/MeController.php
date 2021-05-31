@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class MeController extends Controller
 {
@@ -18,8 +19,44 @@ class MeController extends Controller
         return view('me',['projects'=>$projects]);
     }
 
+    function checkUser()
+    {
+        //$em = $_POST['email'];
+        //$pas = $_POST['password'];
+        //$result = 'yes';
+        //$result = 'no';
+        $email = request('email');
+        $pass = request('password');
+        
+
+        $search = \App\User::where
+        (
+            [
+                ['email',"$email"]
+            ]
+        )->get();
+
+        if (count($search) == 0) 
+        {
+            return ['result' =>"no"];
+        }
+        else 
+        {
+            if (Hash::check($pass,$search[0]->password))
+            return ['result' => 'yes'];
+            else
+            return ['result' =>"no"];
+        }
+    }
+
     function changeAva()
     {
+        request()->validate
+        (
+            [
+                'avatar' =>['required','mimes: jpg,jpeg,png,bmp']
+            ]
+        );
         $image = request('avatar'); //получаем объект файла
         if(!$image)
         {

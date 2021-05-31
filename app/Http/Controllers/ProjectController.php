@@ -265,7 +265,7 @@ class ProjectController extends Controller
                 'description' =>['required','max:180'],
                 'final_date' =>['required','numeric'],
                 'name' =>['required','max:30'],
-                'image' => ['mimes:jpg,bmp,png']
+                'image' => ['required','mimes:jpg,bmp,png,jpeg']
             ]
         );
 

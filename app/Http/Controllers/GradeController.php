@@ -21,7 +21,13 @@ class GradeController extends Controller
     {
        
         if (!Auth::user()) return ['result' => '1'];
-        $gradik = grade::where([['id_project',$project_id],['id_user',Auth::user()->id] ])->get();
+        $gradik = grade::where
+        (
+            [
+                ['id_project',$project_id],
+                ['id_user',Auth::user()->id] 
+            ]
+        )->get();
         //return ['result'=>'2'];
         if (count($gradik) == 0)
         {

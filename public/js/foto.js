@@ -21,6 +21,18 @@ $(document).ready(function($) {
     var container = $('.popup-fade');
     if (container.has(e.target).length === 0)
     {
+        $("#email").val("");
+        $("#password").val("");
+        $("#password1").val("");
+        $("#email").val("");
+        $("#surname").val("");
+        $("#phone1").val("");
+        $("#date").val("");
+        $("#email").val("");
+        $("#password-confirm1").val("");
+        $("#mail_error").remove();  
+        $("#phone_error").remove();
+        $("#mail_gue_error").remove();  
         container.fadeOut();     
     }
     });
@@ -62,13 +74,13 @@ function validate_email(){
         if (mail.val().search(pattern) == -1){
             p.attr("id", "mail_error");
             mail.focus();
-            div.css("height", "640px");
-            p.html("Неверно введен mail");
+            p.html("Неверно введен email/Incorrectly entered email");
             p.css("color", "red");
             mail.parent().append(p);
             error += 1;
             sub.attr("disabled", "disabled");
             reg.css("height", "860px");
+            div.css("height", "640px");
             return false;
         }
     error = 0;
@@ -93,7 +105,7 @@ function validate_phone(){
             div.css("height", "640px");
             reg.css("height", "860px");
             phone.focus();
-            p.html("Неверно введен телефон");
+            p.html("Неверно введен телефон/Incorrectly entered phone");
             p.css("color", "red");
             phone.parent().append(p);
             error = error + 1;
@@ -119,7 +131,8 @@ function validate_password(){
         if (pas1.val() != pas2.val()){
             div.css("height", "640px");
             p.attr("id", "pas_error");
-            p.html("Пароли не совпадают");
+            //pas2.focus();
+            p.html("Пароли не совпадают/Password mismatch");
             p.css("color", "red");
             pas2.parent().append(p);
             reg.css("height", "860px");
@@ -160,7 +173,7 @@ function prov(){
         sub.attr("disabled", "disabled");
         return false;
     }
-    alert("Ваш вопрос уже расматривается!");
+    alert("Ваш вопрос уже расматривается!/Your question is already under consideration!");
 }
 
 function validate_email_quest(){
@@ -169,17 +182,19 @@ function validate_email_quest(){
     var sub = $("#sub1");
     em.remove();
     var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.[a-z]{2,6}$/i;
-    var p = $("<p></p>");
+    var p = $("#mail_gue_error2");
         if (mail.val().search(pattern) == -1){
-            p.attr("id", "mail_gue_error");
+            //p.attr("id", "mail_gue_error");
             mail.focus();
-            p.html("Неверно введен mail");
+            //p.html("Неверно введен email/Incorrectly entered email");
             p.css("color", "red");
-            p.css("margin-top", "-100px");
-            mail.parent().append(p);
+            //p.css("margin-top", "-100px");
+            $("#mail_gue_error2").html("Неверно введен email/Incorrectly entered email");
+
             error += 1;
             return false;
         }
     error = 0;
+    p.html("");
     sub.removeAttr('disabled');
 }

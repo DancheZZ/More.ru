@@ -34,7 +34,7 @@
                                                 href="{{ url('/logout') }}"
                                                 onclick="event.preventDefault();
                                                 document.getElementById('logout').submit();" 
-                                                style = "color: black;"
+                                                style = "color: black; font-family: Montserrat;"
                                                 >{{ __('layout.logoutLk') }}</a> </form>
   </div>
 
@@ -84,10 +84,11 @@
     <form action = "/changeAva" method = "POST" enctype="multipart/form-data">
         @csrf
         <p style="font-family: Montserrat;">{{ __('layout.photoLk') }}:</p>
-        <input type="file" id = "file" name = "avatar"  style="margin-top: -20px"><br><br> 
+        <input type="file" id = "file" name = "avatar"  style="margin-top: -20px" accept=".jpg, .jpeg, .png"><br><br> 
         <input value = "{{ __('layout.sendLk') }}" type = "submit" class="button-prj"><br><br>
         
     </form>
+    
   </div>
 
 </div>
