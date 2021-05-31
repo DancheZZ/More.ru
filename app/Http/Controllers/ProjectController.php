@@ -305,7 +305,7 @@ class ProjectController extends Controller
             $document = new \App\Document(); //создаем объект модели
             $document->id_project = $project->id;//создаем связь
             $document->name = $doc->getClientOriginalName(); //сохраняем название файла
-            $doc->move(storage_path('Documents'), $doc->getClientOriginalName()); //сохраняем файл у себя на сервере
+            $doc->move(public_path('documents'), $doc->getClientOriginalName()); //сохраняем файл у себя на сервере
             $document->save(); //сохраняем строку таблицы
         }
         return redirect ('/projects');

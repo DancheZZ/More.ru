@@ -127,6 +127,10 @@ function sponsUp()
 <br>
 <div id = "descr" class="container">
   <p>{{ $description }}</p>
+  <br>
+  @for($i=0; $i<count($documents); $i++)
+    <a target='_blank' href = "/admin/lookdocs/{{ $documents[$i]->name }}">{{ $documents[$i]->name }}</a><br>
+  @endfor
 </div>
 
 <br>

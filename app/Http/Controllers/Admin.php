@@ -38,8 +38,15 @@ class Admin extends Controller
         (
         [
             ['id',$id],
-            //['published',0]
+            ['published',0]
         ]
+        )->get();
+
+        $documents = \App\Document::where
+        (
+            [
+                ['id_project',$id]
+            ]
         )->get();
         $author = \App\User::where('id',$requestik[0]->id_user)->get();
         $countDays = floor((  strtotime($requestik[0]->final_date) - strtotime(date("y.m.d")) )/ (60*60*24));
@@ -50,6 +57,7 @@ class Admin extends Controller
         'author' => $author,
         'countDays'=> $countDays,
         'description'=>$descripton,
+        'documents' => $documents
         ]);
     }
 

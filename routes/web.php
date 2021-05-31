@@ -116,6 +116,10 @@ Route::get('/politic',function()
   return response()->file("documents/Politika_konfidentsialnosti.pdf");
 });
 
+Route::get('/admin/lookdocs/{name}', function($name)
+{
+  return response()->file("documents/$name");
+});
 
 Route::get('/chto', function()
 {
