@@ -166,7 +166,7 @@ function setGrade(opinion)
                     @endif
                     
                     @if ($grade == null)
-                      style = "color : #000000; margin-top: 30px; margin-left : 95px; "
+                      style = "color : #000000; margin-top: 30px; margin-left : 95px; text-align: center;"
                     @endif
                   @endif
                   >{{ $project->count_likes }}</p></strong>
