@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:2','confirmed'],
             'surname' =>['required','string','max:255'],
             'phone' => ['required','string','max:25'],
-            'avatar' => ['mimes:jpg,bmp,png']
+            'avatar' => ['mimes:jpg,bmp,png,jpeg']
         ]);
     }
     /*Фамилию

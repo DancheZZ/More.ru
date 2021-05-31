@@ -8,11 +8,11 @@
 				<form method = "POST" action = "/projects" enctype="multipart/form-data" style="padding-top: 50px;margin-left: 85px">
                 @csrf
 				<p> {{ __('layout.name_prj') }} </p>
-				<input type = "text" name = "name" id = "name" style="width: 700px;border-radius: 15px;margin-bottom: 22px" maxlength="30"> <br>
+				<input type = "text" name = "name" id = "name" style="width: 700px;border-radius: 15px; margin-bottom: 22px" maxlength="30"> <br>
 				<p>{{ __('layout.obl') }}</p>
 				<input type = "file" name = "image" id = "image" style="margin-bottom: 40px" accept=".jpg, .jpeg, .png"> <br>
 				<p> {{ __('layout.descr_prj') }}</p>
-				<textarea id = "description" name = "description" style="height: 203px;width: 700px;border-radius: 15px;margin-bottom: 51px" maxlength="180"></textarea><br>
+				<textarea id = "description" name = "description" style=" border-width: 2px; height: 203px;width: 700px;border-radius: 15px;margin-bottom: 51px" maxlength="180"></textarea><br>
 				<p> {{ __('layout.theme') }} </p>
 				<input type = "text" name = "subjects" id = "subjects" style="height: 51px;width: 700px;border-radius: 15px;margin-bottom: 42px;"> <br>
 				<p> {{ __('layout.need') }}</p>
