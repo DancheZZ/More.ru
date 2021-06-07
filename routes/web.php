@@ -37,6 +37,7 @@ Route::get('/main', function()
 });
 
 
+
 Route::get('/me','MeController@show');
 
 //личный кабинет пользователя, смена данных
@@ -45,6 +46,11 @@ Route::post('/changeMe','MeController@changeMe');
 Route::post('/changeAva','MeController@changeAva');
 
 //админка
+Route::get('/admin/lookdocs/{name}', function($name)
+{
+  return response()->file("documents/$name");
+});
+
 Route::get('admin/main', 'Admin@main');
 
 //показ заявки на проект
@@ -116,10 +122,7 @@ Route::get('/politic',function()
   return response()->file("documents/Politika_konfidentsialnosti.pdf");
 });
 
-Route::get('/admin/lookdocs/{name}', function($name)
-{
-  return response()->file("documents/$name");
-});
+
 
 Route::get('/chto', function()
 {
